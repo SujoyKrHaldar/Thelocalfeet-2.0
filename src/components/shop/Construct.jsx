@@ -1,5 +1,6 @@
 import { urlFor } from "../../../sanity";
 import { useState } from "react";
+import Link from "next/link";
 import Details from "./components/Details";
 import Model from "./components/Model";
 
@@ -49,6 +50,11 @@ export default function Construct({ data, offer, others }) {
                 {data?.caption && <p>{data.caption}</p>}
               </>
             )}
+
+            <div className="links">
+              <Link href="/">Home</Link> / <Link href="/store">Store</Link> /{" "}
+              {data.name}
+            </div>
           </div>
 
           <div className="details">
@@ -81,6 +87,9 @@ export default function Construct({ data, offer, others }) {
           font-size: 2rem;
           font-weight: 700;
           margin-bottom: 1.3rem;
+        }
+        .links {
+          margin: 1rem 0 0;
         }
 
         .background {

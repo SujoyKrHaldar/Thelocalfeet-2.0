@@ -16,6 +16,11 @@ export default function MainDetails({ details: ds, openPopup, offer }) {
         </div>
 
         <div className="content">
+          <div className="links">
+            <Link href="/">Home</Link> / <Link href="/store">Store</Link> /{" "}
+            {ds.name}
+          </div>
+
           <p className="category">{ds.category.name}</p>
 
           <p className="title">{ds.name}</p>
@@ -75,6 +80,9 @@ export default function MainDetails({ details: ds, openPopup, offer }) {
       </div>
 
       <style jsx>{`
+        .links {
+          display: none;
+        }
         .flex {
           gap: 1rem;
         }
@@ -206,6 +214,10 @@ export default function MainDetails({ details: ds, openPopup, offer }) {
         }
 
         @media (max-width: 830px) {
+          .links {
+            margin: 0 0 1.5rem;
+            display: block;
+          }
           .main {
             flex-direction: column;
             text-align: center;

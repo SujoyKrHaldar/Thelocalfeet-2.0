@@ -105,7 +105,7 @@ export default function ShopCard({
           padding: 1rem 1.2rem;
           display: flex;
           flex-direction: column;
-          align-items: center;
+          align-items: flex-start;
         }
 
         p {

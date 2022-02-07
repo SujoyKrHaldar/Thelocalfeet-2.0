@@ -1,11 +1,12 @@
 import ShopCard from "../design/card/ShopCard";
+import OfferTemplate from "./components/OfferTemplate";
 
 const App = ({ data, offer }) => {
   return (
     <>
       <div className="section">
         <div className="container">
-          <h1>Shop</h1>
+          {offer ? <OfferTemplate data={offer} /> : <h1>Shop</h1>}
 
           <div className="shop">
             {data.map((d) => (
@@ -16,19 +17,16 @@ const App = ({ data, offer }) => {
       </div>
       <style jsx>{`
         .section {
+          padding-top: 4rem;
           text-align: center;
-          padding-top: 5rem;
         }
 
         h1 {
-          padding: 0.3rem 2rem;
           margin-bottom: 1.5rem;
-          background: #f5f5f5;
-          display: inline-block;
+          letter-spacing: 0;
         }
         .shop {
           position: relative;
-          padding: 1rem;
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
