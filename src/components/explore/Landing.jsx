@@ -1,0 +1,106 @@
+import { MdOutlineExplore } from "react-icons/md";
+
+const Landing = () => {
+  return (
+    <>
+      <div className="section">
+        <div className="background">
+          <img
+            className="parallex"
+            onDragStart={(e) => {
+              e.preventDefault();
+            }}
+            src="/assets/explore-landing.jpeg"
+            alt="thelocalfeet_explore_background"
+          />
+        </div>
+
+        <div className="container flex">
+          <h1>Explore</h1>
+          <p>Lets make your best trip ever</p>
+
+          <div className="icon disabled">
+            <MdOutlineExplore />
+          </div>
+        </div>
+      </div>
+
+      <style jsx>{`
+        .section {
+          height: 768px;
+          text-align: center;
+          padding: 0 4rem;
+        }
+
+        .section:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          inset: 0;
+          z-index: -1;
+          background: #1e406d52;
+        }
+
+        .container {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+
+        img {
+          object-position: 0 58%;
+        }
+
+        p {
+          color: #fff;
+          margin: 0;
+        }
+
+        h1 {
+          color: #fff;
+          margin-bottom: 0.5rem;
+          letter-spacing: 0.7rem;
+          max-width: 179px;
+        }
+
+        .icon {
+          color: #fff;
+          position: absolute;
+          bottom: 2rem;
+          font-size: 1.5rem;
+          cursor: initial;
+        }
+
+        @media (max-width: 768px) {
+          .container {
+            padding: 2rem 1rem;
+          }
+
+          img {
+            object-position: center;
+          }
+          .section {
+            height: 100vh;
+            padding: 2rem;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .container {
+            padding: 2rem 0rem;
+            justify-content: flex-end;
+            align-items: flex-start;
+            text-align: left;
+          }
+
+          .icon {
+            display: none;
+          }
+        }
+      `}</style>
+    </>
+  );
+};
+
+export default Landing;

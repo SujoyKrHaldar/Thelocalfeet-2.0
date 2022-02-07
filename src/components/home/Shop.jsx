@@ -1,0 +1,66 @@
+import ReadMoreType from "../design/buttons/ReadMoreType";
+import ShopCard from "../design/card/ShopCard";
+
+const Shop = ({ data, offer }) => {
+  return (
+    <>
+      <div className="section">
+        <div className="container">
+          <p className="tag">Store</p>
+          <h2>Shop with us</h2>
+
+          <div className="list">
+            {data.map((d) => (
+              <ShopCard d={d} key={d.id} offer={offer} />
+            ))}
+          </div>
+
+          <ReadMoreType
+            text="Shop with us"
+            url="/store"
+            color="#fff"
+            colorOnHover="#fff"
+            background="#52abf0"
+            backgroundOnHover="#1778c4"
+          />
+        </div>
+      </div>
+
+      <style jsx>{`
+        .section {
+          background: linear-gradient(0deg, white, #2196f330, white);
+          padding-top: 6rem;
+        }
+        .container {
+          text-align: center;
+        }
+        .tag {
+          color: #52abf04f;
+          font-size: 6rem;
+          position: absolute;
+          top: -12%;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: -1;
+        }
+
+        .list {
+          position: relative;
+
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1rem;
+
+          margin: 2rem 0;
+        }
+
+        h2 {
+          margin-bottom: 1.5rem;
+        }
+      `}</style>
+    </>
+  );
+};
+
+export default Shop;
