@@ -12,7 +12,7 @@ export default function OtherBlogCard({ data }) {
 
         <div className="flex lists">
           {data.map((d) => (
-            <Link href={`/explore/${d.slug}`}>
+            <Link href={`/explore/${d.slug}`} key={d.id}>
               <a className="card">
                 <img
                   className="img"

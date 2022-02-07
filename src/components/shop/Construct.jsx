@@ -1,7 +1,6 @@
 import { urlFor } from "../../../sanity";
 import { useState } from "react";
 import Details from "./components/Details";
-
 import Model from "./components/Model";
 
 export default function Construct({ data, offer, others }) {
@@ -21,7 +20,7 @@ export default function Construct({ data, offer, others }) {
         <Model open={open} close={closePopUp} data={data} />
 
         <div className="background">
-          {data?.coverPhoto ? (
+          {data.coverPhoto ? (
             <img
               onDragStart={(e) => {
                 e.preventDefault();
@@ -87,6 +86,10 @@ export default function Construct({ data, offer, others }) {
         .background {
           height: 500px;
           background: #222222;
+        }
+
+        img {
+          object-position: top;
         }
 
         .background:before {

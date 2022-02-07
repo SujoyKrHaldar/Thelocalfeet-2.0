@@ -11,6 +11,7 @@ const productsQuery = `*[_type == "shop"]|order(_createdAt desc)
                           photo, 
                           category->{name}, 
                           offer, 
+                          status,
                           discountPrice,
                           "slug":slug.current 
                         }`;

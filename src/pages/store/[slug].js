@@ -36,6 +36,7 @@ const otherProductQuery = `*[_type == "shop" && slug.current != $slug]
                           category->{name}, 
                           offer, 
                           discountPrice,
+                          status,
                           "slug":slug.current 
                         }`;
 

@@ -13,9 +13,11 @@ export default function ShopCard({
     <>
       <Link href={`/store/${d.slug}`}>
         <a className="item">
-          {offer && d.offer && !d.status && (
+          {offer && d.offer && d.status && (
             <p className="offer_value">{offer.discount}</p>
           )}
+
+          {!d.status && <p className="not_available">Not available</p>}
 
           <img
             className="img"
@@ -29,13 +31,15 @@ export default function ShopCard({
           <div className="content">
             <p className="name">{d.name}</p>
 
-            {offer && d.offer ? (
+            {offer && d.offer && d.status ? (
               <div className="flex">
                 <p>₹ {d.discountPrice}</p>
                 <p className="old">₹ {d.price}</p>
               </div>
             ) : (
-              <p>₹ {d.price}</p>
+              <p style={d.status ? { color: "#000" } : { color: "#b5b5b5" }}>
+                ₹ {d.price}
+              </p>
             )}
           </div>
         </a>
@@ -62,7 +66,8 @@ export default function ShopCard({
           transform: scale(1);
           border: 2px solid #000;
         }
-        .offer_value {
+        .offer_value,
+        .not_available {
           color: #ffffff;
           font-weight: 700;
           margin: 0;
@@ -72,6 +77,15 @@ export default function ShopCard({
           background: ${offerBackground};
           top: 1rem;
           left: 1rem;
+          font-size: 1rem;
+        }
+
+        .not_available {
+          background: #ca1111;
+          font-weight: 400;
+          top: 1rem;
+          left: auto;
+          right: 1rem;
         }
         .flex {
           gap: 1rem;

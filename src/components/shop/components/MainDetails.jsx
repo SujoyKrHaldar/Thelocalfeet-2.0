@@ -90,6 +90,10 @@ export default function MainDetails({ details: ds, openPopup, offer }) {
           overflow: hidden;
         }
 
+        img {
+          object-position: top;
+        }
+
         .content {
           flex: 1;
           padding: 1rem;

@@ -38,6 +38,7 @@ const Navbar_mobile = ({ open, closeNavbar, menu }) => {
           opacity: 0;
           pointer-events: none;
           transform: translateX(95%);
+          transition: 0.2s ease;
         }
 
         .open {
