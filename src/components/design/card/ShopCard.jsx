@@ -1,12 +1,21 @@
 import { urlFor } from "../../../../sanity";
 import Link from "next/link";
 
-export default function ShopCard({ d, offer }) {
+export default function ShopCard({
+  d,
+  offer,
+  background,
+  borderDefault,
+  borderOnHover,
+  offerBackground,
+}) {
   return (
     <>
       <Link href={`/store/${d.slug}`}>
         <a className="item">
-          {offer && d.offer && <p className="offer_value">{offer.discount}</p>}
+          {offer && d.offer && !d.status && (
+            <p className="offer_value">{offer.discount}</p>
+          )}
 
           <img
             className="img"
@@ -37,13 +46,16 @@ export default function ShopCard({ d, offer }) {
           position: relative;
           max-width: 290px;
           flex: 1 1 250px;
-          background: #f8f8f8;
-          border: 2px solid #e2e2e2;
+          background: ${background};
+          border: 2px solid;
+          border-color: ${borderDefault};
           transition: 0.1s ease;
         }
         .item:hover {
           transform: scale(1.05);
-          border: 2px solid #000;
+          border: 2px solid;
+          border-color: ${borderOnHover};
+          background: #fff;
         }
 
         .item:focus {
@@ -57,7 +69,7 @@ export default function ShopCard({ d, offer }) {
           position: absolute;
           z-index: 1;
           padding: 0.3rem 1rem;
-          background: #000000;
+          background: ${offerBackground};
           top: 1rem;
           left: 1rem;
         }
@@ -94,7 +106,7 @@ export default function ShopCard({ d, offer }) {
         }
 
         .old {
-          color: #d5d5d5;
+          color: #aeaeae;
         }
 
         @media (max-width: 767px) {
@@ -107,3 +119,10 @@ export default function ShopCard({ d, offer }) {
     </>
   );
 }
+
+ShopCard.defaultProps = {
+  background: "#f8f8f8",
+  borderDefault: "#e2e2e2",
+  borderOnHover: "#000",
+  offerBackground: "#000",
+};

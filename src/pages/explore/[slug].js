@@ -27,7 +27,7 @@ const eachBlogSlugQuery = `*[_type == "blog" && slug.current == $slug][0]
                                   }
                         }`;
 
-const otherBlogsQuery = `*[_type == "blog" && slug.current == $slug]
+const otherBlogsQuery = `*[_type == "blog" && slug.current != $slug][0..3]
                       {
                         'id':_id, 
                         publishedAt, 
@@ -97,7 +97,7 @@ function blogBySlug({ blog, otherBlogs }) {
       </Head>
 
       <CustomNavbar />
-      <BlogTemplate blog={blog} />
+      <BlogTemplate blog={blog} others={otherBlogs} />
       <Footer />
     </>
   );

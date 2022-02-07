@@ -12,7 +12,7 @@ export default function Details({
     <>
       <MainDetails details={data} openPopup={openPopup} offer={offer} />
       {data.status && data?.preview && <Preview prv={data} />}
-      {data.status && <OtherProducts data={othP} offer={offer} />}
+      <OtherProducts data={othP} offer={offer} />
     </>
   );
 }

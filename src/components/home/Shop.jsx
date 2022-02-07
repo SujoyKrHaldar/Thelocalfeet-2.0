@@ -11,7 +11,15 @@ const Shop = ({ data, offer }) => {
 
           <div className="list">
             {data.map((d) => (
-              <ShopCard d={d} key={d.id} offer={offer} />
+              <ShopCard
+                d={d}
+                key={d.id}
+                offer={offer}
+                background="#fff"
+                borderDefault="#bee3ff"
+                borderOnHover="#2882c9"
+                offerBackground="#2882c9"
+              />
             ))}
           </div>
 
@@ -20,8 +28,8 @@ const Shop = ({ data, offer }) => {
             url="/store"
             color="#fff"
             colorOnHover="#fff"
-            background="#52abf0"
-            backgroundOnHover="#1778c4"
+            background="#2882c9 "
+            backgroundOnHover="#52abf0"
           />
         </div>
       </div>

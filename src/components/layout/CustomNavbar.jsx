@@ -52,7 +52,7 @@ const CustomNavbar = () => {
           style={{ paddingBottom: 0, paddingTop: "1rem" }}
         >
           <div className="logo" onClick={() => router.push("/")}>
-            <img src="/logo_black.png" alt="thelocalfeet logo" />
+            <img src="/logo_white.png" alt="thelocalfeet logo" />
           </div>
 
           <div className="flex">

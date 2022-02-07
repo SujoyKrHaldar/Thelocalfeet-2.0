@@ -33,8 +33,8 @@ const commentPreviews = ({ data }) => {
       <style jsx>{`
         .preview {
           position: relative;
-
           text-align: center;
+          margin-bottom: 1rem;
         }
         p::first-letter {
           text-transform: uppercase;
@@ -46,7 +46,8 @@ const commentPreviews = ({ data }) => {
           display: inline-block;
         }
         .box {
-          padding: 3rem;
+          padding: 2.5rem;
+          border-radius: 20px;
           background: whitesmoke;
           text-align: left;
           max-width: 900px;
