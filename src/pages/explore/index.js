@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { sanityClient } from "../../../sanity";
-import Extra from "../../components/explore/Extra";
 import Landing from "../../components/explore/Landing";
 import Layout from "../../components/layout/Layout";
 import Body from "../../components/explore/Body";
@@ -79,7 +78,6 @@ function index({ country, blog, photoBlog }) {
         <Landing />
         <Body country={country} blog={blog} album={photoBlog} />
         <PhotographyTemplate />
-        <Extra />
       </Layout>
     </>
   );
