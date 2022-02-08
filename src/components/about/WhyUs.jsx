@@ -2,7 +2,7 @@ const WhyUs = () => {
   return (
     <>
       <div className="section">
-        <div className="container">
+        <div className="flex container">
           <div className="main">
             <h2>Why thelocalfeet</h2>
             <p>
@@ -12,15 +12,13 @@ const WhyUs = () => {
               yourself into an explorer to absorb the culture, food, activities
               of the hidden local trail in any corner of the world?
             </p>
-
-            {/* <div className="featured_img flex">
-              <img
-                className="middle"
-                src="/assets/about-travel.jpg "
-                alt="collage"
-              />
-            </div> */}
           </div>
+
+          <img
+            className="middle"
+            src="/assets/about-travel.jpg "
+            alt="collage"
+          />
         </div>
       </div>
 

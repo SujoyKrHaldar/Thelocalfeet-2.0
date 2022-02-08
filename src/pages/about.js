@@ -1,5 +1,4 @@
 import Head from "next/head";
-import AboutIntro from "../components/about/AboutIntro";
 import AboutTravel from "../components/about/AboutTravel";
 import Landing from "../components/about/Landing";
 import OurJourney from "../components/about/OurJourney";
@@ -35,7 +34,6 @@ function about() {
 
       <Layout mainColor="#fff" mainBackground="transparent" logo="light">
         <Landing />
-        <AboutIntro />
         <OurJourney />
         <WhyUs />
         <AboutTravel />

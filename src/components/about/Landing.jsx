@@ -1,9 +1,24 @@
-import { SiSimpleicons } from "react-icons/si";
+import Home from "./components/Home";
+import Rellax from "rellax";
+import { useEffect, useRef } from "react";
 
 const Landing = () => {
+  // const img_parallex = useRef();
+
+  // useEffect(() => {
+  //   new Rellax(img_parallex.current, {
+  //     speed: -2,
+  //     center: true,
+  //     wrapper: null,
+  //     round: true,
+  //     vertical: true,
+  //     horizontal: false,
+  //   });
+  // }, []);
+
   return (
     <>
-      <div className="section">
+      {/* <div className="section">
         <div className="background">
           <img
             className="parallex"
@@ -23,10 +38,46 @@ const Landing = () => {
             <SiSimpleicons />
           </div>
         </div>
+      </div> */}
+
+      <div className="section">
+        <div className="background">
+          <img
+            // ref={img_parallex}
+            onDragStart={(e) => {
+              e.preventDefault();
+            }}
+            src="/assets/about-landing.jpg"
+            alt="thelocalfeet_aboutus_background"
+          />
+        </div>
+
+        <Home />
       </div>
 
       <style jsx>{`
         .section {
+          padding-bottom: 2rem;
+        }
+        .background {
+          height: 540px;
+        }
+
+        .background:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: #1e215936;
+          z-index: 1;
+          inset: 0;
+        }
+
+        /* img {
+          object-position: 50% 47%;
+        } */
+
+        /* .section {
           height: 768px;
           text-align: center;
           padding: 0 4rem;
@@ -103,7 +154,7 @@ const Landing = () => {
           .icon {
             display: none;
           }
-        }
+        } */
       `}</style>
     </>
   );

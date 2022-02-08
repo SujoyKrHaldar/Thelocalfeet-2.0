@@ -73,11 +73,6 @@ export default function Construct({ data, offer, others }) {
           padding: 3rem;
           text-align: center;
           color: white;
-          height: 275px;
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-          justify-content: center;
         }
         .landing p {
           max-width: 490px;
@@ -94,7 +89,6 @@ export default function Construct({ data, offer, others }) {
 
         .background {
           height: 500px;
-          background: #222222;
         }
 
         img {
