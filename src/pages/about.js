@@ -3,6 +3,7 @@ import AboutTravel from "../components/about/AboutTravel";
 import Landing from "../components/about/Landing";
 import OurJourney from "../components/about/OurJourney";
 import WhyUs from "../components/about/WhyUs";
+import ContactForm from "../components/design/form/Contact";
 import Layout from "../components/layout/Layout";
 import PhotographyTemplate from "../components/design/template/PhotographyTemplate";
 
@@ -37,6 +38,7 @@ function about() {
         <OurJourney />
         <WhyUs />
         <AboutTravel />
+        <ContactForm />
         <PhotographyTemplate />
       </Layout>
     </>

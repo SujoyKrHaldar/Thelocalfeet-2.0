@@ -16,7 +16,7 @@ const OurJourney = () => {
           </p>
 
           <p>
-            Being a part-timer travel photographer and blogger, we spend half of
+            Being a part-time travel photographer and blogger, we spend half of
             our time every day writing blogs, articles, editing photographs,
             highly active on social platforms and also attend travel & street
             photography, social media seminars, watch youtube videos to gain
@@ -25,20 +25,7 @@ const OurJourney = () => {
         </div>
       </div>
 
-      <img
-        className="featured_img"
-        src="/assets/about-travel.jpg "
-        alt="random image"
-        onDragStart={(e) => {
-          e.preventDefault();
-        }}
-      />
-
       <style jsx>{`
-        .container {
-          text-align: left;
-        }
-
         .container:before {
           position: absolute;
           content: "";
@@ -64,6 +51,8 @@ const OurJourney = () => {
         .main {
           max-width: 925px;
           margin: auto;
+          text-align: left;
+          margin-bottom: 6rem;
         }
 
         h2 {
