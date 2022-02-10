@@ -1,4 +1,3 @@
-import Moment from "react-moment";
 import { Portabletext, urlFor } from "../../../../sanity";
 
 const BlogContent = ({ blog }) => {

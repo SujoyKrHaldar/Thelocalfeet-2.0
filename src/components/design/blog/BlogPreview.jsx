@@ -4,6 +4,15 @@ import { urlFor } from "../../../../sanity";
 function BlogPreview({ blog }) {
   return (
     <div className="preview">
+      <div
+        className="background"
+        style={{
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1320' height='390' preserveAspectRatio='none' viewBox='0 0 1320 390'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1622%26quot%3b)' fill='none'%3e%3crect width='1320' height='390' x='0' y='0' fill='url(%23SvgjsLinearGradient1623)'%3e%3c/rect%3e%3cpath d='M1320 0L1213.85 0L1320 168.13z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M1213.85 0L1320 168.13L1320 181.06L677.06 0z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M677.0600000000001 0L1320 181.06L1320 243.62L290.4700000000001 0z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M290.47 0L1320 243.62L1320 280.01L198.39000000000004 0z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M0 390L506.61 390L0 372.07z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M0 372.07L506.61 390L665 390L0 371.74z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M0 371.74L665 390L681.96 390L0 321.17z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M0 321.17L681.96 390L1041.3 390L0 197.83z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1622'%3e%3crect width='1320' height='390' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='50%25' y1='0%25' x2='50%25' y2='100%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1623'%3e%3cstop stop-color='rgba(235%2c 235%2c 235%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(255%2c 255%2c 255%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e")`,
+        }}
+      ></div>
+
       <div className="main flex">
         <div className="preview_info">
           <h3>{blog.title}</h3>
@@ -29,7 +38,6 @@ function BlogPreview({ blog }) {
           padding: 1rem 2rem;
           position: relative;
           margin-bottom: 0.2rem;
-          background: #ebebeb;
           z-index: 1;
         }
 

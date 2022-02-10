@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { IoIosArrowDown } from "react-icons/io";
 import { urlFor } from "../../../../sanity";
 import Moment from "react-moment";
 import ReadMoreType from "../buttons/ReadMoreType";
@@ -39,15 +40,32 @@ export default function OtherBlogCard({ data }) {
           colorOnHover="#fff"
           background="#2f2f2f "
           backgroundOnHover="#4d4d4d"
-          top="1rem"
         />
+
+        <div className="icon ">
+          <IoIosArrowDown />
+        </div>
       </div>
 
       <style jsx>{`
+        .icon {
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          font-size: 1.4rem;
+          background: #e1e1e1;
+          color: white;
+          border-radius: 100%;
+          bottom: -1.35rem;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
         .other_blogs {
+          position: relative;
           text-align: center;
-          padding: 2rem;
-          margin-top: 2rem;
+          padding: 4rem 0;
+          border: 1px solid #ebebeb;
         }
 
         .lists {
@@ -67,11 +85,7 @@ export default function OtherBlogCard({ data }) {
         }
 
         .card:hover {
-          background: #fff;
           transform: scale(1.05);
-          background: #f7f7f7;
-          padding: 1rem 1.3rem;
-          border-radius: 35px;
         }
 
         .img {
@@ -93,6 +107,25 @@ export default function OtherBlogCard({ data }) {
         .date {
           font-weight: 700;
           color: #bebebe;
+        }
+
+        @media (max-width: 1288px) {
+          .other_blogs {
+            border: 0;
+            border-bottom: 1px solid #ebebeb;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .card {
+            background: #f9f9f9;
+          }
+          .img {
+            height: 130px;
+          }
+          .card:hover {
+            transform: scale(1);
+          }
         }
       `}</style>
     </>

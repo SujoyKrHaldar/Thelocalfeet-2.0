@@ -163,7 +163,7 @@ export default function FeedbackForm({ id, comment }) {
           z-index: 1;
           width: 100%;
           padding: 3rem;
-          margin: 0 0 0.2rem;
+          margin: 5rem 0 0;
           text-align: center;
         }
 

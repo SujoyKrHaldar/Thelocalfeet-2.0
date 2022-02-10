@@ -23,7 +23,7 @@
   background-color: rgba(168, 227, 255, 0.137);
 }
 
-p::first-letter::selection html,
+html,
 body {
   padding: 0;
   margin: 0;
@@ -31,8 +31,8 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-family: "Source Serif Pro", serif;
   scroll-behavior: smooth;
-  overflow-y: overlay;
-  overflow-x: hidden;
+  /* overflow-y: overlay;
+  overflow-x: hidden; */
   font-size: 100%;
 }
 
@@ -133,7 +133,6 @@ p {
   left: 0;
   z-index: -2;
   overflow: hidden;
-  background-color: black;
 }
 
 .container {
