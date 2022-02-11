@@ -14,7 +14,6 @@ export default function Home() {
             onDragStart={(e) => {
               e.preventDefault();
             }}
-            className="image"
             src="/assets/about-frame.jpg "
             alt="collage"
           />
@@ -54,11 +53,10 @@ export default function Home() {
         .cover_photo {
           position: relative;
           margin: 3rem auto 2rem;
-        }
-        .image {
           position: relative;
           margin: auto;
           max-width: 720px;
+          height: 540px;
           transform: rotate(2deg);
           border: 0.7rem solid white;
           box-shadow: 7px 6px 20px #00000033;

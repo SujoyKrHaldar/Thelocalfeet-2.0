@@ -80,7 +80,7 @@ const AboutTravel = () => {
         }
 
         img {
-          margin: 3rem 0;
+          margin: 3rem 0 0;
           height: 500px;
         }
       `}</style>
