@@ -1,7 +1,14 @@
 import { IoIosArrowUp } from "react-icons/io";
-import GoBack from "./GoBack";
+import { IoChevronBackOutline } from "react-icons/io5";
+import { useRouter } from "next/router";
 
 export default function ScrollToTop() {
+  const router = useRouter();
+
+  const back = () => {
+    router.back();
+  };
+
   const scroll = () => {
     window.scrollTo({
       top: 0,
@@ -12,13 +19,11 @@ export default function ScrollToTop() {
   return (
     <>
       <div className="buttons">
-        <div className="back">
-          <GoBack
-            color="#fff"
-            colorOnHover="#fff"
-            background="#2f2f2f "
-            backgroundOnHover="#4d4d4d"
-          />
+        <div className="flex scroll_top back" onClick={back}>
+          <div className="icon">
+            <IoChevronBackOutline />
+          </div>
+          <p>Back</p>
         </div>
 
         <div onClick={scroll} className="flex scroll_top">
@@ -42,7 +47,6 @@ export default function ScrollToTop() {
         p {
           margin: 0;
         }
-
         .back {
           display: none;
         }
@@ -85,9 +89,6 @@ export default function ScrollToTop() {
             justify-content: space-between;
           }
 
-          .back {
-            display: initial;
-          }
           .scroll_top p {
             z-index: 1;
             margin-left: 0;
@@ -97,12 +98,23 @@ export default function ScrollToTop() {
           .scroll_top,
           .scroll_top:hover {
             background: #009688;
-            padding: 0.6rem 1.5rem 0.6rem 1.2rem;
+            padding: 1rem 2rem 1rem 1.5rem;
             gap: 0;
           }
+
           .icon {
             font-size: 0.9rem;
             padding: 5px;
+          }
+
+          .back {
+            display: flex;
+            background: black;
+            color: white;
+          }
+
+          .back .icon {
+            background: black;
           }
         }
       `}</style>

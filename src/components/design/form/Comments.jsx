@@ -179,12 +179,6 @@ export default function FeedbackForm({ id, comment }) {
         }
 
         .icon {
-          position: absolute;
-          top: -1.7rem;
-          left: 50%;
-          transform: translateX(-50%);
-          background: white;
-          border-radius: 100%;
           padding: 0.3rem;
           color: #59a267;
           cursor: initial;

@@ -16,7 +16,7 @@ const BlogTemplate = ({ blog, others }) => {
           <BlogContent blog={blog} />
           <SocialShareBox blog={blog} />
           <BlogPreview blog={blog} />
-          <OtherBlogCard data={others} />
+          {others.length > 0 && <OtherBlogCard data={others} />}
           <Comments id={blog.id} comment={blog.comment} />
           <ScrollToTop />
         </div>

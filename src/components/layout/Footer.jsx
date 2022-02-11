@@ -23,6 +23,18 @@ const Footer = () => {
           text-align: center;
           margin: 3rem 0 0 0;
         }
+
+        @media (max-width: 767px) {
+          .section {
+            padding: 0;
+          }
+
+          p {
+            text-align: left;
+            margin: 1rem 0 0 0;
+            font-weight: 600;
+          }
+        }
       `}</style>
     </>
   );

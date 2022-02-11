@@ -210,6 +210,11 @@ export default function Newsletter() {
         p:first-child() {
           font-size: 2rem;
           font-weight: 700;
+          margin-bottom: 0.5rem;
+        }
+
+        p {
+          margin-bottom: 2rem;
         }
 
         .inputbox {
@@ -251,6 +256,14 @@ export default function Newsletter() {
           margin: 0.2rem 0;
           text-align: left;
           font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+          form {
+            padding: 2rem 0 0;
+
+            text-align: left;
+          }
         }
       `}</style>
     </>

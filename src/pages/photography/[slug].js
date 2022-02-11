@@ -26,6 +26,16 @@ const eachBlogQuery = `*[_type == "photoBlog" && slug.current == $slug][0]
                                 }
                       }`;
 
+const otherBlogsQuery = `*[_type == "photoBlog" && slug.current != $slug][0..3]
+                      {
+                        'id':_id, 
+                        publishedAt, 
+                        mainImage,
+                        'slug':slug.current, 
+                        title, 
+                        subtitle 
+                      }`;
+
 export async function getStaticPaths() {
   const response = await sanityClient.fetch(BlogSlugsQuery);
 
@@ -44,6 +54,10 @@ export async function getStaticProps({ params }) {
     slug: params.slug,
   });
 
+  const otherBlogs = await sanityClient.fetch(otherBlogsQuery, {
+    slug: params.slug,
+  });
+
   if (!blog) {
     return {
       redirect: {
@@ -56,12 +70,13 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       blog,
+      otherBlogs,
     },
     revalidate: 1,
   };
 }
 
-const photoBlogBySlug = ({ blog }) => {
+const photoBlogBySlug = ({ blog, otherBlogs }) => {
   if (!blog) return <FallbackLoading />;
   return (
     <>
@@ -80,7 +95,7 @@ const photoBlogBySlug = ({ blog }) => {
       </Head>
 
       <CustomNavbar />
-      <BlogTemplate blog={blog} />
+      <BlogTemplate blog={blog} others={otherBlogs} />
       <Footer />
     </>
   );

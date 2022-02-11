@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { RiFacebookFill, RiInstagramLine } from "react-icons/ri";
 
 const data = [
   {
@@ -38,7 +39,22 @@ const Footer_top = () => {
           2018 To get more insight into sustainable travel.
         </p>
 
-        <div className="social_link"></div>
+        <div className="social_link">
+          <p className="title">Quick Links</p>
+          <div className="flex">
+            <Link href="https://www.facebook.com/thelocalfeet">
+              <a target="blank" className="icon">
+                <RiFacebookFill />
+              </a>
+            </Link>
+
+            <Link href="https://www.instagram.com/thelocalfeet/">
+              <a target="blank" className="icon">
+                <RiInstagramLine />
+              </a>
+            </Link>
+          </div>
+        </div>
       </div>
 
       <div className="links">
@@ -80,6 +96,30 @@ const Footer_top = () => {
         }
         a {
           padding: 0.3rem 0;
+        }
+
+        .social_link {
+          margin-top: 2rem;
+        }
+
+        .icon {
+          font-size: 1.6rem;
+        }
+
+        @media (max-width: 600px) {
+          .main,
+          .links {
+            padding: 2rem 0 1rem;
+            text-align: left;
+          }
+
+          .links {
+            padding: 1rem 0;
+          }
+
+          .flex {
+            justify-content: left;
+          }
         }
       `}</style>
     </>
