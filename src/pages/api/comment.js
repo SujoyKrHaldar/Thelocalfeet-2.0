@@ -28,6 +28,8 @@ export default async function handler(req, res) {
       comment: Message,
     });
 
+    res.status(200).send({ data: "comment submitted." });
+
     console.log("Server - comment send to sanity cms");
 
     // const text = {
@@ -47,8 +49,6 @@ export default async function handler(req, res) {
 
     console.log("Server - Sent a mail to admin");
   } catch (err) {
-    return res.status(200).send({ data: err.message });
+    return res.status(500).send({ data: err.message });
   }
-
-  res.status(200).send({ data: "comment submitted." });
 }

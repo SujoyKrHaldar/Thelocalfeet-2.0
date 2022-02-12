@@ -1,5 +1,6 @@
 import AboutFollow from "./AboutFollow";
 import MainSocialLink from "./MainSocialLink";
+import { IoIosArrowDown } from "react-icons/io";
 
 export default function HomeDetails() {
   return (
@@ -49,6 +50,10 @@ export default function HomeDetails() {
             alt="collage"
           />
         </div>
+
+        <div className="icon ">
+          <IoIosArrowDown />
+        </div>
       </div>
 
       <style jsx>{`
@@ -60,8 +65,11 @@ export default function HomeDetails() {
           background: #ffffff;
           box-shadow: 0px -20px 11px 0px #00000014;
           padding: 3rem;
-          border-radius: 20px;
           z-index: 1;
+
+          border-radius: 20px 20px 0 0;
+          z-index: 1;
+          border-bottom: 1px solid #e1e1e1;
         }
 
         .profile_pic {
@@ -105,9 +113,7 @@ export default function HomeDetails() {
 
         .cover_photo {
           position: relative;
-          margin: 3rem auto 2rem;
-          position: relative;
-          margin: 5rem auto 1rem;
+          margin: 5rem auto 4rem;
           max-width: 693px;
           height: 500px;
           transform: rotate(2deg);
@@ -115,9 +121,23 @@ export default function HomeDetails() {
           box-shadow: 7px 6px 20px #00000033;
         }
 
+        .icon {
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          font-size: 1.4rem;
+          background: #e1e1e1;
+          color: white;
+          border-radius: 100%;
+          bottom: -1.35rem;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
         @media (max-width: 768px) {
           .cover_photo {
             height: auto;
+            transform: rotate(0deg);
           }
 
           .profile_pic {

@@ -38,7 +38,7 @@ function about() {
         <OurJourney />
         <WhyUs />
         <AboutTravel />
-        <PhotographyTemplate />
+        {/* <PhotographyTemplate /> */}
         <ContactForm />
       </Layout>
     </>

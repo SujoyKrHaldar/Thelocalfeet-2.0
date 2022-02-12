@@ -113,6 +113,10 @@ export default function ScrollToTop() {
             color: white;
           }
 
+          .back:hover {
+            background: black;
+          }
+
           .back .icon {
             background: black;
           }

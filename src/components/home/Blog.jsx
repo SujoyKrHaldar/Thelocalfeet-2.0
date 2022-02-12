@@ -34,15 +34,7 @@ const Blog = ({ data }) => {
         .container {
           text-align: center;
         }
-        .tag {
-          color: #00968826;
-          font-size: 9rem;
-          position: absolute;
-          top: -20%;
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: -1;
-        }
+
         .list {
           display: flex;
           flex-wrap: wrap;

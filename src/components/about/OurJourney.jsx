@@ -50,7 +50,7 @@ const OurJourney = () => {
 
         .main {
           max-width: 925px;
-          padding: 4rem 2rem;
+          padding: 2rem 2rem 4rem;
           margin: auto;
           text-align: left;
         }
@@ -109,7 +109,7 @@ const OurJourney = () => {
 
         @media (max-width: 600px) {
           .main {
-            padding: 2rem 0;
+            padding: 0 0 2rem;
           }
         }
       `}</style>

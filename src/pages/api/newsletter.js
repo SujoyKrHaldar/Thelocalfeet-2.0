@@ -35,9 +35,9 @@ export default async function handler(req, res) {
     console.log("Server - comment send to sanity cms");
 
     console.log("Server - Sent a mail to admin");
-  } catch (err) {
-    return res.status(200).send({ data: err.message });
-  }
 
-  res.status(200).send({ data: "comment submitted." });
+    res.status(200).send({ data: "comment submitted." });
+  } catch (err) {
+    return res.status(500).send({ data: err.message });
+  }
 }

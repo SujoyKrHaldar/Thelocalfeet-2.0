@@ -56,15 +56,7 @@ const PhotoBlog = ({ data }) => {
         .container {
           text-align: center;
         }
-        .tag {
-          color: #f3c48157;
-          font-size: 8rem;
-          position: absolute;
-          top: -16%;
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: -1;
-        }
+
         .list {
           display: flex;
           flex-wrap: wrap;

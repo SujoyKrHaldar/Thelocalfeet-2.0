@@ -42,15 +42,6 @@ const Shop = ({ data, offer }) => {
         .container {
           text-align: center;
         }
-        .tag {
-          color: #52abf04f;
-          font-size: 6rem;
-          position: absolute;
-          top: -12%;
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: -1;
-        }
 
         .list {
           position: relative;
