@@ -52,9 +52,18 @@ const Landing = () => {
         }
 
         @media (max-width: 768px) {
+          .section {
+            padding: 2rem 0;
+          }
         }
 
         @media (max-width: 600px) {
+          .background {
+            height: 433px;
+          }
+          img {
+            object-position: left;
+          }
         }
       `}</style>
     </>

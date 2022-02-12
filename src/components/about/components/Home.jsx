@@ -8,16 +8,6 @@ export default function Home() {
           <h1>Read our Story</h1>
         </div>
         <HomeDetails />
-
-        <div className="cover_photo">
-          <img
-            onDragStart={(e) => {
-              e.preventDefault();
-            }}
-            src="/assets/about-frame.jpg "
-            alt="collage"
-          />
-        </div>
       </div>
 
       <style jsx>{`
@@ -50,16 +40,23 @@ export default function Home() {
           bottom: 0;
         }
 
-        .cover_photo {
-          position: relative;
-          margin: 3rem auto 2rem;
-          position: relative;
-          margin: auto;
-          max-width: 720px;
-          height: 540px;
-          transform: rotate(2deg);
-          border: 0.7rem solid white;
-          box-shadow: 7px 6px 20px #00000033;
+        @media (max-width: 1087px) {
+          .landing:before {
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 6rem;
+            line-height: 9.5rem;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .container {
+            padding: 2rem 0;
+          }
+
+          .landing {
+            padding: 3rem 2rem;
+          }
         }
       `}</style>
     </>

@@ -38,8 +38,8 @@ function about() {
         <OurJourney />
         <WhyUs />
         <AboutTravel />
-        <ContactForm />
         <PhotographyTemplate />
+        <ContactForm />
       </Layout>
     </>
   );

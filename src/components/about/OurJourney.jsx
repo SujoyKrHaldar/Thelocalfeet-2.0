@@ -50,9 +50,9 @@ const OurJourney = () => {
 
         .main {
           max-width: 925px;
+          padding: 4rem 2rem;
           margin: auto;
           text-align: left;
-          margin-bottom: 6rem;
         }
 
         h2 {
@@ -85,13 +85,32 @@ const OurJourney = () => {
           font-size: 1.6rem;
           line-height: 2.3rem;
           font-weight: 700;
-          margin: 2rem 0;
+          margin: 2rem 0 0;
         }
 
         .featured_img {
           position: relative;
           max-width: 827px;
           height: 563px;
+        }
+
+        @media (max-width: 767px) {
+          p:last-of-type {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            font-weight: 500;
+            margin: 0;
+          }
+
+          .main {
+            padding: 2rem;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .main {
+            padding: 2rem 0;
+          }
         }
       `}</style>
     </>

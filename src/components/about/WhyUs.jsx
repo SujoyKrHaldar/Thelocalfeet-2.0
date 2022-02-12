@@ -36,17 +36,23 @@ const WhyUs = () => {
           content: "";
           width: 100%;
           height: 100%;
-          background: #00000066;
+
+          background: linear-gradient(
+            45deg,
+            #000000b8,
+            #00000078,
+            transparent,
+            #ff9e43a6
+          );
           inset: 0;
           z-index: -1;
         }
 
         .main {
-          max-width: 925px;
-          padding: 3rem 0;
-          margin: auto;
-          text-align: center;
-
+          max-width: 805px;
+          padding: 3rem;
+          margin: auto 0 0;
+          text-align: left;
           color: white;
         }
 
@@ -55,11 +61,39 @@ const WhyUs = () => {
           font-size: 2rem;
           letter-spacing: 0;
           margin-bottom: 1rem;
+          background: white;
+          color: black;
+          display: inline-block;
+          padding: 0.3rem 2rem;
         }
         p {
           line-height: 1.5rem;
           margin: 0;
           max-width: 492px;
+        }
+
+        .background {
+          object-position: 50% 64%;
+        }
+
+        @media (max-width: 867px) {
+          .main {
+            padding: 2rem;
+            max-width: 500px;
+          }
+        }
+        @media (max-width: 768px) {
+          .container {
+            height: 100vh;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .main {
+            padding: 0;
+            max-width: 350px;
+            margin-bottom: 3rem;
+          }
         }
       `}</style>
     </>

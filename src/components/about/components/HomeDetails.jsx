@@ -39,6 +39,16 @@ export default function HomeDetails() {
         </p>
 
         <AboutFollow />
+
+        <div className="cover_photo">
+          <img
+            onDragStart={(e) => {
+              e.preventDefault();
+            }}
+            src="/assets/about-frame.jpg "
+            alt="collage"
+          />
+        </div>
       </div>
 
       <style jsx>{`
@@ -91,6 +101,30 @@ export default function HomeDetails() {
 
         .description span:last-of-type {
           color: #ff9800;
+        }
+
+        .cover_photo {
+          position: relative;
+          margin: 3rem auto 2rem;
+          position: relative;
+          margin: 5rem auto 1rem;
+          max-width: 693px;
+          height: 500px;
+          transform: rotate(2deg);
+          border: 0.7rem solid white;
+          box-shadow: 7px 6px 20px #00000033;
+        }
+
+        @media (max-width: 768px) {
+          .cover_photo {
+            height: auto;
+          }
+
+          .profile_pic {
+            width: 150px;
+            height: 150px;
+            margin: -9rem auto 2rem;
+          }
         }
       `}</style>
     </>

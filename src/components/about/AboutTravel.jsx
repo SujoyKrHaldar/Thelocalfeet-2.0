@@ -52,7 +52,7 @@ const AboutTravel = () => {
 
         .main {
           max-width: 925px;
-          padding: 6rem 0 2rem;
+          padding: 4rem 2rem;
           margin: auto;
           text-align: left;
         }
@@ -80,8 +80,24 @@ const AboutTravel = () => {
         }
 
         img {
-          margin: 3rem 0 0;
+          margin: 2rem 0 0;
           height: 500px;
+        }
+
+        @media (max-width: 767px) {
+          img {
+            height: auto;
+          }
+
+          .main {
+            padding: 2rem;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .main {
+            padding: 2rem 0;
+          }
         }
       `}</style>
     </>

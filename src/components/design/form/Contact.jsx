@@ -70,92 +70,90 @@ export default function ContactForm({ id, comment }) {
   return (
     <>
       <>
-        {/* <div className="contact"> */}
-        <form className="form" id="contact" onSubmit={handleSubmit(onSubmit)}>
-          <Toaster
-            toastOptions={{
-              className: "toaste",
-            }}
-          />
-          <h2>Contact us</h2>
-
-          <div className="inputbox">
-            <span className="text">Your Name</span>
-            <input
-              style={errors?.Name && { border: "1px solid red" }}
-              {...register("Name", {
-                required: true,
-              })}
-              type="text"
+        <div className="contact" id="contact">
+          <form className="form" onSubmit={handleSubmit(onSubmit)}>
+            <Toaster
+              toastOptions={{
+                className: "toaste",
+              }}
             />
+            <h2>Contact us</h2>
 
-            {errors?.Name && errors.Name?.type === "required" && (
-              <p className="error_msg">The field is empty!</p>
-            )}
-          </div>
+            <div className="inputbox">
+              <span className="text">Your Name</span>
+              <input
+                style={errors?.Name && { border: "1px solid red" }}
+                {...register("Name", {
+                  required: true,
+                })}
+                type="text"
+              />
 
-          <div className="inputbox">
-            <span className="text">Your Email</span>
-            <input
-              style={errors?.Name && { border: "1px solid red" }}
-              {...register("Email", {
-                required: true,
-                pattern:
-                  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-              })}
-              type="text"
-            />
+              {errors?.Name && errors.Name?.type === "required" && (
+                <p className="error_msg">The field is empty!</p>
+              )}
+            </div>
 
-            {errors?.Email && (
-              <>
-                {errors.Email?.type === "required" && (
-                  <p className="error_msg">The field is empty!</p>
-                )}
-                {errors.Email?.type === "pattern" && (
-                  <p className="error_msg">Invalid Email! </p>
-                )}
-              </>
-            )}
-          </div>
+            <div className="inputbox">
+              <span className="text">Your Email</span>
+              <input
+                style={errors?.Name && { border: "1px solid red" }}
+                {...register("Email", {
+                  required: true,
+                  pattern:
+                    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                })}
+                type="text"
+              />
 
-          <div className="inputbox">
-            <span className="text">Your message</span>
-            <textarea
-              style={errors?.Name && { border: "1px solid red" }}
-              {...register("Message", { required: true })}
-            ></textarea>
+              {errors?.Email && (
+                <>
+                  {errors.Email?.type === "required" && (
+                    <p className="error_msg">The field is empty!</p>
+                  )}
+                  {errors.Email?.type === "pattern" && (
+                    <p className="error_msg">Invalid Email! </p>
+                  )}
+                </>
+              )}
+            </div>
 
-            {errors?.Message && errors.Message?.type === "required" && (
-              <p className="error_msg">The field is empty!</p>
-            )}
-          </div>
+            <div className="inputbox">
+              <span className="text">Your message</span>
+              <textarea
+                style={errors?.Name && { border: "1px solid red" }}
+                {...register("Message", { required: true })}
+              ></textarea>
 
-          <button
-            className="btn"
-            type="submit"
-            style={
-              loading
-                ? { background: "#474747", pointerEvents: "none" }
-                : { background: "#2c2c2c" }
-            }
-          >
-            {loading ? <div className="load_animation"></div> : "Send"}
-          </button>
-        </form>
-        {/* </div> */}
+              {errors?.Message && errors.Message?.type === "required" && (
+                <p className="error_msg">The field is empty!</p>
+              )}
+            </div>
+
+            <button
+              className="btn"
+              type="submit"
+              style={
+                loading
+                  ? { background: "#474747", pointerEvents: "none" }
+                  : { background: "#2c2c2c" }
+              }
+            >
+              {loading ? <div className="load_animation"></div> : "Send"}
+            </button>
+          </form>
+        </div>
       </>
 
       <style jsx>{`
-        /* .contact {
-          z-index: 1;
-          position: relative;
-        } */
-
+        .contact {
+          padding: 4rem 2rem 4rem;
+        }
         .form {
           position: relative;
           margin: auto;
           max-width: 530px;
-          padding: 2rem 2rem 4rem;
+          padding: 2rem;
         }
 
         h2 {

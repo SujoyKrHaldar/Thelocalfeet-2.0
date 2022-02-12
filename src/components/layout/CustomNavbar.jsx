@@ -76,6 +76,10 @@ const CustomNavbar = () => {
           color: #000;
         }
 
+        .logo {
+          height: auto;
+        }
+
         .icon {
           color: black;
           padding: 0.45rem;
@@ -83,6 +87,14 @@ const CustomNavbar = () => {
           font-size: 1.6rem;
           background: white;
           margin-left: 1rem;
+        }
+
+        @media (max-width: 600px) {
+          .logo {
+            width: auto;
+            height: 50px;
+            transform: translateY(5px);
+          }
         }
       `}</style>
     </>

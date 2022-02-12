@@ -39,6 +39,7 @@ export default function MainSocialLink() {
           justify-content: center;
           gap: 1rem;
           margin: 1rem auto 2rem;
+          flex-wrap: wrap;
         }
 
         .btn {
@@ -76,6 +77,16 @@ export default function MainSocialLink() {
         }
         .btn:active {
           transform: scale(0.9);
+        }
+
+        @media (max-width: 768px) {
+          .fb:hover {
+            background: #4267b2;
+          }
+
+          .ins:hover {
+            background: #fbad50;
+          }
         }
       `}</style>
     </>

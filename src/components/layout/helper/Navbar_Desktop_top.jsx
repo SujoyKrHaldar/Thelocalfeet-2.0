@@ -54,6 +54,10 @@ const Navbar_Desktop_top = ({ menu, logo }) => {
           margin-bottom: 0;
         }
 
+        .logo {
+          height: auto;
+        }
+
         .icon {
           color: black;
           padding: 0.45rem;
@@ -89,6 +93,14 @@ const Navbar_Desktop_top = ({ menu, logo }) => {
 
           .icon {
             margin: 0.7rem;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .logo {
+            width: auto;
+            height: 50px;
+            transform: translateY(5px);
           }
         }
       `}</style>
