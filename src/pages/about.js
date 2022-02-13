@@ -6,6 +6,63 @@ import WhyUs from "../components/about/WhyUs";
 import ContactForm from "../components/design/form/Contact";
 import Layout from "../components/layout/Layout";
 import PhotographyTemplate from "../components/design/template/PhotographyTemplate";
+import Extra from "../components/about/Extra";
+import { sanityClient } from "../../sanity";
+
+const blogQuery = `*[_type == "blog"][0..3]|order( publishedAt desc) 
+                  {
+                    'id':_id, 
+                    publishedAt, 
+                    'country':country->{name}, 
+                    mainImage,
+                    'slug':slug.current, 
+                    title, 
+                    subtitle 
+                  }`;
+
+const photoBlogQuery = `*[_type == "photoBlog"][0..1]|order( publishedAt desc)
+                      {
+                        "id":_id, 
+                        title, 
+                        subtitle, 
+                        "slug":slug.current, 
+                        mainImage
+                      }`;
+
+const productsQuery = `*[_type == "shop"][0...4]|order(_createdAt desc)
+                      {
+                        "id":_id, 
+                        name, 
+                        price, 
+                        photo, 
+                        offer, 
+                        status,
+                        offerName->{name}, 
+                        discount, 
+                        discountPrice,
+                        "slug":slug.current 
+                      }`;
+
+const offerQuery = `*[_type == "offer" && status == true][0]
+                    { 
+                      status,
+                      discount,
+                      specialMsg,
+                      endingDate, 
+                      startingDate
+                    }`;
+
+export const getStaticProps = async () => {
+  const blog = await sanityClient.fetch(blogQuery);
+  const photoBlog = await sanityClient.fetch(photoBlogQuery);
+  const products = await sanityClient.fetch(productsQuery);
+  const offer = await sanityClient.fetch(offerQuery);
+
+  return {
+    props: { blog, photoBlog, products, offer },
+    revalidate: 1,
+  };
+};
 
 function about() {
   return (
@@ -38,6 +95,7 @@ function about() {
         <OurJourney />
         <WhyUs />
         <AboutTravel />
+        <Extra />
         {/* <PhotographyTemplate /> */}
         <ContactForm />
       </Layout>

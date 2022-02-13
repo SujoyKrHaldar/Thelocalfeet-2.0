@@ -1,12 +1,12 @@
-import BlogContent from "../design/blog/BlogContent";
-import BlogLanding from "../design/blog/BlogLanding";
-import SocialShareBox from "../design/blog/SocialShareBox";
-import BlogPreview from "../design/blog/BlogPreview";
+import BlogContent from "./components/BlogContent";
+import BlogLanding from "./components/BlogLanding";
+import SocialShareBox from "./components/SocialShareBox";
+import BlogPreview from "./components/BlogPreview";
 import Comments from "../design/form/Comments";
-import OtherBlogCard from "../design/card/OtherBlogCard";
 import ScrollToTop from "../design/buttons/ScrollToTop";
+import OtherBlogs from "./components/OtherBlogs";
 
-const BlogTemplate = ({ blog, others }) => {
+const BlogTemplate = ({ blog, others, link }) => {
   return (
     <>
       <BlogLanding blog={blog} />
@@ -16,7 +16,7 @@ const BlogTemplate = ({ blog, others }) => {
           <BlogContent blog={blog} />
           <SocialShareBox blog={blog} />
           <BlogPreview blog={blog} />
-          {others.length > 0 && <OtherBlogCard data={others} />}
+          {others.length > 0 && <OtherBlogs data={others} Blogs_link={link} />}
           <Comments id={blog.id} comment={blog.comment} />
           <ScrollToTop />
         </div>

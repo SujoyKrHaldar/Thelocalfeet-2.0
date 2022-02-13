@@ -42,6 +42,7 @@ export default function ScrollToTop() {
           position: sticky;
           bottom: 2rem;
           z-index: 1;
+          pointer-events: none;
         }
 
         p {
@@ -60,6 +61,7 @@ export default function ScrollToTop() {
           border-radius: 50px;
           cursor: pointer;
           padding: 0.3rem;
+          pointer-events: visible;
         }
         .scroll_top p {
           z-index: 1;

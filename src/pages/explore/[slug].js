@@ -97,7 +97,7 @@ function blogBySlug({ blog, otherBlogs }) {
       </Head>
 
       <CustomNavbar />
-      <BlogTemplate blog={blog} others={otherBlogs} />
+      <BlogTemplate blog={blog} others={otherBlogs} link="/explore" />
       <Footer />
     </>
   );

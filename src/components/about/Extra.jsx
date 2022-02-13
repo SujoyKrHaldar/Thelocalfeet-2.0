@@ -1,11 +1,10 @@
 const Extra = () => {
   return (
     <>
-      <div className="section">
-        <div className="container flex">
-          <div className="blogs"></div>
-          <div className="albums"></div>
-        </div>
+      <div className="container">
+        <p>Quick search</p>
+        <div className="blogs"></div>
+        <div className="albums"></div>
       </div>
     </>
   );
