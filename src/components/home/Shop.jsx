@@ -37,7 +37,6 @@ const Shop = ({ data, offer }) => {
       <style jsx>{`
         .section {
           background: linear-gradient(0deg, white, #2196f330, white);
-          padding-top: 6rem;
         }
         .container {
           text-align: center;

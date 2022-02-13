@@ -1,5 +1,6 @@
 import BlogCard from "../design/card/BlogCard";
 import ReadMoreType from "../design/buttons/ReadMoreType";
+import { IoIosArrowDown } from "react-icons/io";
 
 const Blog = ({ data }) => {
   return (
@@ -24,12 +25,27 @@ const Blog = ({ data }) => {
             backgroundOnHover="#00685e"
           />
         </div>
+
+        <div className="icon ">
+          <IoIosArrowDown />
+        </div>
       </div>
 
       <style jsx>{`
+        .icon {
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          font-size: 1.4rem;
+          background: #f3c481;
+          color: white;
+          border-radius: 100%;
+          bottom: -2rem;
+          left: 50%;
+          transform: translateX(-50%);
+        }
         .section {
           background: linear-gradient(0deg, white, #00968814, white);
-          padding-top: 1rem;
         }
         .container {
           text-align: center;
@@ -39,15 +55,10 @@ const Blog = ({ data }) => {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
-          text-align: left;
           margin: 2rem 0;
           gap: 1rem;
         }
 
-        @media (max-width: 600px) {
-          .container {
-            padding: 0;
-          }
         }
       `}</style>
     </>

@@ -22,7 +22,7 @@ const blogQuery = `*[_type == "blog"][0..3]|order( publishedAt desc)
                     subtitle 
                   }`;
 
-const photoBlogQuery = `*[_type == "photoBlog"][0..1]|order( publishedAt desc)
+const photoBlogQuery = `*[_type == "photoBlog"][0..3]|order( publishedAt desc)
                       {
                         "id":_id, 
                         title, 
@@ -31,7 +31,7 @@ const photoBlogQuery = `*[_type == "photoBlog"][0..1]|order( publishedAt desc)
                         mainImage
                       }`;
 
-const productsQuery = `*[_type == "shop"][0...4]|order(_createdAt desc)
+const productsQuery = `*[_type == "shop"][0..3]|order(_createdAt desc)
                       {
                         "id":_id, 
                         name, 
@@ -110,7 +110,13 @@ export default function Home({ blog, photoBlog, products, offer }) {
         <About />
         <Blog data={blog} />
         <PhotoBlog data={photoBlog} />
-        <PhotographyTemplate />
+        <PhotographyTemplate
+          img_position="bottom"
+          img_url="/assets/home-landing.jpg"
+          caption_one="The pursuit of excellent culmination in craftsmanship, You would
+            rather die for !"
+          caption_two="Made in India, at Nagaur Fort also known as Ahichhatragarh Fort"
+        />
         <Shop data={products} offer={offer} />
         <Achievement />
       </Layout>

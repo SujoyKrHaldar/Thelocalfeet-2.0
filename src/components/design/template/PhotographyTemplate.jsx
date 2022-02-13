@@ -1,30 +1,35 @@
 import ReadMoreType from "../buttons/ReadMoreType";
 
-const Photography = () => {
+const PhotographyTemplate = ({
+  top,
+  bottom,
+  img_url,
+  caption_one,
+  caption_two,
+  img_position,
+  img_position_mob,
+}) => {
   return (
     <>
       <div className="section">
-        <div className="background">
-          <img
-            src="/assets/home-landing.jpg"
-            alt="The pursuit of excellent culmination in craftsmanship, You would
-              rather die for !"
-          />
-        </div>
         <div className="container">
+          <div className="background">
+            <img
+              src={img_url}
+              alt={caption_one}
+              onDragStart={(e) => {
+                e.preventDefault();
+              }}
+            />
+          </div>
           <div className="content">
-            <p>
-              The pursuit of excellent culmination in craftsmanship, You would
-              rather die for !
-            </p>
+            <p>{caption_one}</p>
 
-            <p>
-              Made in India, at Nagaur Fort also known as Ahichhatragarh Fort
-            </p>
+            <p>{caption_two}</p>
 
             <ReadMoreType
               text="View gallery"
-              url="photography/gallery"
+              url="/photography/gallery"
               color="#fff"
               colorOnHover="#fff"
               background=" #ffffff3d"
@@ -39,8 +44,17 @@ const Photography = () => {
         .section {
           padding: 2rem;
         }
+        .container {
+          height: 480px;
+          margin-top: ${top};
+          margin-bottom: ${bottom};
+          overflow: hidden;
 
-        .section:before {
+          display: flex;
+          align-items: center;
+        }
+
+        .container:before {
           content: "";
           z-index: -1;
           width: 100%;
@@ -50,16 +64,11 @@ const Photography = () => {
           position: absolute;
         }
 
-        .container {
-          height: 600px;
-          display: flex;
-          align-items: center;
-          padding: 0;
-        }
-
         .content {
-          max-width: 423px;
-          padding: 1rem 0;
+          max-width: 531px;
+          padding: 2rem;
+          text-align: center;
+          margin: auto;
         }
 
         p:first-child() {
@@ -70,19 +79,36 @@ const Photography = () => {
         p {
           color: #dfdfdf;
         }
+        .background {
+          transition: 0.5s ease;
+        }
+
+        .container:hover .background {
+          transform: scale(1.15) rotate(3deg);
+        }
 
         img {
-          object-position: bottom;
+          object-position: ${img_position};
+        }
+
+        @media (max-width: 768px) {
+          .section {
+            padding: 1rem;
+          }
+          .container:hover .background {
+            transform: scale(1) rotate(0deg);
+          }
+
+          .content {
+            padding: 1rem 0;
+            text-align: left;
+            margin: auto auto 0;
+          }
         }
 
         @media (max-width: 600px) {
-          .container {
-            display: flex;
-            align-items: center;
-          }
-
           img {
-            object-position: center;
+            object-position: ${img_position_mob};
           }
         }
       `}</style>
@@ -90,4 +116,11 @@ const Photography = () => {
   );
 };
 
-export default Photography;
+PhotographyTemplate.defaultProps = {
+  img_position: "center",
+  img_position_mob: "center",
+  top: 0,
+  bottom: 0,
+};
+
+export default PhotographyTemplate;

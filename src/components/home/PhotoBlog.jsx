@@ -1,5 +1,6 @@
-import PhotoBlogCard from "../design/card/PhotoBlogCard";
+import OtherBlogCard from "../design/card/OtherBlogCard";
 import ReadMoreType from "../design/buttons/ReadMoreType";
+import BlogCard from "../design/card/BlogCard";
 
 const PhotoBlog = ({ data }) => {
   return (
@@ -11,7 +12,8 @@ const PhotoBlog = ({ data }) => {
 
           <div className="list">
             {data.map((d) => (
-              <PhotoBlogCard data={d} key={d.id} />
+              // <OtherBlogCard data={d} key={d.id} link={`${d.slug}`} />
+              <BlogCard data={d} key={d.id} />
             ))}
           </div>
 
@@ -27,10 +29,6 @@ const PhotoBlog = ({ data }) => {
       </div>
 
       <style jsx>{`
-        .section {
-          padding-top: 1rem;
-        }
-
         .section:before {
           content: "";
           position: absolute;
@@ -61,15 +59,8 @@ const PhotoBlog = ({ data }) => {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
-          gap: 2rem;
+          gap: 1rem;
           margin: 2rem 0 3rem;
-        }
-
-        @media (max-width: 768px) {
-          .section {
-            padding-bottom: 4rem;
-            padding-top: 4rem;
-          }
         }
 
         @media (max-width: 600px) {

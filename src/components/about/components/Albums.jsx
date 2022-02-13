@@ -1,13 +1,12 @@
 import OtherBlogCard from "../../design/card/OtherBlogCard";
 import { IoIosArrowDown } from "react-icons/io";
 
-export default function Blogs({ data }) {
+export default function Albums({ data }) {
   return (
     <>
       <div className="container">
-        <div className="blogs">
-          <p className="tag">Keep Reading</p>
-          <h3>Latest Articles</h3>
+        <div className="albums">
+          <h3>Latest Albums</h3>
 
           <div className="flex lists">
             {data.map((d) => (
@@ -27,17 +26,17 @@ export default function Blogs({ data }) {
           width: 40px;
           height: 40px;
           font-size: 1.4rem;
-          background: #dfdfdf;
+          background: #ffdca9;
           color: white;
           border-radius: 100%;
-          top: -2rem;
+          bottom: -1.35rem;
           left: 50%;
           transform: translateX(-50%);
         }
 
-        .blogs {
+        .albums {
           position: relative;
-          padding: 4rem 0 3rem;
+          padding: 3rem 0;
           text-align: center;
         }
 

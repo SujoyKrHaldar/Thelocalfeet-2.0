@@ -16,7 +16,7 @@ const BlogCard = ({ data }) => {
         />
 
         <div className="data">
-          <p className="top">{data.country.name}</p>
+          <p className="top">{data.country?.name}</p>
           <p className="title">{data.title}</p>
 
           <p className="desp">{data.subtitle}</p>
@@ -37,6 +37,7 @@ const BlogCard = ({ data }) => {
 
       <style jsx>{`
         .box {
+          text-align: left;
           position: relative;
           display: flex;
           flex-direction: column;
@@ -44,12 +45,13 @@ const BlogCard = ({ data }) => {
           z-index: 1;
           transition: 0.1s ease-in;
           flex: 1 1 235px;
+          max-width: 345px;
         }
 
         img {
           border-top-left-radius: 40px;
           border-bottom-right-radius: 40px;
-          height: 160px;
+          height: 183px;
         }
 
         .box:before {
@@ -188,13 +190,9 @@ const BlogCard = ({ data }) => {
             padding: 1.3rem;
           }
 
-          .box {
-            flex: 1 1 185px;
-          }
-
           img {
             border-radius: 0;
-            height: 100px;
+            height: 166px;
           }
         }
       `}</style>

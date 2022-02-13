@@ -26,7 +26,7 @@ const WhyUs = () => {
       <style jsx>{`
         .container {
           text-align: left;
-          height: 717px;
+          height: 590px;
           z-index: 1;
           display: flex;
         }
@@ -82,11 +82,11 @@ const WhyUs = () => {
             max-width: 500px;
           }
         }
-        @media (max-width: 768px) {
+        /* @media (max-width: 768px) {
           .container {
             height: 100vh;
           }
-        }
+        } */
 
         @media (max-width: 600px) {
           .main {
