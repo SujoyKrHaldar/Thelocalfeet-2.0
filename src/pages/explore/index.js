@@ -77,7 +77,7 @@ function index({ country, blog, photoBlog }) {
       <Layout mainColor="#fff" mainBackground="transparent" logo="light">
         <Landing />
         <Body country={country} blog={blog} album={photoBlog} />
-        <PhotographyTemplate />
+        {/* <PhotographyTemplate /> */}
       </Layout>
     </>
   );

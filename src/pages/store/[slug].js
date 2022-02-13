@@ -15,7 +15,6 @@ const productsQuery = `*[_type == "shop" && slug.current == $slug][0]
                         caption,
                         price, 
                         preview, 
-                        location,
                         photo, 
                         coverPhoto,
                         size, 
@@ -47,33 +46,20 @@ const offerQuery = `*[_type == "offer" && status == true][0]
                     specialMsg
                   }`;
 
-export async function getStaticPaths() {
-  const response = await sanityClient.fetch(allProductsQuery);
-
-  const paths = response.map((slug) => ({
-    params: { slug },
-  }));
-
-  return {
-    paths: paths,
-    fallback: true,
-  };
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ query: { slug } }) {
   const offer = await sanityClient.fetch(offerQuery);
   const evt = await sanityClient.fetch(productsQuery, {
-    slug: params.slug,
+    slug,
   });
 
   const others = await sanityClient.fetch(otherProductQuery, {
-    slug: params.slug,
+    slug,
   });
 
   if (!evt) {
     return {
       redirect: {
-        destination: "/404",
+        destination: "/500",
         permanent: false,
       },
     };
@@ -84,10 +70,53 @@ export async function getStaticProps({ params }) {
       evt,
       offer,
       others,
+      fallback: true,
+      revalidate: 1,
     },
-    revalidate: 1,
   };
 }
+
+// export async function getStaticPaths() {
+//   const response = await sanityClient.fetch(allProductsQuery);
+
+//   const paths = response.map((slug) => ({
+//     params: { slug },
+//   }));
+
+//   return {
+//     paths: paths,
+//     fallback: true,
+//   };
+// }
+
+// export async function getStaticProps({ params }) {
+//   const offer = await sanityClient.fetch(offerQuery);
+//   const evt = await sanityClient.fetch(productsQuery, {
+//     slug: params.slug,
+//   });
+
+//   const others = await sanityClient.fetch(otherProductQuery, {
+//     slug: params.slug,
+//   });
+
+//   if (!evt) {
+//     return {
+//       redirect: {
+//         destination: "/404",
+//         permanent: false,
+//       },
+//     };
+//   }
+
+//   return {
+//     props: {
+//       evt,
+//       offer,
+//       others,
+//     },
+//     revalidate: 1,
+//   };
+// }
 
 export default function products({ evt, offer, others }) {
   return (

@@ -11,7 +11,7 @@ export default function Blogs({ data }) {
 
           <div className="flex lists">
             {data.map((d) => (
-              <OtherBlogCard key={d.id} data={d} link={`${d.slug}`} />
+              <OtherBlogCard key={d.id} data={d} link={`/explore/${d.slug}`} />
             ))}
           </div>
 
