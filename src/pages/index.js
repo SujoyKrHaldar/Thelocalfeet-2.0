@@ -103,7 +103,7 @@ export default function Home({ blog, photoBlog, products, offer }) {
         {/* <meta property="og:image" content="/image/home/home-middle.jpg" /> */}
       </Head>
 
-      <Layout mainColor="#fff" mainBackground="transparent" logo="light">
+      <Layout mainColor="#fff" mainBackground="transparent">
         <Landing />
         <About />
         <Blog data={blog} />

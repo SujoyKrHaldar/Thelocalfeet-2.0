@@ -1,7 +1,21 @@
 import Head from "next/head";
 import "../styles/globals.css";
+import { useState, useEffect } from "react";
+import Router from "next/router";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
+  const [loading, setLoading] = useState(false);
+
+  // useEffect(() => {
+  //   const handleRouteChange = (url) => {
+  //     gtag.pageview(url);
+  //   };
+  //   Router.events.on("routeChangeComplete", handleRouteChange);
+  //   return () => {
+  //     router.events.off("routeChangeComplete", handleRouteChange);
+  //   };
+  // }, [Router.events]);
+
   return (
     <>
       <Head>

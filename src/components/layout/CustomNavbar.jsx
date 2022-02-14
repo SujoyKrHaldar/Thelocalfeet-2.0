@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import GoBack from "../design/buttons/GoBack";
 import Navbar_mobile from "./helper/Navbar_mobile";
@@ -35,6 +35,7 @@ const CustomNavbar = () => {
   const router = useRouter();
 
   const [open, setOpen] = useState(false);
+  const [scroll, setScroll] = useState(false);
 
   const openNavbar = () => {
     setOpen(!open);
@@ -44,15 +45,27 @@ const CustomNavbar = () => {
     setOpen(false);
   };
 
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleScroll = () => {
+    window.scrollY > 768 ? setScroll(true) : setScroll(false);
+  };
+
   return (
     <>
-      <div className="navbar">
-        <div
-          className="container flex"
-          style={{ paddingBottom: 0, paddingTop: "1rem" }}
-        >
+      <div
+        className={scroll ? "navbar update" : "navbar"}
+        onScroll={handleScroll}
+      >
+        <div className="container flex">
           <div className="logo" onClick={() => router.push("/")}>
-            <img src="/logo_white.png" alt="thelocalfeet logo" />
+            <img
+              src={scroll ? "/logo_black.png" : "/logo_white.png"}
+              alt="thelocalfeet logo"
+            />
           </div>
 
           <div className="flex">
@@ -76,8 +89,26 @@ const CustomNavbar = () => {
           color: #000;
         }
 
+        .update {
+          position: fixed;
+          background: white;
+          box-shadow: 0px 3px 20px #00000026;
+        }
+
+        .container {
+          padding: 1rem 2rem 0;
+        }
+
+        .update .container {
+          padding: 0.5rem 2rem;
+        }
+
         .logo {
           height: auto;
+        }
+
+        .update .logo {
+          transform: translateY(7px);
         }
 
         .icon {
@@ -87,6 +118,9 @@ const CustomNavbar = () => {
           font-size: 1.6rem;
           background: white;
           margin-left: 1rem;
+        }
+        .update .icon {
+          background: #ededed;
         }
 
         @media (max-width: 600px) {

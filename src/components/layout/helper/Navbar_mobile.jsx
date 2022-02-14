@@ -61,8 +61,10 @@ const Navbar_mobile = ({ open, closeNavbar, menu }) => {
 
         .menu p {
           font-size: 2rem;
+          font-weight: 700;
           margin-bottom: 1rem;
         }
+
         .menu a {
           font-size: 1.3rem;
           padding: 0.5rem 0;
