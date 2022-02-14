@@ -51,7 +51,7 @@ const CustomNavbar = () => {
   }, []);
 
   const handleScroll = () => {
-    window.scrollY > 768 ? setScroll(true) : setScroll(false);
+    window.scrollY > 450 ? setScroll(true) : setScroll(false);
   };
 
   return (
