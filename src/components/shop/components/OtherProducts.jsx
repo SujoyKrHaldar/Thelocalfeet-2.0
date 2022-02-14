@@ -7,7 +7,7 @@ export default function OtherProducts({ data, offer }) {
         <p>Other products</p>
 
         <div className="list">
-          {data.slice(0, 3).map((d) => (
+          {data.slice(0, 6).map((d) => (
             <ShopCard d={d} offer={offer} key={d.id} />
           ))}
         </div>

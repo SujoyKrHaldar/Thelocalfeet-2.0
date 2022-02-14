@@ -46,7 +46,7 @@ export async function getStaticPaths() {
   }));
 
   return {
-    paths: paths,
+    paths,
     fallback: true,
   };
 }
@@ -63,7 +63,7 @@ export async function getStaticProps({ params }) {
   if (!blog) {
     return {
       redirect: {
-        destination: "/404",
+        destination: "/explore",
         permanent: false,
       },
     };

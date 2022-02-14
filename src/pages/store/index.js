@@ -9,7 +9,6 @@ const productsQuery = `*[_type == "shop"]|order(_createdAt desc)
                           name, 
                           price, 
                           photo, 
-                          category->{name}, 
                           offer, 
                           status,
                           discountPrice,

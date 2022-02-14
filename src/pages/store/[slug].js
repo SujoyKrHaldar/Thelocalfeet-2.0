@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { sanityClient, urlFor } from "../../../sanity";
+import FallbackLoading from "../../components/design/template/FallbackLoading";
 import CustomNavbar from "../../components/layout/CustomNavbar";
 import Footer from "../../components/layout/Footer";
 import Construct from "../../components/shop/Construct";
@@ -26,7 +27,7 @@ const productsQuery = `*[_type == "shop" && slug.current == $slug][0]
                         "slug":slug.current 
                       }`;
 
-const otherProductQuery = `*[_type == "shop" && slug.current != $slug]
+const otherProductQuery = `*[_type == "shop" && slug.current != $slug]|order(_createdAt desc)
                         {
                           "id":_id, 
                           name, 
@@ -46,20 +47,33 @@ const offerQuery = `*[_type == "offer" && status == true][0]
                     specialMsg
                   }`;
 
-export async function getServerSideProps({ query: { slug } }) {
+export async function getStaticPaths() {
+  const response = await sanityClient.fetch(allProductsQuery);
+
+  const paths = response.map((slug) => ({
+    params: { slug },
+  }));
+
+  return {
+    paths,
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
   const offer = await sanityClient.fetch(offerQuery);
   const evt = await sanityClient.fetch(productsQuery, {
-    slug,
+    slug: params.slug,
   });
 
   const others = await sanityClient.fetch(otherProductQuery, {
-    slug,
+    slug: params.slug,
   });
 
   if (!evt) {
     return {
       redirect: {
-        destination: "/500",
+        destination: "/store",
         permanent: false,
       },
     };
@@ -70,55 +84,14 @@ export async function getServerSideProps({ query: { slug } }) {
       evt,
       offer,
       others,
-      fallback: true,
-      revalidate: 1,
     },
+    revalidate: 1,
   };
 }
 
-// export async function getStaticPaths() {
-//   const response = await sanityClient.fetch(allProductsQuery);
-
-//   const paths = response.map((slug) => ({
-//     params: { slug },
-//   }));
-
-//   return {
-//     paths: paths,
-//     fallback: true,
-//   };
-// }
-
-// export async function getStaticProps({ params }) {
-//   const offer = await sanityClient.fetch(offerQuery);
-//   const evt = await sanityClient.fetch(productsQuery, {
-//     slug: params.slug,
-//   });
-
-//   const others = await sanityClient.fetch(otherProductQuery, {
-//     slug: params.slug,
-//   });
-
-//   if (!evt) {
-//     return {
-//       redirect: {
-//         destination: "/404",
-//         permanent: false,
-//       },
-//     };
-//   }
-
-//   return {
-//     props: {
-//       evt,
-//       offer,
-//       others,
-//     },
-//     revalidate: 1,
-//   };
-// }
-
 export default function products({ evt, offer, others }) {
+  if (!evt) return <FallbackLoading />;
+
   return (
     <>
       <Head>

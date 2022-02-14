@@ -31,7 +31,7 @@ const photoBlogQuery = `*[_type == "photoBlog"][0..3]|order( publishedAt desc)
                         mainImage
                       }`;
 
-const productsQuery = `*[_type == "shop"][0..3]|order(_createdAt desc)
+const productsQuery = `*[_type == "shop"]|order(_createdAt desc)[0..5]
                       {
                         "id":_id, 
                         name, 
@@ -39,8 +39,6 @@ const productsQuery = `*[_type == "shop"][0..3]|order(_createdAt desc)
                         photo, 
                         offer, 
                         status,
-                        offerName->{name}, 
-                        discount, 
                         discountPrice,
                         "slug":slug.current 
                       }`;
