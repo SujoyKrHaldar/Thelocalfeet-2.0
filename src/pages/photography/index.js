@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Rellax from "rellax";
+import { useEffect } from "react";
 import Layout from "../../components/layout/Layout";
 import Gallery from "../../components/photography/Gallery";
 import Landing from "../../components/photography/Landing";
@@ -37,6 +39,17 @@ export const getStaticProps = async () => {
 };
 
 function index({ blog, gallery }) {
+  useEffect(() => {
+    new Rellax(".parallex", {
+      speed: -7,
+      center: true,
+      wrapper: null,
+      round: true,
+      vertical: true,
+      horizontal: false,
+    });
+  }, []);
+
   return (
     <>
       <Head>

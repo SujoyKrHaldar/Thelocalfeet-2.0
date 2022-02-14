@@ -86,6 +86,12 @@ export default function AboutFollow() {
           background: #fcfcfc;
           box-shadow: 2px 2px 20px #00000024;
           border-radius: 20px;
+          transition: 0.2s ease;
+        }
+
+        .box:hover {
+          transform: scale(1.05);
+          background: #ffe2d9;
         }
 
         p {
@@ -125,6 +131,25 @@ export default function AboutFollow() {
         .icon {
           padding: 0;
           font-size: 1.5rem;
+          opacity: 0.5;
+          transition: 0.1s ease;
+        }
+        .icon:hover {
+          padding: 0;
+          font-size: 1.5rem;
+          background: transparent;
+          opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+          .box:hover {
+            transform: scale(1);
+            background: #fcfcfc;
+          }
+
+          .icon {
+            opacity: 1;
+          }
         }
       `}</style>
     </>

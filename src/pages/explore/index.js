@@ -1,9 +1,10 @@
 import Head from "next/head";
+import Rellax from "rellax";
+import { useEffect } from "react";
 import { sanityClient } from "../../../sanity";
 import Landing from "../../components/explore/Landing";
 import Layout from "../../components/layout/Layout";
 import Body from "../../components/explore/Body";
-import PhotographyTemplate from "../../components/design/template/PhotographyTemplate";
 
 const blogQuery = `*[_type == "blog"]|order( publishedAt desc) 
                   {
@@ -44,6 +45,17 @@ export const getStaticProps = async () => {
 };
 
 function index({ country, blog, photoBlog }) {
+  useEffect(() => {
+    new Rellax(".parallex", {
+      speed: -7,
+      center: true,
+      wrapper: null,
+      round: true,
+      vertical: true,
+      horizontal: false,
+    });
+  }, []);
+
   return (
     <>
       <Head>
@@ -77,7 +89,6 @@ function index({ country, blog, photoBlog }) {
       <Layout mainColor="#fff" mainBackground="transparent" logo="light">
         <Landing />
         <Body country={country} blog={blog} album={photoBlog} />
-        {/* <PhotographyTemplate /> */}
       </Layout>
     </>
   );

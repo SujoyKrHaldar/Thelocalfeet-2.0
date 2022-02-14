@@ -3,25 +3,25 @@ import Rellax from "rellax";
 import { useEffect, useRef } from "react";
 
 const Landing = () => {
-  // const img_parallex = useRef();
+  const img_parallex = useRef();
 
-  // useEffect(() => {
-  //   new Rellax(img_parallex.current, {
-  //     speed: -2,
-  //     center: true,
-  //     wrapper: null,
-  //     round: true,
-  //     vertical: true,
-  //     horizontal: false,
-  //   });
-  // }, []);
+  useEffect(() => {
+    new Rellax(img_parallex.current, {
+      speed: -7,
+      center: false,
+      wrapper: null,
+      round: true,
+      vertical: true,
+      horizontal: false,
+    });
+  }, []);
 
   return (
     <>
       <div className="section">
         <div className="background">
           <img
-            // ref={img_parallex}
+            ref={img_parallex}
             onDragStart={(e) => {
               e.preventDefault();
             }}
