@@ -105,8 +105,7 @@ const Navbar = ({ mainBackground, mainColor }) => {
           left: 0;
           top: 0;
           z-index: 5;
-          /* background: ${mainBackground}; */
-          /* color: ${mainColor}; */
+          color: ${mainColor};
           color: white;
           transition: 0.5s ease;
         }
@@ -211,7 +210,7 @@ const Navbar = ({ mainBackground, mainColor }) => {
 };
 
 Navbar.defaultProps = {
-  // mainColor: "#000",
+  mainColor: "white",
   mainBackground: "white",
 };
 
