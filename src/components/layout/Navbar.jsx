@@ -186,7 +186,7 @@ const Navbar = () => {
         }
 
         .update .active {
-          background: #ededed;
+          background: #ffdba6;
         }
 
         @media (max-width: 867px) {

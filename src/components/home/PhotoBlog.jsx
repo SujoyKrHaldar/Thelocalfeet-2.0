@@ -1,6 +1,6 @@
-import OtherBlogCard from "../design/card/OtherBlogCard";
 import ReadMoreType from "../design/buttons/ReadMoreType";
 import BlogCard from "../design/card/BlogCard";
+import { IoIosArrowDown } from "react-icons/io";
 
 const PhotoBlog = ({ data }) => {
   return (
@@ -12,7 +12,6 @@ const PhotoBlog = ({ data }) => {
 
           <div className="list">
             {data.map((d) => (
-              // <OtherBlogCard data={d} key={d.id} link={`${d.slug}`} />
               <BlogCard data={d} key={d.id} />
             ))}
           </div>
@@ -26,9 +25,26 @@ const PhotoBlog = ({ data }) => {
             backgroundOnHover="#dd9733"
           />
         </div>
+
+        <div className="icon ">
+          <IoIosArrowDown />
+        </div>
       </div>
 
       <style jsx>{`
+        .icon {
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          font-size: 1.4rem;
+          background: #f3c481;
+          color: white;
+          border-radius: 100%;
+          bottom: -2rem;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
         .section:before {
           content: "";
           position: absolute;

@@ -78,7 +78,7 @@ function index({ blog, gallery }) {
       <Layout mainColor="#fff" mainBackground="transparent" logo="light">
         <Landing />
         <Gallery data={gallery} />
-        <PhotoBlog data={blog} />
+        {blog.length > 0 && <PhotoBlog data={blog} />}
       </Layout>
     </>
   );

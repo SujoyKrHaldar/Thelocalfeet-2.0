@@ -107,7 +107,6 @@ export default function Home({ blog, photoBlog, products, offer }) {
         <Landing />
         <About />
         {blog.length > 0 && <Blog data={blog} />}
-        {photoBlog.lenth > 0 && <PhotoBlog data={photoBlog} />}
         <PhotographyTemplate
           img_position="bottom"
           img_url="/assets/home-landing.jpg"
@@ -115,6 +114,8 @@ export default function Home({ blog, photoBlog, products, offer }) {
             rather die for !"
           caption_two="Made in India, at Nagaur Fort also known as Ahichhatragarh Fort"
         />
+        {photoBlog.length > 0 && <PhotoBlog data={photoBlog} />}
+
         {products.length > 0 && <Shop data={products} offer={offer} />}
         <Achievement />
       </Layout>

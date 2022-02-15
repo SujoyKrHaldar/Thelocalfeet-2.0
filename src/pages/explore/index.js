@@ -5,6 +5,7 @@ import { sanityClient } from "../../../sanity";
 import Landing from "../../components/explore/Landing";
 import Layout from "../../components/layout/Layout";
 import Body from "../../components/explore/Body";
+import ComingSoon from "../../components/design/template/ComingSoon";
 
 const blogQuery = `*[_type == "blog"]|order( publishedAt desc) 
                   {
@@ -86,9 +87,16 @@ function index({ country, blog, photoBlog }) {
         /> */}
       </Head>
 
-      <Layout mainColor="#fff" mainBackground="transparent" logo="light">
-        <Landing />
-        <Body country={country} blog={blog} album={photoBlog} />
+      <Layout mainColor="#fff">
+        {blog.length > 0 ? (
+          <>
+            {" "}
+            <Landing />
+            <Body country={country} blog={blog} album={photoBlog} />
+          </>
+        ) : (
+          <ComingSoon asset="/assets/explore-landing.jpeg" />
+        )}
       </Layout>
     </>
   );
