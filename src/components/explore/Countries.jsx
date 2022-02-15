@@ -22,30 +22,32 @@ const Countries = ({ data, album }) => {
           </div>
         </div>
 
-        <div className="albums">
-          <h2>Albums</h2>
-          <Link href={`photography/${album.slug}`}>
-            <a className="album_box">
-              <img
-                className="background"
-                src={urlFor(album.mainImage).url()}
-                alt={album.title}
-              />
+        {album && (
+          <div className="albums">
+            <h2>Albums</h2>
+            <Link href={`photography/${album.slug}`}>
+              <a className="album_box">
+                <img
+                  className="background"
+                  src={urlFor(album.mainImage).url()}
+                  alt={album.title}
+                />
 
-              <p>{album.title}</p>
-            </a>
-          </Link>
+                <p>{album.title}</p>
+              </a>
+            </Link>
 
-          <ReadMoreType
-            text="View all"
-            url="/photography"
-            color="#fff"
-            colorOnHover="#fff"
-            background="#222222"
-            backgroundOnHover="#464646"
-            top="1rem"
-          />
-        </div>
+            <ReadMoreType
+              text="View all"
+              url="/photography"
+              color="#fff"
+              colorOnHover="#fff"
+              background="#222222"
+              backgroundOnHover="#464646"
+              top="1rem"
+            />
+          </div>
+        )}
       </div>
 
       <style jsx>{`

@@ -14,7 +14,7 @@ function travel() {
       </Head>
 
       <Navbar mainColor="#fff" mainBackground="transparent" logo="light" />
-      <ComingSoon />
+      <ComingSoon asset="/assets/coming-soon.jpeg" />
     </>
   );
 }

@@ -1,10 +1,10 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-const Layout = ({ children, mainBackground, mainColor, logo }) => {
+const Layout = ({ children }) => {
   return (
     <>
-      <Navbar mainColor={mainColor} mainBackground={mainBackground} />
+      <Navbar />
       <main>{children}</main>
       <Footer />
     </>

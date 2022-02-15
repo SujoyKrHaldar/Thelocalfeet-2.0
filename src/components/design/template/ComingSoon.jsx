@@ -1,4 +1,4 @@
-const ComingSoon = () => {
+const ComingSoon = ({ asset }) => {
   return (
     <>
       <div className="section">
@@ -8,7 +8,7 @@ const ComingSoon = () => {
             onDragStart={(e) => {
               e.preventDefault();
             }}
-            src="/assets/coming-soon.jpeg"
+            src={asset}
             alt="Coming_soon"
           />
         </div>
@@ -26,8 +26,7 @@ const ComingSoon = () => {
 
         h1 {
           color: #fff;
-          letter-spacing: 0.7rem;
-          text-transform: uppercase;
+          letter-spacing: 0;
         }
 
         .section:before {

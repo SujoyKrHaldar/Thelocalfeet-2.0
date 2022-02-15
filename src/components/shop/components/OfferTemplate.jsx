@@ -47,7 +47,7 @@ export default function OfferTemplate({ data }) {
           width: 100%;
           padding: 2rem;
           background: linear-gradient(310deg, #ff3e01, #ffc107, #f44336);
-          margin-bottom: 2rem;
+          margin-bottom: 3rem;
         }
 
         .box:before {

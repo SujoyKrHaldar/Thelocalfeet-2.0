@@ -1,5 +1,6 @@
 import Newsletter from "../design/form/Newsletter";
 import Footer_content from "./helper/Footer_content";
+import Moment from "react-moment";
 
 const Footer = () => {
   return (
@@ -8,7 +9,13 @@ const Footer = () => {
         <div className="container">
           <Newsletter />
           <Footer_content />
-          <p>Copyright 2021, thelocalfeet - All right reserved.</p>
+          <p>
+            Copyright{" "}
+            <span>
+              <Moment format="YYYY">{new Date()}</Moment>
+            </span>
+            , thelocalfeet - All right reserved.
+          </p>
         </div>
       </div>
 

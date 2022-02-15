@@ -31,7 +31,7 @@ const menu = [
   },
 ];
 
-const Navbar = ({ mainBackground, mainColor }) => {
+const Navbar = () => {
   const [scroll, setScroll] = useState(false);
 
   useEffect(() => {
@@ -40,6 +40,8 @@ const Navbar = ({ mainBackground, mainColor }) => {
   }, []);
 
   const handleScroll = () => {
+    console.log(scrollY);
+    // window.scrollY > 768 && window.scrollY <
     window.scrollY > 768 ? setScroll(true) : setScroll(false);
   };
 
@@ -105,7 +107,6 @@ const Navbar = ({ mainBackground, mainColor }) => {
           left: 0;
           top: 0;
           z-index: 5;
-          color: ${mainColor};
           color: white;
           transition: 0.5s ease;
         }
@@ -209,9 +210,8 @@ const Navbar = ({ mainBackground, mainColor }) => {
   );
 };
 
-Navbar.defaultProps = {
-  mainColor: "white",
-  mainBackground: "white",
-};
+// Navbar.defaultProps = {
+//   mainColor: "white",
+// };
 
 export default Navbar;
