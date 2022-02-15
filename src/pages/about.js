@@ -3,7 +3,7 @@ import AboutTravel from "../components/about/AboutTravel";
 import Landing from "../components/about/Landing";
 import OurJourney from "../components/about/OurJourney";
 import WhyUs from "../components/about/WhyUs";
-import ContactForm from "../components/design/form/Contact";
+import Contact from "../components/design/form/Contact";
 import Layout from "../components/layout/Layout";
 import Extra from "../components/about/Extra";
 import { sanityClient } from "../../sanity";
@@ -64,13 +64,13 @@ function about({ blog, photoBlog }) {
         {/* <meta property="og:image" content="/image/about/about-landing.jpeg" /> */}
       </Head>
 
-      <Layout mainColor="#fff" mainBackground="transparent" logo="light">
+      <Layout mainColor="#fff">
         <Landing />
         <OurJourney />
         <WhyUs />
         <AboutTravel />
         <Extra blog={blog} album={photoBlog} />
-        <ContactForm />
+        <Contact />
       </Layout>
     </>
   );

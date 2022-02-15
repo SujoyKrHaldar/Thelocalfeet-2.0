@@ -1,26 +1,22 @@
 export default async function handler(req, res) {
-  const values = req.body;
-
   if (req.method === "POST") {
+    const data = req.body;
+
     try {
       const response = await fetch(
-        `https://${process.env.FORMSPEE_URL}/f/${process.env.FORMSPEE_CONTACT_FORM_ID}`,
+        `${process.env.FORMSPEE_URL}/f/${process.env.FORMSPEE_CONTACT_FORM_ID}`,
         {
           method: "POST",
-          body: JSON.stringify(values),
+          body: JSON.stringify(data),
           headers: {
             "Content-Type": "application/json",
           },
         }
       );
 
-      console.log(`API route response status : ${response.status}`);
-      return res.status(200).send({ data: "comment submitted." });
+      return res.status(response.status).send("Message sent successfully.");
     } catch (e) {
-      console.log(e.message);
-      console.log(`API route response status : ${e}`);
-
-      return res.send({ error: e.message });
+      return res.status(500).send("Something wrong. Try again later.");
     }
   }
 }

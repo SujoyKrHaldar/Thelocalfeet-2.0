@@ -1,13 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { BsEmojiHeartEyes } from "react-icons/bs";
-import { CgSmileNeutral } from "react-icons/cg";
 
-export default function ContactForm({ id, comment }) {
+export default function ContactForm() {
   const [loading, setLoading] = useState(false);
-  const [successMsg, setSuccessMsg] = useState(false);
-  const [errorMsg, setErrorMsg] = useState(false);
 
   const {
     register,
@@ -16,97 +12,44 @@ export default function ContactForm({ id, comment }) {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (values, e) => {
+  const onSubmit = async (values, e) => {
     e.preventDefault();
     setLoading(!loading);
+    toast.loading("Sending your response...");
 
-    fetch("/api/contact", {
+    const response = await fetch("/api/contact", {
       method: "POST",
       body: JSON.stringify(values),
       headers: {
         "Content-Type": "application/json",
       },
-    })
-      .then((res) => {
-        res.json();
-        console.log(res);
-      })
-      .then((data) => {
-        toast.success("thank you");
-        console.log(data);
-      })
-      .catch((e) => console.log(e));
+    });
 
+    const data = await response.text();
+    toast.dismiss();
+
+    if (!response.ok) {
+      toast.error(data);
+      reset(e.target.values);
+      setLoading(loading);
+    }
+
+    toast.success(data);
     reset(e.target.values);
     setLoading(loading);
-
-    /////////////////////////////////////////////////////////
-
-    // const server_res = await fetch("/api/contact");
-
-    // console.log(`server side response status : ${server_res.status}`);
-
-    // console.log(`client side status: ${res.status}`);
-
-    // if (res.status > 200) {
-    //   toast.error("Something went wrong! Try again later.");
-    // }
-
-    // toast.success("Thank you. We will get back to you soon.");
-
-    // res.status != 200 &&
-    //   toast.promise(res, {
-    //     loading: "Sending your message...",
-    //     success:
-    //       "Message sent successfully. Thank you. We will get back to you soon.",
-    //     error: "Something went wrong! Try again later.",
-    //   });
-
-    // reset(e.target.values);
-    // setLoading(loading);
-
-    /////////////////////////////////////////////////////
-
-    // fetch("/api/contact", {
-    //   method: "POST",
-    //   body: JSON.stringify(values),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // })
-    //   .then(() => {
-    //     console.log("send to api");
-    //     setLoading(loading);
-    //     // setSuccessMsg(!successMsg);
-
-    //     // toast.success("Sucess!", {
-    //     //   duration: 6000,
-    //     // });
-
-    //     toast.loading("Sucess!");
-
-    //     reset(e.target.values);
-    //     console.log("send to server successfully - client");
-    //   })
-    //   .catch((err) => {
-    //     setLoading(loading);
-    //     // setErrorMsg(!errorMsg);
-
-    //     console.log(err.Message);
-    //   });
   };
 
   return (
     <>
       <>
-        <div className="contact" id="contact">
+        <div className="contact" id="contact-us">
           <form className="form" onSubmit={handleSubmit(onSubmit)}>
             <Toaster
               toastOptions={{
                 className: "toaste",
               }}
             />
-            <h2>Contact us</h2>
+            <h2>Get in touch</h2>
 
             <div className="inputbox">
               <span className="text">Your Name</span>
@@ -176,7 +119,7 @@ export default function ContactForm({ id, comment }) {
 
       <style jsx>{`
         .contact {
-          padding: 4rem 2rem 4rem;
+          padding: 7rem 2rem 4rem;
         }
         .form {
           position: relative;

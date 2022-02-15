@@ -40,7 +40,6 @@ const Navbar = () => {
   }, []);
 
   const handleScroll = () => {
-    console.log(scrollY);
     // window.scrollY > 768 && window.scrollY <
     window.scrollY > 768 ? setScroll(true) : setScroll(false);
   };

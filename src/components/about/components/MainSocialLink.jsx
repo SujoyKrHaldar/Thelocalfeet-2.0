@@ -16,7 +16,7 @@ const links = [
   {
     name: "Contact",
     className: "contact",
-    url: "#contact",
+    url: "#contact-us",
     target: "_parent",
   },
 ];
