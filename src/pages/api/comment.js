@@ -11,44 +11,51 @@ const config = {
 const sanityClient = createClient(config);
 
 export default async function handler(req, res) {
-  const { id, Name, Email, Message } = req.body;
+  if (req.method == "POST") {
+    // const { id, Name, Email, Message } = req.body;
+    const data = req.body;
 
-  console.log(req.body);
+    try {
+      // const response = await sanityClient.create({
+      //   _type: "comments",
+      //   post: {
+      //     _type: "reference",
+      //     _ref: id,
+      //   },
+      //   isApproved: false,
+      //   name: Name,
+      //   email: Email,
+      //   comment: Message,
+      // });
 
-  try {
-    await sanityClient.create({
-      _type: "comments",
-      post: {
-        _type: "reference",
-        _ref: id,
-      },
-      isApproved: false,
-      name: Name,
-      email: Email,
-      comment: Message,
-    });
+      // console.log(response);
 
-    res.status(200).send({ data: "comment submitted." });
+      // const text = {
+      //   msg: `You have new comment. Please do approve it. Link: ${process.env.DASHBOARD}`,
+      // };
 
-    console.log("Server - comment send to sanity cms");
+      const msg = `You have new comment. Please do approve it. Link: ${process.env.DASHBOARD}`;
 
-    // const text = {
-    //   msg: `You have new comment. Please do approve it. Link: ${process.env.DASHBOARD}`,
-    // };
+      const response = await fetch(
+        `${process.env.FORMSPEE_URL}/f/${process.env.FORMSPEE_CONTACT_FORM_ID}`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            msg: `You have new comment. Please do approve it. Link: ${process.env.DASHBOARD}`,
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
 
-    // await fetch(
-    //   `${process.env.FORMSPEE_URL}/f/${process.env.FORMSPEE_FEEDBACK_FORM_ID}`,
-    //   {
-    //     method: "POST",
-    //     body: req.body,
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   }
-    // );
+      console.log(response);
 
-    console.log("Server - Sent a mail to admin");
-  } catch (err) {
-    return res.status(500).send({ data: err.message });
+      res.status(200).send("comment submitted.");
+
+      // console.log("Server - Sent a mail to admin");
+    } catch (err) {
+      return res.status(500).send({ data: err.message });
+    }
   }
 }

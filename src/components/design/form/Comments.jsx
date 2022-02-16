@@ -21,7 +21,6 @@ export default function FeedbackForm({ id, comment }) {
     setLoading(!loading);
 
     const data = { id, ...values };
-    console.log(data);
 
     fetch("/api/comment", {
       method: "POST",
