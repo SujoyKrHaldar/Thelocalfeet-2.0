@@ -26,10 +26,22 @@ const Achievement = () => {
 
       <style jsx>{`
         .main {
+          position: relative;
           padding: 3rem 0;
           text-align: center;
           max-width: 766px;
           margin: auto;
+        }
+
+        .main:after {
+          position: absolute;
+          content: "";
+          width: 1px;
+          height: 95px;
+          bottom: -5rem;
+          left: 50%;
+          transform: translateX(-50%);
+          background: #b4b4b4;
         }
 
         h2 {

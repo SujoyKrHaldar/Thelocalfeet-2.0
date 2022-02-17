@@ -3,16 +3,20 @@ import { FiInstagram } from "react-icons/fi";
 
 const feed = [
   {
-    url: "/assets/home-landing.jpg",
+    url: "/assets/404.jpeg",
+    class: "img_1",
   },
   {
-    url: "/assets/home-landing.jpg",
+    url: "/assets/collage-one.jpg",
+    class: "img_2",
   },
   {
-    url: "/assets/home-landing.jpg",
+    url: "/assets/collage-two.webp",
+    class: "img_3",
   },
   {
-    url: "/assets/home-landing.jpg",
+    url: "/assets/explore-landing.jpeg",
+    class: "img_4",
   },
 ];
 
@@ -24,6 +28,7 @@ export default function JoinUs() {
           <div className="background flex">
             {feed.map((d, i) => (
               <img
+                className={d.class}
                 key={i}
                 src={d.url}
                 alt="instagram feed"
@@ -55,7 +60,7 @@ export default function JoinUs() {
 
       <style jsx>{`
         .section {
-          height: 630px;
+          height: 490px;
         }
 
         .container {
@@ -64,21 +69,34 @@ export default function JoinUs() {
         }
 
         img {
-          max-width: 325px;
+          max-width: 304px;
           object-position: center;
+        }
+
+        .img_3 {
+          object-position: 20% 50%;
         }
         .main {
           position: relative;
           text-align: center;
           margin: auto;
-          padding: 3rem;
-          background: #fff;
+          padding: 2.3rem;
+          background: #ffffffb0;
+          backdrop-filter: blur(2px);
           max-width: 455px;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
           height: auto;
+        }
+
+        .main:after {
+          content: "";
+          position: absolute;
+          inset: -9px;
+          z-index: -1;
+          border: 2px solid white;
         }
 
         p {
