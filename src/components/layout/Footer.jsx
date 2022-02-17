@@ -1,21 +1,37 @@
 import Newsletter from "../design/form/Newsletter";
 import Footer_content from "./helper/Footer_content";
+import { IoIosArrowUp } from "react-icons/io";
 import Moment from "react-moment";
 
 const Footer = () => {
+  const scroll = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <div className="section">
         <div className="container">
           <Newsletter />
           <Footer_content />
-          <p>
-            Copyright{" "}
-            <span>
-              <Moment format="YYYY">{new Date()}</Moment>
-            </span>
-            , thelocalfeet - All right reserved.
-          </p>
+
+          <div className="flex bottom">
+            <p>
+              Copyright{" "}
+              <span>
+                <Moment format="YYYY">{new Date()}</Moment>
+              </span>
+              , thelocalfeet - All right reserved.
+            </p>
+            <div className="scroll_btn" onClick={scroll}>
+              <div className="icon">
+                <IoIosArrowUp />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -28,17 +44,39 @@ const Footer = () => {
         }
         p {
           text-align: center;
-          margin: 3rem 0 0 0;
+          margin: 0;
         }
 
+        .bottom {
+          gap: 1rem;
+          justify-content: center;
+        }
+
+        .scroll_btn {
+          display: none;
+        }
+
+        .icon {
+          background: #039b8d;
+          color: white;
+          padding: 0.4rem;
+          border-radius: 10px;
+        }
         @media (max-width: 767px) {
           .section {
             padding: 0;
           }
 
+          .bottom {
+            margin-top: 2rem;
+          }
+
+          .scroll_btn {
+            display: flex;
+          }
+
           p {
             text-align: left;
-            margin: 1rem 0 0 0;
             font-weight: 600;
           }
         }

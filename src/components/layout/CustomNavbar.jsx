@@ -68,7 +68,7 @@ const CustomNavbar = () => {
             />
           </div>
 
-          <div className="flex">
+          <div className="flex menu_icon">
             <GoBack />
             <div className="icon" onClick={openNavbar}>
               <HiMenuAlt3 />
@@ -117,7 +117,10 @@ const CustomNavbar = () => {
           border-radius: 8px;
           font-size: 1.6rem;
           background: white;
-          margin-left: 1rem;
+        }
+
+        .menu_icon {
+          gap: 1rem;
         }
         .update .icon {
           background: #ededed;

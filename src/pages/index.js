@@ -116,7 +116,6 @@ export default function Home({ blog, photoBlog, products, offer }) {
           caption_two="Made in India, at Nagaur Fort also known as Ahichhatragarh Fort"
         />
         {photoBlog.length > 0 && <PhotoBlog data={photoBlog} />}
-
         {products.length > 0 && <Shop data={products} offer={offer} />}
         <Achievement />
         <JoinUs />

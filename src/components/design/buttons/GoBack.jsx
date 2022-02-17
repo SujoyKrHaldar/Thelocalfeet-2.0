@@ -29,12 +29,13 @@ const GoBack = ({
 
           margin-top: ${top};
           margin-bottom: ${bottom};
+
+          gap: 0.3rem;
         }
 
         .icon {
           padding: 0;
           font-size: 0.9rem;
-          transform: translateX(-2px);
         }
         .btn:hover {
           background: ${backgroundOnHover};
@@ -45,6 +46,25 @@ const GoBack = ({
         }
         p {
           margin: 0;
+        }
+
+        @media (max-width: 768px) {
+          .btn {
+            padding: 0;
+            border-radius: 100%;
+          }
+
+          .btn:hover .icon {
+            transform: translateX(0);
+          }
+
+          p {
+            display: none;
+          }
+          .icon {
+            padding: 0.6rem;
+            font-size: 1.6rem;
+          }
         }
       `}</style>
     </>

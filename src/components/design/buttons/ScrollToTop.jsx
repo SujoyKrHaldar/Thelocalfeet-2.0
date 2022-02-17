@@ -1,14 +1,6 @@
 import { IoIosArrowUp } from "react-icons/io";
-import { IoChevronBackOutline } from "react-icons/io5";
-import { useRouter } from "next/router";
 
 export default function ScrollToTop() {
-  const router = useRouter();
-
-  const back = () => {
-    router.back();
-  };
-
   const scroll = () => {
     window.scrollTo({
       top: 0,
@@ -19,13 +11,6 @@ export default function ScrollToTop() {
   return (
     <>
       <div className="buttons">
-        <div className="flex scroll_top back" onClick={back}>
-          <div className="icon">
-            <IoChevronBackOutline />
-          </div>
-          <p>Back</p>
-        </div>
-
         <div onClick={scroll} className="flex scroll_top">
           <div className="icon">
             <IoIosArrowUp />
@@ -36,9 +21,6 @@ export default function ScrollToTop() {
 
       <style jsx>{`
         .buttons {
-          display: flex;
-          align-items: center;
-          justify-content: right;
           position: sticky;
           bottom: 2rem;
           z-index: 1;
@@ -48,9 +30,6 @@ export default function ScrollToTop() {
         p {
           margin: 0;
         }
-        .back {
-          display: none;
-        }
 
         .flex {
           gap: 0.5rem;
@@ -58,10 +37,13 @@ export default function ScrollToTop() {
 
         .scroll_top {
           color: white;
+          width: max-content;
           border-radius: 50px;
           cursor: pointer;
           padding: 0.3rem;
           pointer-events: visible;
+          margin-right: 0;
+          margin-left: auto;
         }
         .scroll_top p {
           z-index: 1;
@@ -86,41 +68,20 @@ export default function ScrollToTop() {
           border-radius: 100%;
         }
 
-        @media (max-width: 600px) {
-          .buttons {
-            justify-content: space-between;
-          }
-
-          .scroll_top p {
-            z-index: 1;
-            margin-left: 0;
-            opacity: 1;
-          }
-
+        @media (max-width: 768px) {
           .scroll_top,
           .scroll_top:hover {
             background: #009688;
-            padding: 1rem 2rem 1rem 1.5rem;
+            padding: 0;
             gap: 0;
+          }
+          p {
+            display: none;
           }
 
           .icon {
-            font-size: 0.9rem;
-            padding: 5px;
-          }
-
-          .back {
-            display: flex;
-            background: black;
-            color: white;
-          }
-
-          .back:hover {
-            background: black;
-          }
-
-          .back .icon {
-            background: black;
+            padding: 0.6rem;
+            font-size: 1.6rem;
           }
         }
       `}</style>

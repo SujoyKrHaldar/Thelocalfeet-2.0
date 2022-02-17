@@ -40,7 +40,7 @@ const Footer_top = () => {
         </p>
 
         <div className="social_link">
-          <p className="title">Quick Links</p>
+          <p className="title">Follow us on Social</p>
           <div className="flex">
             <Link href="https://www.facebook.com/thelocalfeet">
               <a target="blank" className="icon">
@@ -81,7 +81,8 @@ const Footer_top = () => {
         }
 
         .links {
-          padding-top: 0;
+          padding: 0;
+          margin-bottom: 1.3rem;
         }
 
         .flex {
@@ -96,6 +97,10 @@ const Footer_top = () => {
         }
         a {
           padding: 0.3rem 0;
+          font-weight: 600;
+        }
+        a:hover {
+          font-weight: 700;
         }
 
         .social_link {
@@ -103,7 +108,8 @@ const Footer_top = () => {
         }
 
         .icon {
-          font-size: 1.6rem;
+          font-size: 2rem;
+          color: #2b2b2b;
         }
 
         @media (max-width: 600px) {
@@ -114,7 +120,8 @@ const Footer_top = () => {
           }
 
           .links {
-            padding: 1rem 0;
+            padding: 0;
+            margin: 0.6rem 0;
           }
 
           .flex {
