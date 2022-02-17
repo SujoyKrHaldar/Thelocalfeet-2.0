@@ -35,7 +35,14 @@ const About = () => {
             />
 
             <div className="featured_img">
-              <img className="left" src="/assets/collage.png" alt="collage" />
+              <img
+                className="left"
+                src="/assets/collage.png"
+                alt="collage"
+                onDragStart={(e) => {
+                  e.preventDefault();
+                }}
+              />
             </div>
           </div>
         </div>

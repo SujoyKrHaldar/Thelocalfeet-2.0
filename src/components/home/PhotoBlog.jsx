@@ -7,8 +7,8 @@ const PhotoBlog = ({ data }) => {
     <>
       <div className="section">
         <div className="container">
-          <p className="tag">Our new section</p>
-          <h2>Featured Albums</h2>
+          <p className="tag">New Section</p>
+          <h2>Photo Albums</h2>
 
           <div className="list">
             {data.map((d) => (
@@ -16,14 +16,16 @@ const PhotoBlog = ({ data }) => {
             ))}
           </div>
 
-          <ReadMoreType
-            text="View all blogs"
-            url="/photography"
-            color="#fff"
-            colorOnHover="#fff"
-            background=" #f3c481"
-            backgroundOnHover="#dd9733"
-          />
+          {data.length > 4 && (
+            <ReadMoreType
+              text="View all blogs"
+              url="/photography"
+              color="#fff"
+              colorOnHover="#fff"
+              background=" #f3c481"
+              backgroundOnHover="#dd9733"
+            />
+          )}
         </div>
 
         <div className="icon ">
@@ -32,6 +34,11 @@ const PhotoBlog = ({ data }) => {
       </div>
 
       <style jsx>{`
+        .section {
+          padding-top: 2rem;
+          padding-bottom: 4rem;
+          z-index: 2;
+        }
         .icon {
           position: absolute;
           width: 40px;
@@ -69,6 +76,7 @@ const PhotoBlog = ({ data }) => {
 
         .container {
           text-align: center;
+          padding: 2rem 0;
         }
 
         .list {
@@ -79,10 +87,10 @@ const PhotoBlog = ({ data }) => {
           margin: 2rem 0 3rem;
         }
 
-        @media (max-width: 600px) {
-          .container {
-            padding: 0;
-          }
+        h2 {
+          padding: 0.3rem 2rem;
+          background: #fff0dc;
+          display: inline-block;
         }
       `}</style>
     </>

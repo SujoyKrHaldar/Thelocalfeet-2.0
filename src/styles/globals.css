@@ -160,7 +160,13 @@ p {
 
   cursor: pointer;
   transition: 0.1s ease;
-  transition: 0.5s background ease;
+  transition: background 0.5s ease;
+}
+
+@media (max-width: 600px) {
+  .btn {
+    padding: 1rem 3rem !important;
+  }
 }
 
 .icon {

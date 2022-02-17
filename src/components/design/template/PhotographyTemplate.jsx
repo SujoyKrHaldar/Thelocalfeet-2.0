@@ -80,11 +80,11 @@ const PhotographyTemplate = ({
           color: #dfdfdf;
         }
         .background {
-          transition: 0.5s ease;
+          transition: transform 5.5s ease-in-out;
         }
 
         .container:hover .background {
-          transform: scale(1.15) rotate(3deg);
+          transform: scale(1.15);
         }
 
         img {
@@ -96,7 +96,7 @@ const PhotographyTemplate = ({
             padding: 1rem;
           }
           .container:hover .background {
-            transform: scale(1) rotate(0deg);
+            transform: scale(1);
           }
 
           .content {

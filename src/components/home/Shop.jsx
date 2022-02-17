@@ -1,5 +1,6 @@
 import ReadMoreType from "../design/buttons/ReadMoreType";
 import ShopCard from "../design/card/ShopCard";
+import { IoIosArrowDown } from "react-icons/io";
 
 const Shop = ({ data, offer }) => {
   return (
@@ -23,23 +24,44 @@ const Shop = ({ data, offer }) => {
             ))}
           </div>
 
-          <ReadMoreType
-            text="Shop with us"
-            url="/store"
-            color="#fff"
-            colorOnHover="#fff"
-            background="#2882c9 "
-            backgroundOnHover="#52abf0"
-          />
+          {data.length > 4 && (
+            <ReadMoreType
+              text="Shop with us"
+              url="/store"
+              color="#fff"
+              colorOnHover="#fff"
+              background="#2882c9 "
+              backgroundOnHover="#52abf0"
+            />
+          )}
+        </div>
+
+        <div className="icon ">
+          <IoIosArrowDown />
         </div>
       </div>
 
       <style jsx>{`
+        .icon {
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          font-size: 1.4rem;
+          background: #7cc5ff;
+          color: white;
+          border-radius: 100%;
+          bottom: -2rem;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
         .section {
+          padding: 4rem 2rem;
           background: linear-gradient(0deg, white, #2196f330, white);
         }
         .container {
           text-align: center;
+          padding: 2rem 0;
         }
 
         .list {
@@ -54,7 +76,9 @@ const Shop = ({ data, offer }) => {
         }
 
         h2 {
-          margin-bottom: 1.5rem;
+          padding: 0.3rem 2rem;
+          background: #c6e6ff;
+          display: inline-block;
         }
       `}</style>
     </>

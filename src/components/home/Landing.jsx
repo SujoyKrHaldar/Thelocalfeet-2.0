@@ -28,7 +28,7 @@ const Landing = () => {
           </div>
 
           <p className="date">
-            <Moment format="dddd [ ] MMMM DD [ ] YYYY">{new Date()}</Moment>
+            <Moment format="MMMM DD[, ]YYYY">{new Date()}</Moment>
           </p>
         </div>
       </div>
