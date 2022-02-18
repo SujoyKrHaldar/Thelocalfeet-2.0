@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { urlFor } from "../../../../sanity";
 import Moment from "react-moment";
+import { urlFor } from "../../../../config/sanity";
 
 export default function OtherBlogCard({ data, link }) {
   return (

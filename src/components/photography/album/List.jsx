@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { urlFor } from "../../../../sanity";
+import { urlFor } from "../../../../config/sanity";
 
 const List = ({ blog }) => {
   return (

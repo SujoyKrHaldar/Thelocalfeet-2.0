@@ -1,9 +1,10 @@
 import Head from "next/head";
-import { sanityClient, urlFor } from "../../../sanity";
-import BlogTemplate from "../../components/blogs/BlogTemplate";
-import FallbackLoading from "../../components/design/template/FallbackLoading";
-import CustomNavbar from "../../components/layout/CustomNavbar";
+import { sanityClient, urlFor } from "../../../config/sanity";
+
 import Footer from "../../components/layout/Footer";
+import BlogTemplate from "../../components/blogs/BlogTemplate";
+import CustomNavbar from "../../components/layout/CustomNavbar";
+import FallbackLoading from "../../components/design/template/FallbackLoading";
 
 const BlogSlugsQuery = `*[_type == "photoBlog" && defined(slug.current)][].slug.current`;
 
@@ -78,6 +79,7 @@ export async function getStaticProps({ params }) {
 
 const photoBlogBySlug = ({ blog, otherBlogs }) => {
   if (!blog) return <FallbackLoading />;
+
   return (
     <>
       <Head>

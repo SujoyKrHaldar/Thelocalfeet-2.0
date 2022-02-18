@@ -1,7 +1,7 @@
 import Head from "next/head";
+
+import Layout from "../components/layout/Layout";
 import ComingSoon from "../components/design/template/ComingSoon";
-import Footer from "../components/layout/Footer";
-import Navbar from "../components/layout/Navbar";
 
 function travel() {
   return (
@@ -14,9 +14,9 @@ function travel() {
         />
       </Head>
 
-      <Navbar mainColor="#fff" mainBackground="transparent" logo="light" />
-      <ComingSoon asset="/assets/coming-soon.jpeg" />
-      <Footer />
+      <Layout>
+        <ComingSoon asset="/assets/coming-soon.jpeg" />
+      </Layout>
     </>
   );
 }

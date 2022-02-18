@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BiRightArrowAlt } from "react-icons/bi";
-import { urlFor } from "../../../../sanity";
+import { urlFor } from "../../../../config/sanity";
 
 const PhBlogCardH = ({ data }) => {
   return (

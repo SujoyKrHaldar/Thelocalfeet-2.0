@@ -1,8 +1,9 @@
 import Head from "next/head";
-import { sanityClient } from "../../../sanity";
-import CustomNavbar from "../../components/layout/CustomNavbar";
+import { sanityClient } from "../../../config/sanity";
+
 import Footer from "../../components/layout/Footer";
 import List from "../../components/photography/album/List";
+import CustomNavbar from "../../components/layout/CustomNavbar";
 
 const photoBlogQuery = `*[_type == "photoBlog"]|order( publishedAt desc)
                       {

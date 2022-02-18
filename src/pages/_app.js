@@ -1,7 +1,8 @@
 import Head from "next/head";
-import "../styles/globals.css";
-import { useState, useEffect } from "react";
 import Router from "next/router";
+import { useState, useEffect } from "react";
+
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps, router }) {
   const [loading, setLoading] = useState(false);

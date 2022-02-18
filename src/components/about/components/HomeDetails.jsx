@@ -1,6 +1,7 @@
+import { IoIosArrowDown } from "react-icons/io";
+
 import AboutFollow from "./AboutFollow";
 import MainSocialLink from "./MainSocialLink";
-import { IoIosArrowDown } from "react-icons/io";
 
 export default function HomeDetails() {
   return (

@@ -1,6 +1,7 @@
-import Home from "./components/Home";
 import Rellax from "rellax";
 import { useEffect, useRef } from "react";
+
+import Home from "./components/Home";
 
 const Landing = () => {
   const img_parallex = useRef();

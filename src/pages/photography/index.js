@@ -1,11 +1,12 @@
-import Head from "next/head";
 import Rellax from "rellax";
+import Head from "next/head";
 import { useEffect } from "react";
+import { sanityClient } from "../../../config/sanity";
+
 import Layout from "../../components/layout/Layout";
 import Gallery from "../../components/photography/Gallery";
 import Landing from "../../components/photography/Landing";
 import PhotoBlog from "../../components/photography/PhotoBlog";
-import { sanityClient } from "../../../sanity";
 
 const photoBlogQuery = `*[_type == "photoBlog"][0..2]|order( publishedAt desc)
                       {
@@ -75,7 +76,7 @@ function index({ blog, gallery }) {
         {/* <meta property="og:image" content="/image/photography/landing2.jpeg" /> */}
       </Head>
 
-      <Layout mainColor="#fff" mainBackground="transparent" logo="light">
+      <Layout>
         <Landing />
         <Gallery data={gallery} />
         {blog.length > 0 && <PhotoBlog data={blog} />}

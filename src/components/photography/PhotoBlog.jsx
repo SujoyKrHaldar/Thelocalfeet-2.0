@@ -1,5 +1,5 @@
-import ReadMoreType from "../design/buttons/ReadMoreType";
 import PhBlogCardH from "../design/card/PhBlogCardH";
+import ReadMoreType from "../design/buttons/ReadMoreType";
 
 const PhotoBlog = ({ data }) => {
   return (

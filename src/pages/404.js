@@ -1,6 +1,7 @@
 import Head from "next/head";
-import ErrorLanding from "../components/design/template/ErrorLanding";
+
 import CustomNavbar from "../components/layout/CustomNavbar";
+import ErrorLanding from "../components/design/template/ErrorLanding";
 
 function pageNotFound() {
   return (

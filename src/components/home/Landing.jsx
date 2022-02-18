@@ -1,5 +1,5 @@
-import { IoMdArrowDropdown } from "react-icons/io";
 import Moment from "react-moment";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 const Landing = () => {
   return (

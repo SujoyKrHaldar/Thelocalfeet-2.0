@@ -1,10 +1,10 @@
-import { urlFor } from "../../../../sanity";
 import { useState } from "react";
 import { IoLogoFacebook } from "react-icons/io5";
 import { AiFillInstagram } from "react-icons/ai";
-import Model from "./Model";
-
+import { urlFor } from "../../../../config/sanity";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+
+import Model from "./Model";
 
 const Gallery = ({ data }) => {
   const [selected, setSelected] = useState(null);
@@ -18,7 +18,7 @@ const Gallery = ({ data }) => {
 
           <div className="gallery">
             <ResponsiveMasonry
-              columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
+              columnsCountBreakPoints={{ 350: 2, 750: 3, 900: 4 }}
             >
               <Masonry gutter="1rem">
                 {data.map((i) => (

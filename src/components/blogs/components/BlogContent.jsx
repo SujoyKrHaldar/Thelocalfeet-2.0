@@ -1,4 +1,4 @@
-import { Portabletext, urlFor } from "../../../../sanity";
+import { Portabletext, urlFor } from "../../../../config/sanity";
 
 const BlogContent = ({ blog }) => {
   const serializers = {

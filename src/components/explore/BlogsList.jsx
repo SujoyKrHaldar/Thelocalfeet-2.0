@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Moment from "react-moment";
-import { urlFor } from "../../../sanity";
+import { urlFor } from "../../../config/sanity";
 
 const BlogsList = ({ data }) => {
   return (

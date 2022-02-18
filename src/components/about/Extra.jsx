@@ -1,6 +1,6 @@
-import PhotographyTemplate from "../design/template/PhotographyTemplate";
-import Albums from "./components/Albums";
 import Blogs from "./components/Blogs";
+import Albums from "./components/Albums";
+import PhotographyTemplate from "../design/template/PhotographyTemplate";
 
 const Extra = ({ blog, album }) => {
   return (

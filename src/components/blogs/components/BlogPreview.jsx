@@ -1,5 +1,5 @@
 import Moment from "react-moment";
-import { urlFor } from "../../../../sanity";
+import { urlFor } from "../../../../config/sanity";
 
 function BlogPreview({ blog }) {
   return (

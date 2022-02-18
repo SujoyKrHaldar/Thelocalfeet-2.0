@@ -1,8 +1,8 @@
-import Moment from "react-moment";
 import Rellax from "rellax";
+import Moment from "react-moment";
 import { useEffect, useRef } from "react";
-import { urlFor } from "../../../../sanity";
 import { AiFillRead } from "react-icons/ai";
+import { urlFor } from "../../../../config/sanity";
 
 const BlogLanding = ({ blog }) => {
   const img_parallex = useRef();

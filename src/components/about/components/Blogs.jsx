@@ -1,5 +1,5 @@
-import OtherBlogCard from "../../design/card/OtherBlogCard";
 import { IoIosArrowDown } from "react-icons/io";
+import OtherBlogCard from "../../design/card/OtherBlogCard";
 
 export default function Blogs({ data }) {
   return (

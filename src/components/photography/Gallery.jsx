@@ -1,4 +1,4 @@
-import { urlFor } from "../../../sanity";
+import { urlFor } from "../../../config/sanity";
 import ReadMoreType from "../design/buttons/ReadMoreType";
 
 const Gallery = ({ data }) => {

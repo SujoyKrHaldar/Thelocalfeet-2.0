@@ -1,10 +1,11 @@
 import Head from "next/head";
 import Rellax from "rellax";
 import { useEffect } from "react";
-import { sanityClient } from "../../../sanity";
-import Landing from "../../components/explore/Landing";
-import Layout from "../../components/layout/Layout";
+import { sanityClient } from "../../../config/sanity";
+
 import Body from "../../components/explore/Body";
+import Layout from "../../components/layout/Layout";
+import Landing from "../../components/explore/Landing";
 import ComingSoon from "../../components/design/template/ComingSoon";
 
 const blogQuery = `*[_type == "blog"]|order( publishedAt desc) 
@@ -18,21 +19,21 @@ const blogQuery = `*[_type == "blog"]|order( publishedAt desc)
                     subtitle 
                   }`;
 
-const countryQuery = `*[_type == "country"]|order( _createdAt asc)
-                  { 
-                    "id":_id, 
-                    coverImage, 
-                    name 
-                  }`;
+const countryQuery = `*[_type == "country"]
+                      { 
+                        "id":_id, 
+                        coverImage, 
+                        name 
+                      }`;
 
-const photoBlogQuery = `*[_type == "photoBlog"][0]
-                  {
-                    "id":_id, 
-                    title, 
-                    subtitle, 
-                    "slug":slug.current, 
-                    mainImage
-                  }`;
+const photoBlogQuery = `*[_type == "photoBlog"][0..1]|order(publishedAt desc)
+                        {
+                          "id":_id, 
+                          title, 
+                          subtitle, 
+                          "slug":slug.current, 
+                          mainImage
+                        }`;
 
 export const getStaticProps = async () => {
   const blog = await sanityClient.fetch(blogQuery);
@@ -87,10 +88,9 @@ function index({ country, blog, photoBlog }) {
         /> */}
       </Head>
 
-      <Layout mainColor="#fff">
+      <Layout>
         {blog.length > 0 ? (
           <>
-            {" "}
             <Landing />
             <Body country={country} blog={blog} album={photoBlog} />
           </>

@@ -1,5 +1,5 @@
-import ReadMoreType from "../design/buttons/ReadMoreType";
 import { IoIosArrowDown } from "react-icons/io";
+import ReadMoreType from "../design/buttons/ReadMoreType";
 
 const About = () => {
   return (

@@ -1,6 +1,7 @@
-import ReadMoreType from "../design/buttons/ReadMoreType";
-import BlogCard from "../design/card/BlogCard";
 import { IoIosArrowDown } from "react-icons/io";
+
+import BlogCard from "../design/card/BlogCard";
+import ReadMoreType from "../design/buttons/ReadMoreType";
 
 const PhotoBlog = ({ data }) => {
   return (

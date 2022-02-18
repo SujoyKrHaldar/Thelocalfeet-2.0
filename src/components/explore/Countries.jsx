@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { urlFor } from "../../../sanity";
+import { urlFor } from "../../../config/sanity";
 import ReadMoreType from "../design/buttons/ReadMoreType";
 
 const Countries = ({ data, album }) => {
@@ -15,6 +15,9 @@ const Countries = ({ data, album }) => {
                   className="background"
                   src={urlFor(i.coverImage).url()}
                   alt={i.name}
+                  onDragStart={(e) => {
+                    e.preventDefault();
+                  }}
                 />
                 <p>{i.name}</p>
               </div>
@@ -22,20 +25,25 @@ const Countries = ({ data, album }) => {
           </div>
         </div>
 
-        {album && (
+        {album.length > 0 && (
           <div className="albums">
             <h2>Albums</h2>
-            <Link href={`photography/${album.slug}`}>
-              <a className="album_box">
-                <img
-                  className="background"
-                  src={urlFor(album.mainImage).url()}
-                  alt={album.title}
-                />
+            {album.map((a) => (
+              <Link href={`photography/${a.slug}`}>
+                <a className="album_box">
+                  <img
+                    className="background"
+                    src={urlFor(a.mainImage).url()}
+                    alt={a.title}
+                    onDragStart={(e) => {
+                      e.preventDefault();
+                    }}
+                  />
 
-                <p>{album.title}</p>
-              </a>
-            </Link>
+                  <p>{a.title}</p>
+                </a>
+              </Link>
+            ))}
 
             <ReadMoreType
               text="View all"
@@ -73,6 +81,11 @@ const Countries = ({ data, album }) => {
           place-items: center;
 
           overflow: hidden;
+          margin-bottom: 1rem;
+        }
+
+        .album_box:last-child() {
+          margin-bottom: 0;
         }
 
         .album_box:before {

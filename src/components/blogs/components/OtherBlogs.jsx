@@ -1,6 +1,7 @@
 import { IoIosArrowDown } from "react-icons/io";
-import ReadMoreType from "../../design/buttons/ReadMoreType";
+
 import OtherBlogCard from "../../design/card/OtherBlogCard";
+import ReadMoreType from "../../design/buttons/ReadMoreType";
 
 export default function OtherBlogs({ data, Blogs_link }) {
   return (

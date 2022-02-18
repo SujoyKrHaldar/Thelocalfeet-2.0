@@ -1,7 +1,8 @@
 import Head from "next/head";
-import { sanityClient } from "../../../sanity";
-import CustomNavbar from "../../components/layout/CustomNavbar";
+import { sanityClient } from "../../../config/sanity";
+
 import Footer from "../../components/layout/Footer";
+import CustomNavbar from "../../components/layout/CustomNavbar";
 import Gallery from "../../components/photography/gallery/Gallery";
 
 const galleryQuery = `*[_type == "photography"]|order( publishedAt desc)

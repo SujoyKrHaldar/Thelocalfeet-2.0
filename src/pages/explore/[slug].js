@@ -1,9 +1,10 @@
 import Head from "next/head";
-import { sanityClient, urlFor } from "../../../sanity";
+import { sanityClient, urlFor } from "../../../config/sanity";
+
+import Footer from "../../components/layout/Footer";
 import BlogTemplate from "../../components/blogs/BlogTemplate";
 import CustomNavbar from "../../components/layout/CustomNavbar";
 import FallbackLoading from "../../components/design/template/FallbackLoading";
-import Footer from "../../components/layout/Footer";
 
 const allBlogSlugQuery = `*[_type == "blog" && defined(slug.current)][].slug.current`;
 
@@ -28,15 +29,15 @@ const eachBlogSlugQuery = `*[_type == "blog" && slug.current == $slug][0]
                         }`;
 
 const otherBlogsQuery = `*[_type == "blog" && slug.current != $slug][0..3]
-                      {
-                        'id':_id, 
-                        publishedAt, 
-                        'country':country->{name}, 
-                        mainImage,
-                        'slug':slug.current, 
-                        title, 
-                        subtitle 
-                      }`;
+                        {
+                          'id':_id, 
+                          publishedAt, 
+                          'country':country->{name}, 
+                          mainImage,
+                          'slug':slug.current, 
+                          title, 
+                          subtitle 
+                        }`;
 
 export async function getStaticPaths() {
   const response = await sanityClient.fetch(allBlogSlugQuery);
@@ -80,6 +81,7 @@ export async function getStaticProps({ params }) {
 
 function blogBySlug({ blog, otherBlogs }) {
   if (!blog) return <FallbackLoading />;
+
   return (
     <>
       <Head>

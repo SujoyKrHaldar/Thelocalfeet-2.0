@@ -1,7 +1,8 @@
-import App from "../../components/shop/App";
 import Head from "next/head";
+import { sanityClient } from "../../../config/sanity";
+
+import App from "../../components/shop/App";
 import Layout from "../../components/layout/Layout";
-import { sanityClient } from "../../../sanity";
 
 const productsQuery = `*[_type == "shop"]|order(_createdAt desc)
                         {

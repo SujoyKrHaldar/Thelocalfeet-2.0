@@ -1,23 +1,24 @@
 import Head from "next/head";
-import AboutTravel from "../components/about/AboutTravel";
-import Landing from "../components/about/Landing";
-import OurJourney from "../components/about/OurJourney";
-import WhyUs from "../components/about/WhyUs";
-import Contact from "../components/design/form/Contact";
-import Layout from "../components/layout/Layout";
+import { sanityClient } from "../../config/sanity";
+
 import Extra from "../components/about/Extra";
-import { sanityClient } from "../../sanity";
+import WhyUs from "../components/about/WhyUs";
+import Layout from "../components/layout/Layout";
+import Landing from "../components/about/Landing";
+import Contact from "../components/design/form/Contact";
+import OurJourney from "../components/about/OurJourney";
+import AboutTravel from "../components/about/AboutTravel";
 
 const blogQuery = `*[_type == "blog"][0..3]|order( publishedAt desc) 
-                  {
-                    'id':_id, 
-                    publishedAt, 
-                    'country':country->{name}, 
-                    mainImage,
-                    'slug':slug.current, 
-                    title, 
-                    subtitle 
-                  }`;
+                      {
+                        'id':_id, 
+                        publishedAt, 
+                        'country':country->{name}, 
+                        mainImage,
+                        'slug':slug.current, 
+                        title, 
+                        subtitle 
+                      }`;
 
 const photoBlogQuery = `*[_type == "photoBlog"][0..3]|order( publishedAt desc)
                       {
@@ -64,7 +65,7 @@ function about({ blog, photoBlog }) {
         {/* <meta property="og:image" content="/image/about/about-landing.jpeg" /> */}
       </Head>
 
-      <Layout mainColor="#fff">
+      <Layout>
         <Landing />
         <OurJourney />
         <WhyUs />

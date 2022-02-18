@@ -159,6 +159,7 @@ const Navbar = () => {
         .btn_nav {
           padding: 0.7rem 1rem;
           font-size: 0.9rem;
+          transition: 0.3s ease-out;
         }
 
         .btn_nav:hover {

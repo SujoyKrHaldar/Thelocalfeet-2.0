@@ -2,14 +2,15 @@ const WhyUs = () => {
   return (
     <>
       <div className="container">
-        <img
-          className="background"
-          src="/assets/about.jpeg "
-          alt="collage"
-          onDragStart={(e) => {
-            e.preventDefault();
-          }}
-        />
+        <div className="background">
+          <img
+            src="/assets/about.jpeg "
+            alt="collage"
+            onDragStart={(e) => {
+              e.preventDefault();
+            }}
+          />
+        </div>
 
         <div className="main">
           <h2>Why thelocalfeet</h2>
@@ -29,6 +30,7 @@ const WhyUs = () => {
           height: 590px;
           z-index: 1;
           display: flex;
+          overflow: hidden;
         }
 
         .container:before {
@@ -46,6 +48,18 @@ const WhyUs = () => {
           );
           inset: 0;
           z-index: -1;
+        }
+
+        .background {
+          transition: transform 5.5s ease-in-out;
+        }
+
+        img {
+          object-position: 50% 64%;
+        }
+
+        .container:hover .background {
+          transform: scale(1.15);
         }
 
         .main {
@@ -72,21 +86,12 @@ const WhyUs = () => {
           max-width: 492px;
         }
 
-        .background {
-          object-position: 50% 64%;
-        }
-
         @media (max-width: 867px) {
           .main {
             padding: 2rem;
             max-width: 500px;
           }
         }
-        /* @media (max-width: 768px) {
-          .container {
-            height: 100vh;
-          }
-        } */
 
         @media (max-width: 600px) {
           .main {

@@ -1,5 +1,5 @@
-import { RiFacebookFill, RiInstagramLine } from "react-icons/ri";
 import Link from "next/link";
+import { RiFacebookFill, RiInstagramLine } from "react-icons/ri";
 
 const links = [
   {

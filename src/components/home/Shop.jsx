@@ -1,6 +1,7 @@
-import ReadMoreType from "../design/buttons/ReadMoreType";
-import ShopCard from "../design/card/ShopCard";
 import { IoIosArrowDown } from "react-icons/io";
+
+import ShopCard from "../design/card/ShopCard";
+import ReadMoreType from "../design/buttons/ReadMoreType";
 
 const Shop = ({ data, offer }) => {
   return (

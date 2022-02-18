@@ -1,10 +1,10 @@
+import Comments from "../design/form/Comments";
+import OtherBlogs from "./components/OtherBlogs";
 import BlogContent from "./components/BlogContent";
 import BlogLanding from "./components/BlogLanding";
-import SocialShareBox from "./components/SocialShareBox";
 import BlogPreview from "./components/BlogPreview";
-import Comments from "../design/form/Comments";
 import ScrollToTop from "../design/buttons/ScrollToTop";
-import OtherBlogs from "./components/OtherBlogs";
+import SocialShareBox from "./components/SocialShareBox";
 
 const BlogTemplate = ({ blog, others, link }) => {
   return (

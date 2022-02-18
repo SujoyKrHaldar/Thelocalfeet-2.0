@@ -1,7 +1,7 @@
-import { urlFor } from "../../../../sanity";
+import Link from "next/link";
 import Moment from "react-moment";
 import { BiRightArrowAlt } from "react-icons/bi";
-import Link from "next/link";
+import { urlFor } from "../../../../config/sanity";
 
 const BlogCard = ({ data }) => {
   return (
