@@ -1,10 +1,9 @@
 import Head from "next/head";
 import { sanityClient, urlFor } from "../../../config/sanity";
 
-import Footer from "../../components/layout/Footer";
 import BlogTemplate from "../../components/blogs/BlogTemplate";
-import CustomNavbar from "../../components/layout/CustomNavbar";
 import FallbackLoading from "../../components/design/template/FallbackLoading";
+import CustomLayout from "../../components/layout/CustomLayout";
 
 const allBlogSlugQuery = `*[_type == "blog" && defined(slug.current)][].slug.current`;
 
@@ -98,9 +97,9 @@ function blogBySlug({ blog, otherBlogs }) {
         <meta property="og:image" content={urlFor(blog.mainImage).url()} />
       </Head>
 
-      <CustomNavbar />
-      <BlogTemplate blog={blog} others={otherBlogs} link="/explore" />
-      <Footer />
+      <CustomLayout>
+        <BlogTemplate blog={blog} others={otherBlogs} link="/explore" />
+      </CustomLayout>
     </>
   );
 }

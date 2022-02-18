@@ -1,5 +1,5 @@
-import { AiFillCloseSquare, AiTwotonePhone } from "react-icons/ai";
 import { IoLogoWhatsapp } from "react-icons/io";
+import { AiFillCloseSquare, AiTwotonePhone } from "react-icons/ai";
 
 export default function Model({ open, close, data }) {
   return (

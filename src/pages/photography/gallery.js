@@ -4,6 +4,7 @@ import { sanityClient } from "../../../config/sanity";
 import Footer from "../../components/layout/Footer";
 import CustomNavbar from "../../components/layout/CustomNavbar";
 import Gallery from "../../components/photography/gallery/Gallery";
+import CustomLayout from "../../components/layout/CustomLayout";
 
 const galleryQuery = `*[_type == "photography"]|order( publishedAt desc)
                     {
@@ -51,9 +52,9 @@ function gallery({ gallery }) {
         {/* <meta property="og:image" content="/image/photography/landing2.jpeg" /> */}
       </Head>
 
-      <CustomNavbar />
-      <Gallery data={gallery} />
-      <Footer />
+      <CustomLayout>
+        <Gallery data={gallery} />
+      </CustomLayout>
     </>
   );
 }

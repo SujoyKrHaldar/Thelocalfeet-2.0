@@ -1,8 +1,9 @@
-import { urlFor } from "../../../sanity";
-import { useState } from "react";
 import Link from "next/link";
-import Details from "./components/Details";
+import { useState } from "react";
+import { urlFor } from "../../../config/sanity";
+
 import Model from "./components/Model";
+import Details from "./components/Details";
 
 export default function Construct({ data, offer, others }) {
   const [open, setOpen] = useState(false);

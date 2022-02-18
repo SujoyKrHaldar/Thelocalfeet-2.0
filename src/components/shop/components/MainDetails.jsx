@@ -1,5 +1,5 @@
-import { urlFor } from "../../../../sanity";
 import Link from "next/link";
+import { urlFor } from "../../../../config/sanity";
 
 export default function MainDetails({ details: ds, openPopup, offer }) {
   return (

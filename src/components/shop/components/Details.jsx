@@ -1,6 +1,6 @@
+import Preview from "./Preview";
 import MainDetails from "./MainDetails";
 import OtherProducts from "./OtherProducts";
-import Preview from "./Preview";
 
 export default function Details({
   data,

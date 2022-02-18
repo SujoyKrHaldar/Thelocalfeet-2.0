@@ -1,4 +1,4 @@
-import { urlFor } from "../../../../sanity";
+import { urlFor } from "../../../../config/sanity";
 
 const Preview = ({ prv }) => {
   return (

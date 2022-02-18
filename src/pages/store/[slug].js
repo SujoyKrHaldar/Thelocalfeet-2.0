@@ -1,9 +1,9 @@
 import Head from "next/head";
-import { sanityClient, urlFor } from "../../../sanity";
-import FallbackLoading from "../../components/design/template/FallbackLoading";
-import CustomNavbar from "../../components/layout/CustomNavbar";
-import Footer from "../../components/layout/Footer";
+import { sanityClient, urlFor } from "../../../config/sanity";
+
 import Construct from "../../components/shop/Construct";
+import FallbackLoading from "../../components/design/template/FallbackLoading";
+import CustomLayout from "../../components/layout/CustomLayout";
 
 const allProductsQuery = `*[_type == "shop" && defined(slug.current)][].slug.current`;
 
@@ -108,9 +108,9 @@ export default function products({ evt, offer, others }) {
         <meta property="og:image:height" content="200" />
       </Head>
 
-      <CustomNavbar />
-      <Construct data={evt} offer={offer} others={others} />
-      <Footer />
+      <CustomLayout>
+        <Construct data={evt} offer={offer} others={others} />
+      </CustomLayout>
     </>
   );
 }
