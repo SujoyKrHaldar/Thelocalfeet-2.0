@@ -10,7 +10,7 @@ const Blog = ({ data }) => {
           <h2>Blog Articless</h2>
 
           <div className="list">
-            {data.map((d) => (
+            {data.slice(0, 4).map((d) => (
               <BlogCard data={d} key={d.id} />
             ))}
           </div>

@@ -1,4 +1,4 @@
-import { IoIosArrowDown } from "react-icons/io";
+import HrTag from "../design/HrTag";
 import ReadMoreType from "../design/buttons/ReadMoreType";
 
 const About = () => {
@@ -47,24 +47,10 @@ const About = () => {
           </div>
         </div>
 
-        <div className="icon ">
-          <IoIosArrowDown />
-        </div>
+        <HrTag background="#7cd7cf" bottom="-2rem" top="auto" />
       </div>
 
       <style jsx>{`
-        .icon {
-          position: absolute;
-          width: 40px;
-          height: 40px;
-          font-size: 1.4rem;
-          background: #7cd7cf;
-          color: white;
-          border-radius: 100%;
-          bottom: -2rem;
-          left: 50%;
-          transform: translateX(-50%);
-        }
         .section {
           text-align: center;
           padding: 6rem 4rem 0;

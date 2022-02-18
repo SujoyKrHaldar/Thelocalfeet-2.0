@@ -36,13 +36,12 @@ const Gallery = ({ data }) => {
       <style jsx>{`
         .section {
           text-align: center;
-          padding-bottom: 1rem;
         }
 
         h2 {
           padding: 0.3rem 2rem;
           margin-bottom: 1rem;
-          background: #f5f5f5;
+          background: #54d9cc57;
           display: inline-block;
         }
 

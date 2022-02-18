@@ -1,11 +1,15 @@
 import PhBlogCardH from "../design/card/PhBlogCardH";
+import HrTag from "../design/HrTag";
 
 const PhotoBlog = ({ data }) => {
   return (
     <>
       <div className="section">
         <div className="container">
-          <h2>Featured Albums</h2>
+          <div className="flex">
+            <h2>Featured Albums</h2>
+            {/* <input placeholder="Search by name" type="text" /> */}
+          </div>
 
           <div className="list">
             {data.map((d) => (
@@ -13,25 +17,36 @@ const PhotoBlog = ({ data }) => {
             ))}
           </div>
         </div>
+
+        <HrTag background="#ffdba6" bottom="-2rem" top="auto" />
       </div>
 
       <style jsx>{`
         .section {
-          padding-top: 1rem;
           text-align: center;
+          padding-top: 6rem;
         }
 
         h2 {
           padding: 0.3rem 2rem;
           margin-bottom: 1rem;
-          background: #f5f5f5;
+          background: #ffdba65e;
           display: inline-block;
         }
 
         .list {
           display: flex;
           flex-wrap: wrap;
-          gap: 1rem;
+          gap: 2rem;
+          margin-top: 2rem;
+        }
+
+        input {
+          padding: 0.7rem 1rem;
+          outline: 0px;
+          border: 2px solid black;
+          width: 100%;
+          max-width: 350px;
         }
       `}</style>
     </>

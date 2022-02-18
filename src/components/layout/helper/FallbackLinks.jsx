@@ -40,8 +40,18 @@ export default function FallbackLinks({ links, currPage, position }) {
           margin: 0;
         }
 
+        a:hover p {
+          font-weight: 600;
+        }
+
         p:last-child() {
           font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+          a:hover p {
+            font-weight: initial;
+          }
         }
       `}</style>
     </>

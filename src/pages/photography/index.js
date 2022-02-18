@@ -78,8 +78,8 @@ function index({ blog, gallery }) {
 
       <Layout>
         <Landing />
-        <Gallery data={gallery} />
         {blog.length > 0 && <PhotoBlog data={blog} />}
+        <Gallery data={gallery} />
       </Layout>
     </>
   );

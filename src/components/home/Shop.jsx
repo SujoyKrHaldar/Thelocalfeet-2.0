@@ -1,5 +1,4 @@
-import { IoIosArrowDown } from "react-icons/io";
-
+import HrTag from "../design/HrTag";
 import ShopCard from "../design/card/ShopCard";
 import ReadMoreType from "../design/buttons/ReadMoreType";
 
@@ -12,7 +11,7 @@ const Shop = ({ data, offer }) => {
           <h2>Shop with us</h2>
 
           <div className="list">
-            {data.map((d) => (
+            {data.slice(0, 4).map((d) => (
               <ShopCard
                 d={d}
                 key={d.id}
@@ -37,25 +36,10 @@ const Shop = ({ data, offer }) => {
           )}
         </div>
 
-        <div className="icon ">
-          <IoIosArrowDown />
-        </div>
+        <HrTag background="#7cc5ff" bottom="-2rem" top="auto" />
       </div>
 
       <style jsx>{`
-        .icon {
-          position: absolute;
-          width: 40px;
-          height: 40px;
-          font-size: 1.4rem;
-          background: #7cc5ff;
-          color: white;
-          border-radius: 100%;
-          bottom: -2rem;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
         .section {
           padding: 4rem 2rem;
           background: linear-gradient(0deg, white, #2196f330, white);

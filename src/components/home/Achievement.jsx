@@ -1,4 +1,4 @@
-import { IoIosArrowDown } from "react-icons/io";
+import HrTag from "../design/HrTag";
 
 const Achievement = () => {
   return (
@@ -23,28 +23,13 @@ const Achievement = () => {
           </div>
         </div>
 
-        <div className="icon ">
-          <IoIosArrowDown />
-        </div>
+        <HrTag background="#d6d6d6" bottom="-1rem" top="auto" />
       </div>
 
       <style jsx>{`
         .section {
           text-align: center;
           padding: 4rem 2rem;
-        }
-
-        .icon {
-          position: absolute;
-          width: 40px;
-          height: 40px;
-          font-size: 1.4rem;
-          background: #d6d6d6;
-          color: white;
-          border-radius: 100%;
-          bottom: -1rem;
-          left: 50%;
-          transform: translateX(-50%);
         }
 
         h2 {

@@ -13,7 +13,7 @@ import PhotoBlog from "../components/home/PhotoBlog";
 import Achievement from "../components/home/Achievement";
 import PhotographyTemplate from "../components/design/template/PhotographyTemplate";
 
-const blogQuery = `*[_type == "blog"][0..3]|order( publishedAt desc) 
+const blogQuery = `*[_type == "blog"]|order(_createdAt desc)|order( publishedAt desc)  
                       {
                         'id':_id, 
                         publishedAt, 
@@ -24,16 +24,17 @@ const blogQuery = `*[_type == "blog"][0..3]|order( publishedAt desc)
                         subtitle 
                       }`;
 
-const photoBlogQuery = `*[_type == "photoBlog"][0..3]|order( publishedAt desc)
+const photoBlogQuery = `*[_type == "photoBlog"]|order(_createdAt desc)|order( publishedAt desc) 
                       {
                         "id":_id, 
                         title, 
                         subtitle, 
+                        publishedAt,
                         "slug":slug.current, 
                         mainImage
                       }`;
 
-const productsQuery = `*[_type == "shop"]|order(_createdAt desc)[0..5]
+const productsQuery = `*[_type == "shop"]|order(_createdAt desc)
                       {
                         "id":_id, 
                         name, 

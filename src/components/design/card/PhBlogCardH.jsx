@@ -31,11 +31,10 @@ const PhBlogCardH = ({ data }) => {
       <style jsx>{`
         .card {
           position: relative;
-          height: 400px;
-          margin: 2rem 0;
-          border-radius: 40px;
+          height: 420px;
+          border-radius: 20px;
           overflow: hidden;
-          flex: 1 1 200px;
+          flex: 1 1 287px;
           text-align: left;
         }
         .background {
@@ -46,7 +45,7 @@ const PhBlogCardH = ({ data }) => {
         }
         .info {
           height: 100%;
-          padding: 3rem;
+          padding: 2rem;
           flex-direction: column;
           align-items: flex-start;
           justify-content: flex-end;

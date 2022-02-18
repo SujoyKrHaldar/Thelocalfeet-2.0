@@ -1,5 +1,4 @@
-import { IoIosArrowDown } from "react-icons/io";
-
+import HrTag from "../design/HrTag";
 import BlogCard from "../design/card/BlogCard";
 import ReadMoreType from "../design/buttons/ReadMoreType";
 
@@ -12,7 +11,7 @@ const PhotoBlog = ({ data }) => {
           <h2>Photo Albums</h2>
 
           <div className="list">
-            {data.map((d) => (
+            {data.slice(0, 4).map((d) => (
               <BlogCard data={d} key={d.id} />
             ))}
           </div>
@@ -29,9 +28,7 @@ const PhotoBlog = ({ data }) => {
           )}
         </div>
 
-        <div className="icon ">
-          <IoIosArrowDown />
-        </div>
+        <HrTag background="#f3c481" bottom="-2rem" top="auto" />
       </div>
 
       <style jsx>{`
@@ -39,18 +36,6 @@ const PhotoBlog = ({ data }) => {
           padding-top: 2rem;
           padding-bottom: 4rem;
           z-index: 2;
-        }
-        .icon {
-          position: absolute;
-          width: 40px;
-          height: 40px;
-          font-size: 1.4rem;
-          background: #f3c481;
-          color: white;
-          border-radius: 100%;
-          bottom: -2rem;
-          left: 50%;
-          transform: translateX(-50%);
         }
 
         .section:before {
