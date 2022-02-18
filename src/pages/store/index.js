@@ -3,6 +3,8 @@ import { sanityClient } from "../../../config/sanity";
 
 import App from "../../components/shop/App";
 import Layout from "../../components/layout/Layout";
+import ComingSoon from "../../components/design/template/ComingSoon";
+import Navbar from "../../components/layout/Navbar";
 
 const productsQuery = `*[_type == "shop"]|order(_createdAt desc)
                         {
@@ -41,9 +43,18 @@ const index = ({ data, offer }) => {
         <title>thelocalfeet - Shop</title>
       </Head>
 
-      <Layout>
-        <App data={data} offer={offer} />
-      </Layout>
+      {data.length > 0 ? (
+        <>
+          <Layout>
+            <App data={data} offer={offer} />
+          </Layout>
+        </>
+      ) : (
+        <>
+          <Navbar />
+          <ComingSoon asset="/assets/about-gallery.jpg" />
+        </>
+      )}
     </>
   );
 };

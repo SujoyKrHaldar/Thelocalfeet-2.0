@@ -1,5 +1,4 @@
 import PhBlogCardH from "../design/card/PhBlogCardH";
-import ReadMoreType from "../design/buttons/ReadMoreType";
 
 const PhotoBlog = ({ data }) => {
   return (
@@ -13,16 +12,6 @@ const PhotoBlog = ({ data }) => {
               <PhBlogCardH key={d.id} data={d} />
             ))}
           </div>
-
-          <ReadMoreType
-            text="Explore more"
-            url="/photography/album"
-            color="#fff"
-            colorOnHover="#fff"
-            background="#009688"
-            backgroundOnHover="#00685e"
-            top="1rem"
-          />
         </div>
       </div>
 

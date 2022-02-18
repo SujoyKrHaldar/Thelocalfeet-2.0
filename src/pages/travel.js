@@ -1,6 +1,5 @@
 import Head from "next/head";
-
-import Layout from "../components/layout/Layout";
+import Navbar from "../components/layout/Navbar";
 import ComingSoon from "../components/design/template/ComingSoon";
 
 function travel() {
@@ -14,9 +13,8 @@ function travel() {
         />
       </Head>
 
-      <Layout>
-        <ComingSoon asset="/assets/coming-soon.jpeg" />
-      </Layout>
+      <Navbar />
+      <ComingSoon asset="/assets/coming-soon.jpeg" />
     </>
   );
 }

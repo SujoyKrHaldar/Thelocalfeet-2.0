@@ -21,7 +21,7 @@ export default function Construct({ data, offer, others }) {
       <div className="section">
         <Model open={open} close={closePopUp} data={data} />
 
-        <div className="background">
+        <div className="background desktop">
           {data.coverPhoto ? (
             <img
               onDragStart={(e) => {
@@ -59,6 +59,26 @@ export default function Construct({ data, offer, others }) {
           </div>
 
           <div className="details">
+            <div className="background mob">
+              {data.coverPhoto ? (
+                <img
+                  onDragStart={(e) => {
+                    e.preventDefault();
+                  }}
+                  src={urlFor(data.coverPhoto).url()}
+                  alt={data.name}
+                />
+              ) : (
+                <img
+                  onDragStart={(e) => {
+                    e.preventDefault();
+                  }}
+                  src={urlFor(data.photo).url()}
+                  alt={data.name}
+                />
+              )}
+            </div>
+
             <Details
               data={data}
               openPopup={openPopup}
@@ -106,7 +126,13 @@ export default function Construct({ data, offer, others }) {
           inset: 0;
         }
 
+        .mob {
+          opacity: 0;
+          pointer-events: none;
+        }
+
         .details {
+          position: relative;
           background: #ffffff;
           box-shadow: 0px 7px 20px 7px #00000014;
           padding: 3rem;
@@ -140,13 +166,20 @@ export default function Construct({ data, offer, others }) {
             padding: 0;
           }
 
-          .background,
+          .mob {
+            opacity: 1;
+            pointer-events: visible;
+            height: auto;
+          }
+
+          .desktop,
           .landing {
             display: none;
           }
 
           .details {
-            padding-top: 6rem;
+            padding-top: 14rem;
+            background: transparent;
           }
         }
       `}</style>

@@ -1,41 +1,37 @@
 import ShopCard from "../design/card/ShopCard";
 import OfferTemplate from "./components/OfferTemplate";
-import ComingSoon from "../design/template/ComingSoon";
 
 const App = ({ data, offer }) => {
   return (
     <>
-      {data.length > 0 ? (
-        <div className="section">
-          <div className="background">
-            <img
-              onDragStart={(e) => {
-                e.preventDefault();
-              }}
-              src="/assets/about-gallery.jpg"
-              alt="thelocalfeet shopping"
-            />
+      <div className="section">
+        <div className="background">
+          <img
+            onDragStart={(e) => {
+              e.preventDefault();
+            }}
+            src="/assets/about-gallery.jpg"
+            alt="thelocalfeet shopping"
+          />
+        </div>
+
+        <div className="container">
+          <div className="landing">
+            <p>Store</p>
           </div>
 
-          <div className="container">
-            <div className="landing">
-              <p>Store</p>
-            </div>
+          <div className="shop">
+            {offer && <OfferTemplate data={offer} />}
 
-            <div className="shop">
-              {offer && <OfferTemplate data={offer} />}
-
-              <div className="list">
-                {data.map((d) => (
-                  <ShopCard d={d} key={d.id} offer={offer} />
-                ))}
-              </div>
+            <div className="list">
+              {data.map((d) => (
+                <ShopCard d={d} key={d.id} offer={offer} />
+              ))}
             </div>
           </div>
         </div>
-      ) : (
-        <ComingSoon asset="/assets/about-gallery.jpg" />
-      )}
+      </div>
+
       <style jsx>{`
         .section {
           padding-top: 4rem;
@@ -67,7 +63,7 @@ const App = ({ data, offer }) => {
           height: 250px;
           display: grid;
           place-items: center;
-          margin-bottom: 3rem;
+          margin-bottom: 5rem;
         }
         .landing p {
           font-size: 2rem;
@@ -91,6 +87,21 @@ const App = ({ data, offer }) => {
           flex-wrap: wrap;
           justify-content: center;
           gap: 1rem;
+        }
+
+        @media (max-width: 600px) {
+          .landing {
+            height: auto;
+            margin-bottom: 3rem;
+          }
+
+          .container {
+            padding: 2rem 0;
+          }
+
+          .background {
+            height: 240px;
+          }
         }
       `}</style>
     </>

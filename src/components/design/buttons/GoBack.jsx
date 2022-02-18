@@ -50,7 +50,7 @@ const GoBack = ({
 
         @media (max-width: 768px) {
           .btn {
-            padding: 0;
+            padding: 0 !important;
             border-radius: 100%;
           }
 

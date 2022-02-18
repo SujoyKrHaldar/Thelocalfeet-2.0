@@ -228,7 +228,7 @@ export default function MainDetails({ details: ds, openPopup, offer }) {
           }
 
           .img {
-            height: auto;
+            max-width: 382px;
           }
 
           .size_list {
@@ -237,6 +237,15 @@ export default function MainDetails({ details: ds, openPopup, offer }) {
 
           .buttons {
             justify-content: center;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .img {
+            max-width: 382px;
+
+            border: 1rem solid #ffffff;
+            box-shadow: 2px 2px 20px #00000038;
           }
         }
       `}</style>

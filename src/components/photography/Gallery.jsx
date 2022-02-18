@@ -59,6 +59,7 @@ const Gallery = ({ data }) => {
           max-width: 188px;
           flex: 1 1 105px;
           transition: 0.1s ease !important;
+          pointer-events: visible;
         }
         img:hover {
           transform: scale(1.2);

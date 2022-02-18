@@ -165,7 +165,7 @@ p {
 
 @media (max-width: 600px) {
   .btn {
-    padding: 1rem 3rem !important;
+    padding: 1rem 2rem !important;
   }
 }
 

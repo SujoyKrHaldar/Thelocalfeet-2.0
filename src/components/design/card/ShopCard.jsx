@@ -48,7 +48,7 @@ export default function ShopCard({
       <style jsx>{`
         .item {
           position: relative;
-          max-width: 345px;
+          max-width: 283px;
           flex: 1 1 250px;
           background: ${background};
           border: 2px solid;

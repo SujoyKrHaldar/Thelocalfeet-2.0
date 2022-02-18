@@ -8,7 +8,7 @@ import Gallery from "../../components/photography/Gallery";
 import Landing from "../../components/photography/Landing";
 import PhotoBlog from "../../components/photography/PhotoBlog";
 
-const photoBlogQuery = `*[_type == "photoBlog"][0..2]|order( publishedAt desc)
+const photoBlogQuery = `*[_type == "photoBlog"]|order( publishedAt desc)
                       {
                         "id":_id, 
                         title, 

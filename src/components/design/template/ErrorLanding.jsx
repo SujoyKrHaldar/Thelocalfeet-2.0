@@ -6,11 +6,11 @@ const quickLinks = [
     name: "Gallery",
   },
   {
-    url: "/photography/photo-blog",
+    url: "/photography",
     name: "Photo blogs",
   },
   {
-    url: "/explore#articles",
+    url: "/explore",
     name: "Blog",
   },
 ];
@@ -96,7 +96,6 @@ const ErrorLanding = () => {
         p:first-of-type {
           font-size: 1.5rem;
           font-weight: 700;
-          letter-spacing: 0.2rem;
         }
 
         p:nth-of-type(2),
