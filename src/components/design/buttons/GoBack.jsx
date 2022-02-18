@@ -43,6 +43,7 @@ const GoBack = ({
         }
         .btn:hover .icon {
           transform: translateX(-5px);
+          background: ${backgroundOnHover};
         }
         p {
           margin: 0;

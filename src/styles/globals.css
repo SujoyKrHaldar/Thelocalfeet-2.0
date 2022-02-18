@@ -162,12 +162,12 @@ p {
   transition: 0.1s ease;
   transition: background 0.5s ease;
 }
-
+/* 
 @media (max-width: 600px) {
   .btn {
     padding: 1rem 2rem !important;
   }
-}
+} */
 
 .icon {
   position: relative;

@@ -5,7 +5,7 @@ import { urlFor } from "../../../config/sanity";
 import Model from "./components/Model";
 import Details from "./components/Details";
 
-export default function Construct({ data, offer, others }) {
+export default function Construct({ data, offer, others, links, currPage }) {
   const [open, setOpen] = useState(false);
 
   const openPopup = () => {
@@ -51,11 +51,6 @@ export default function Construct({ data, offer, others }) {
                 {data?.caption && <p>{data.caption}</p>}
               </>
             )}
-
-            <div className="links">
-              <Link href="/">Home</Link> / <Link href="/store">Store</Link> /{" "}
-              {data.name}
-            </div>
           </div>
 
           <div className="details">
@@ -84,6 +79,8 @@ export default function Construct({ data, offer, others }) {
               openPopup={openPopup}
               offer={offer}
               otherProducts={others}
+              links={links}
+              currPage={currPage}
             />
           </div>
         </div>
@@ -103,9 +100,6 @@ export default function Construct({ data, offer, others }) {
           font-size: 2rem;
           font-weight: 700;
           margin-bottom: 1.3rem;
-        }
-        .links {
-          margin: 1rem 0 0;
         }
 
         .background {

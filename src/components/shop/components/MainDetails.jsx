@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { urlFor } from "../../../../config/sanity";
+import FallbackLinks from "../../layout/helper/FallbackLinks";
 
-export default function MainDetails({ details: ds, openPopup, offer }) {
+export default function MainDetails({
+  details: ds,
+  openPopup,
+  offer,
+  links,
+  currPage,
+}) {
   return (
     <>
       <div className="flex main">
@@ -16,10 +23,15 @@ export default function MainDetails({ details: ds, openPopup, offer }) {
         </div>
 
         <div className="content">
-          <div className="links">
-            <Link href="/">Home</Link> / <Link href="/store">Store</Link> /{" "}
-            {ds.name}
-          </div>
+          {currPage && (
+            <div className="links_mob">
+              <FallbackLinks
+                links={links}
+                currPage={currPage}
+                position="center"
+              />
+            </div>
+          )}
 
           <p className="category">{ds.category.name}</p>
 
@@ -80,7 +92,7 @@ export default function MainDetails({ details: ds, openPopup, offer }) {
       </div>
 
       <style jsx>{`
-        .links {
+        .links_mob {
           display: none;
         }
         .flex {
@@ -240,10 +252,28 @@ export default function MainDetails({ details: ds, openPopup, offer }) {
           }
         }
 
+        @media (max-width: 768px) {
+          .links_mob {
+            display: block;
+            background: white;
+            position: sticky;
+            padding: 1rem 0rem;
+            top: 5.5rem;
+            z-index: 2;
+          }
+
+          .main {
+            gap: 0;
+          }
+        }
+
         @media (max-width: 600px) {
+          .links_mob {
+            top: 4.6rem;
+          }
           .img {
             max-width: 382px;
-
+            height: auto;
             border: 1rem solid #ffffff;
             box-shadow: 2px 2px 20px #00000038;
           }

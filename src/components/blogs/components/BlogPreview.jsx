@@ -15,6 +15,7 @@ function BlogPreview({ blog }) {
 
       <div className="main flex">
         <div className="preview_info">
+          <p className="tag">You are Reading</p>
           <h3>{blog.title}</h3>
           <p>{blog.subtitle}</p>
 
@@ -39,6 +40,11 @@ function BlogPreview({ blog }) {
           position: relative;
           margin-bottom: 0.2rem;
           z-index: 1;
+        }
+
+        .tag {
+          font-size: 1.5rem;
+          color: #848484;
         }
 
         .main {

@@ -76,6 +76,17 @@ export async function getStaticProps({ params }) {
   };
 }
 
+const links = [
+  {
+    name: "Home",
+    url: "/",
+  },
+  {
+    name: "Photography",
+    url: "/photography",
+  },
+];
+
 const photoBlogBySlug = ({ blog, otherBlogs }) => {
   if (!blog) return <FallbackLoading />;
 
@@ -95,11 +106,13 @@ const photoBlogBySlug = ({ blog, otherBlogs }) => {
         <meta property="og:image" content={urlFor(blog.mainImage).url()} />
       </Head>
 
-      <CustomLayout>
+      <CustomLayout links={links} currPage={blog.title}>
         <BlogTemplate
           blog={blog}
           others={otherBlogs}
           link="/photography/album"
+          links={links}
+          currPage={blog.title}
         />
       </CustomLayout>
     </>

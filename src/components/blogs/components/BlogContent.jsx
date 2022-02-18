@@ -1,6 +1,7 @@
 import { Portabletext, urlFor } from "../../../../config/sanity";
+import FallbackLinks from "../../layout/helper/FallbackLinks";
 
-const BlogContent = ({ blog }) => {
+const BlogContent = ({ blog, links, currPage }) => {
   const serializers = {
     types: {
       image: ({ node }) => {
@@ -37,6 +38,12 @@ const BlogContent = ({ blog }) => {
   return (
     <>
       <div className="main">
+        {currPage && (
+          <div className="links_mob">
+            <FallbackLinks links={links} currPage={currPage} />
+          </div>
+        )}
+
         <Portabletext
           className="blog_body"
           blocks={blog.body}
@@ -54,9 +61,30 @@ const BlogContent = ({ blog }) => {
           padding: 2rem;
         }
 
+        .links_mob {
+          display: none;
+        }
+
         @media (max-width: 867px) {
           .main {
             padding: 1rem 0rem;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .links_mob {
+            display: block;
+            background: white;
+            position: sticky;
+            padding: 1rem 0rem;
+            top: 5.5rem;
+            z-index: 2;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .links_mob {
+            top: 4.6rem;
           }
         }
       `}</style>

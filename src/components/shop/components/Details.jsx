@@ -7,10 +7,18 @@ export default function Details({
   openPopup,
   offer,
   otherProducts: othP,
+  links,
+  currPage,
 }) {
   return (
     <>
-      <MainDetails details={data} openPopup={openPopup} offer={offer} />
+      <MainDetails
+        details={data}
+        openPopup={openPopup}
+        offer={offer}
+        links={links}
+        currPage={currPage}
+      />
       {data.status && data?.preview && <Preview prv={data} />}
       <OtherProducts data={othP} offer={offer} />
     </>

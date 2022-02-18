@@ -6,14 +6,14 @@ import BlogPreview from "./components/BlogPreview";
 import ScrollToTop from "../design/buttons/ScrollToTop";
 import SocialShareBox from "./components/SocialShareBox";
 
-const BlogTemplate = ({ blog, others, link }) => {
+const BlogTemplate = ({ blog, others, link, links, currPage }) => {
   return (
     <>
       <BlogLanding blog={blog} />
 
       <div className="section">
         <div className="container">
-          <BlogContent blog={blog} />
+          <BlogContent blog={blog} links={links} currPage={currPage} />
           <SocialShareBox blog={blog} />
           <BlogPreview blog={blog} />
           {others.length > 0 && <OtherBlogs data={others} Blogs_link={link} />}

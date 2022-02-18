@@ -89,6 +89,17 @@ export async function getStaticProps({ params }) {
   };
 }
 
+const links = [
+  {
+    name: "Home",
+    url: "/",
+  },
+  {
+    name: "Store",
+    url: "/store",
+  },
+];
+
 export default function products({ evt, offer, others }) {
   if (!evt) return <FallbackLoading />;
 
@@ -108,8 +119,14 @@ export default function products({ evt, offer, others }) {
         <meta property="og:image:height" content="200" />
       </Head>
 
-      <CustomLayout>
-        <Construct data={evt} offer={offer} others={others} />
+      <CustomLayout links={links} currPage={evt.name}>
+        <Construct
+          data={evt}
+          offer={offer}
+          others={others}
+          links={links}
+          currPage={evt.name}
+        />
       </CustomLayout>
     </>
   );

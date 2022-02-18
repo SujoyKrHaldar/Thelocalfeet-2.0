@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import GoBack from "../design/buttons/GoBack";
+import FallbackLinks from "./helper/FallbackLinks";
 import Navbar_mobile from "./helper/Navbar_mobile";
 
 const menu = [
@@ -31,7 +32,7 @@ const menu = [
   },
 ];
 
-const CustomNavbar = () => {
+const CustomNavbar = ({ links, currPage }) => {
   const router = useRouter();
 
   const [open, setOpen] = useState(false);
@@ -61,12 +62,20 @@ const CustomNavbar = () => {
         onScroll={handleScroll}
       >
         <div className="container flex">
-          <div className="logo" onClick={() => router.push("/")}>
-            <img
-              src={scroll ? "/logo_black.png" : "/logo_white.png"}
-              alt="thelocalfeet logo"
-            />
+          <div className="flex">
+            <div className="logo" onClick={() => router.push("/")}>
+              <img
+                src={scroll ? "/logo_black.png" : "/logo_white.png"}
+                alt="thelocalfeet logo"
+              />
+            </div>
           </div>
+
+          {scroll && currPage && (
+            <div className="links_pc">
+              <FallbackLinks links={links} currPage={currPage} />
+            </div>
+          )}
 
           <div className="flex menu_icon">
             <GoBack />
@@ -107,6 +116,10 @@ const CustomNavbar = () => {
           height: auto;
         }
 
+        .links_pc {
+          display: block;
+        }
+
         .update .logo {
           transform: translateY(7px);
         }
@@ -126,6 +139,11 @@ const CustomNavbar = () => {
           background: #ededed;
         }
 
+        @media (max-width: 768px) {
+          .links_pc {
+            display: none;
+          }
+        }
         @media (max-width: 600px) {
           .logo {
             width: auto;
