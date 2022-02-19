@@ -78,6 +78,12 @@ const PhBlogCardH = ({ data }) => {
           transform: scale(0.9);
           background: #ffffff0a;
         }
+
+        @media (max-width: 600px) {
+          .card {
+            height: 312px;
+          }
+        }
       `}</style>
     </>
   );

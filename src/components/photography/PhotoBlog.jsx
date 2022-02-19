@@ -25,6 +25,7 @@ const PhotoBlog = ({ data }) => {
         .section {
           text-align: center;
           padding-top: 6rem;
+          padding-bottom: 4rem;
         }
 
         h2 {
@@ -47,6 +48,18 @@ const PhotoBlog = ({ data }) => {
           border: 2px solid black;
           width: 100%;
           max-width: 350px;
+        }
+
+        @media (max-width: 867px) {
+          .list {
+            gap: 1rem;
+          }
+        }
+
+        @media (max-width: 780px) {
+          .container {
+            padding: 1rem;
+          }
         }
       `}</style>
     </>

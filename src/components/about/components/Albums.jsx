@@ -1,4 +1,4 @@
-import { IoIosArrowDown } from "react-icons/io";
+import HrTag from "../../design/HrTag";
 import OtherBlogCard from "../../design/card/OtherBlogCard";
 
 export default function Albums({ data }) {
@@ -18,26 +18,11 @@ export default function Albums({ data }) {
             ))}
           </div>
 
-          <div className="icon ">
-            <IoIosArrowDown />
-          </div>
+          <HrTag background="#ffdca9" bottom="-2rem" top="auto" />
         </div>
       </div>
 
       <style jsx>{`
-        .icon {
-          position: absolute;
-          width: 40px;
-          height: 40px;
-          font-size: 1.4rem;
-          background: #ffdca9;
-          color: white;
-          border-radius: 100%;
-          bottom: -1.35rem;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
         .albums {
           position: relative;
           padding: 3rem 0;

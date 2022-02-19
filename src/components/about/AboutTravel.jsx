@@ -1,3 +1,5 @@
+import HrTag from "../design/HrTag";
+
 const AboutTravel = () => {
   return (
     <>
@@ -25,6 +27,8 @@ const AboutTravel = () => {
 
           <img src="/assets/about-two.jpg " alt="collage" />
         </div>
+
+        <HrTag background="#dfdfdf" bottom="-2rem" top="auto" />
       </div>
 
       <style jsx>{`

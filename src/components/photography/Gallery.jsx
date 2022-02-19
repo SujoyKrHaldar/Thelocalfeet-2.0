@@ -50,6 +50,8 @@ const Gallery = ({ data }) => {
           display: flex;
           gap: 0.5rem;
           flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
         }
 
         img {
@@ -63,6 +65,26 @@ const Gallery = ({ data }) => {
         img:hover {
           transform: scale(1.2);
           z-index: 2;
+        }
+        @media (max-width: 780px) {
+          .container {
+            padding: 1rem;
+          }
+        }
+        @media (max-width: 767px) {
+          img {
+            height: 150px;
+          }
+
+          img:hover {
+            transform: scale(1);
+          }
+        }
+
+        @media (max-width: 600px) {
+          img {
+            max-width: 100%;
+          }
         }
       `}</style>
     </>

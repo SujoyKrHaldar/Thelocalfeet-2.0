@@ -1,5 +1,4 @@
-import { IoIosArrowDown } from "react-icons/io";
-
+import HrTag from "../../design/HrTag";
 import AboutFollow from "./AboutFollow";
 import MainSocialLink from "./MainSocialLink";
 
@@ -52,9 +51,7 @@ export default function HomeDetails() {
           />
         </div>
 
-        <div className="icon ">
-          <IoIosArrowDown />
-        </div>
+        <HrTag background="#e1e1e1" bottom="-1.35rem" top="auto" />
       </div>
 
       <style jsx>{`
@@ -120,19 +117,6 @@ export default function HomeDetails() {
           transform: rotate(2deg);
           border: 0.7rem solid white;
           box-shadow: 7px 6px 20px #00000033;
-        }
-
-        .icon {
-          position: absolute;
-          width: 40px;
-          height: 40px;
-          font-size: 1.4rem;
-          background: #e1e1e1;
-          color: white;
-          border-radius: 100%;
-          bottom: -1.35rem;
-          left: 50%;
-          transform: translateX(-50%);
         }
 
         @media (max-width: 768px) {

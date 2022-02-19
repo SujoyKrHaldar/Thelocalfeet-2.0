@@ -1,4 +1,3 @@
-import { IoIosArrowDown } from "react-icons/io";
 import OtherBlogCard from "../../design/card/OtherBlogCard";
 
 export default function Blogs({ data }) {
@@ -14,27 +13,10 @@ export default function Blogs({ data }) {
               <OtherBlogCard key={d.id} data={d} link={`/explore/${d.slug}`} />
             ))}
           </div>
-
-          <div className="icon ">
-            <IoIosArrowDown />
-          </div>
         </div>
       </div>
 
       <style jsx>{`
-        .icon {
-          position: absolute;
-          width: 40px;
-          height: 40px;
-          font-size: 1.4rem;
-          background: #dfdfdf;
-          color: white;
-          border-radius: 100%;
-          top: -2rem;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
         .blogs {
           position: relative;
           padding: 4rem 0 3rem;
