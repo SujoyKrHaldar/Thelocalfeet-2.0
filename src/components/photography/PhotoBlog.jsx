@@ -58,7 +58,7 @@ const PhotoBlog = ({ data }) => {
 
         @media (max-width: 780px) {
           .container {
-            padding: 1rem;
+            padding: 0;
           }
         }
       `}</style>

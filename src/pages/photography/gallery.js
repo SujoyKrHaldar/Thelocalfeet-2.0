@@ -1,10 +1,9 @@
 import Head from "next/head";
 import { sanityClient } from "../../../config/sanity";
 
-import Footer from "../../components/layout/Footer";
-import CustomNavbar from "../../components/layout/CustomNavbar";
-import Gallery from "../../components/photography/gallery/Gallery";
 import CustomLayout from "../../components/layout/CustomLayout";
+import Gallery from "../../components/photography/gallery/Gallery";
+import Landing from "../../components/photography/gallery/landing";
 
 const galleryQuery = `*[_type == "photography"]|order( publishedAt desc)
                     {
@@ -25,6 +24,17 @@ export const getStaticProps = async () => {
     revalidate: 1,
   };
 };
+
+const links = [
+  {
+    name: "Home",
+    url: "/",
+  },
+  {
+    name: "Photography",
+    url: "/photography",
+  },
+];
 
 function gallery({ gallery }) {
   return (
@@ -52,8 +62,9 @@ function gallery({ gallery }) {
         {/* <meta property="og:image" content="/image/photography/landing2.jpeg" /> */}
       </Head>
 
-      <CustomLayout>
-        <Gallery data={gallery} />
+      <CustomLayout links={links} currPage="Gallery">
+        <Landing image={gallery} />
+        <Gallery data={gallery} links={links} currPage="Gallery" />
       </CustomLayout>
     </>
   );

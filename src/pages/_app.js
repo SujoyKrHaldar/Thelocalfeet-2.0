@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Router from "next/router";
+import * as gtag from "../../config/gtag";
 import { useState, useEffect } from "react";
 
 import "../styles/globals.css";
@@ -7,15 +8,16 @@ import "../styles/globals.css";
 function MyApp({ Component, pageProps, router }) {
   const [loading, setLoading] = useState(false);
 
-  // useEffect(() => {
-  //   const handleRouteChange = (url) => {
-  //     gtag.pageview(url);
-  //   };
-  //   Router.events.on("routeChangeComplete", handleRouteChange);
-  //   return () => {
-  //     router.events.off("routeChangeComplete", handleRouteChange);
-  //   };
-  // }, [Router.events]);
+  const handleRouteChange = (url) => {
+    gtag.pageview(url);
+  };
+
+  useEffect(() => {
+    Router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [Router.events]);
 
   return (
     <>

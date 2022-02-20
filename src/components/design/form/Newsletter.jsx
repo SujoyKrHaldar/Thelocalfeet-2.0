@@ -63,7 +63,7 @@ export default function Newsletter() {
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <p> Subscribe to our Newsletter </p>
+          <p className="title"> Subscribe to our Newsletter </p>
           <p>Subscribe to get all the latest blogs and future updates.</p>
 
           <div className="inputbox">
@@ -207,7 +207,7 @@ export default function Newsletter() {
           flex-direction: column;
         }
 
-        p:first-child() {
+        .title {
           font-size: 2rem;
           font-weight: 700;
           margin-bottom: 0.5rem;

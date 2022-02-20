@@ -36,6 +36,7 @@ const Gallery = ({ data }) => {
       <style jsx>{`
         .section {
           text-align: center;
+          padding: 6rem 2rem;
         }
 
         h2 {
@@ -68,7 +69,7 @@ const Gallery = ({ data }) => {
         }
         @media (max-width: 780px) {
           .container {
-            padding: 1rem;
+            padding: 0;
           }
         }
         @media (max-width: 767px) {

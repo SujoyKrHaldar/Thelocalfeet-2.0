@@ -5,8 +5,9 @@ import { urlFor } from "../../../../config/sanity";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 import Model from "./Model";
+import FallbackLinks from "../../layout/helper/FallbackLinks";
 
-const Gallery = ({ data }) => {
+const Gallery = ({ data, links, currPage }) => {
   const [selected, setSelected] = useState(null);
   const [caption, setCaption] = useState(null);
 
@@ -14,11 +15,18 @@ const Gallery = ({ data }) => {
     <>
       <div className="section">
         <div className="container">
-          <h1>Gallery</h1>
-
+          {currPage && (
+            <div className="links_mob">
+              <FallbackLinks
+                links={links}
+                currPage={currPage}
+                position="center"
+              />
+            </div>
+          )}
           <div className="gallery">
             <ResponsiveMasonry
-              columnsCountBreakPoints={{ 350: 2, 750: 3, 900: 4 }}
+              columnsCountBreakPoints={{ 350: 2, 750: 3, 1024: 3, 1260: 4 }}
             >
               <Masonry gutter="1rem">
                 {data.map((i) => (
@@ -49,6 +57,8 @@ const Gallery = ({ data }) => {
               </Masonry>
             </ResponsiveMasonry>
           </div>
+
+          <p className="tag">End of the page</p>
         </div>
       </div>
 
@@ -62,19 +72,21 @@ const Gallery = ({ data }) => {
 
       <style jsx>{`
         .section {
-          text-align: center;
-          padding-top: 5rem;
+          background: white;
         }
 
-        h1 {
-          padding: 0.3rem 2rem;
-          margin-bottom: 1.5rem;
-          background: #f5f5f5;
-          display: inline-block;
+        .links_mob {
+          display: none;
         }
+
         .gallery {
           position: relative;
-          margin-top: 2rem;
+          padding: 0.1rem;
+        }
+
+        .tag {
+          margin: 2rem 0 0;
+          text-align: center;
         }
 
         .box {
@@ -113,7 +125,6 @@ const Gallery = ({ data }) => {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: #1c1c1c9e;
           opacity: 0;
           transition: all 0.6s ease;
         }
@@ -130,9 +141,27 @@ const Gallery = ({ data }) => {
           background: transparent;
         }
 
+        @media (max-width: 768px) {
+          .links_mob {
+            display: block;
+            background: white;
+            position: sticky;
+            padding: 1rem 0rem;
+            top: 5.5rem;
+            z-index: 2;
+          }
+        }
         @media (max-width: 600px) {
           .black {
             display: none;
+          }
+
+          .container {
+            padding: 0;
+          }
+
+          .links_mob {
+            top: 4.6rem;
           }
         }
       `}</style>

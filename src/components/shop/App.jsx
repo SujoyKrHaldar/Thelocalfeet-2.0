@@ -71,10 +71,6 @@ const App = ({ data, offer }) => {
           margin: 0;
         }
 
-        h1 {
-          margin-bottom: 1.5rem;
-          letter-spacing: 0;
-        }
         .shop {
           position: relative;
           padding: 3rem 0;
