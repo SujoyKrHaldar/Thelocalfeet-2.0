@@ -1,5 +1,4 @@
 import { urlFor } from "../../../../config/sanity";
-import Image from "next/image";
 
 export default function Landing({ image }) {
   const getRandomItem = (arr) => {
@@ -14,10 +13,7 @@ export default function Landing({ image }) {
     <>
       <div className="section">
         <div className="background">
-          <Image
-            width={200}
-            height={500}
-            loading="lazy"
+          <img
             src={urlFor(result.photo).url()}
             alt={result.caption}
             onDragStart={(e) => {

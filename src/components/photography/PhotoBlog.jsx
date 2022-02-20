@@ -4,7 +4,7 @@ import HrTag from "../design/HrTag";
 const PhotoBlog = ({ data }) => {
   return (
     <>
-      <div className="section">
+      <div className="section" id="album">
         <div className="container">
           <div className="flex">
             <h2>Featured Albums</h2>

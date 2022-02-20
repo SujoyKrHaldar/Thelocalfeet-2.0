@@ -3,7 +3,15 @@ import { sanityClient } from "../../../config/sanity";
 
 import CustomLayout from "../../components/layout/CustomLayout";
 import Gallery from "../../components/photography/gallery/Gallery";
-import Landing from "../../components/photography/gallery/landing";
+import Landing from "../../components/photography/gallery/Landing";
+
+const photoBlogQuery = `*[_type == "photoBlog"]|order( publishedAt desc)
+                      {
+                        "id":_id, 
+                        title, 
+                        "slug":slug.current, 
+                        mainImage
+                      }`;
 
 const galleryQuery = `*[_type == "photography"]|order( publishedAt desc)
                     {
@@ -16,10 +24,12 @@ const galleryQuery = `*[_type == "photography"]|order( publishedAt desc)
 
 export const getStaticProps = async () => {
   const gallery = await sanityClient.fetch(galleryQuery);
+  const blog = await sanityClient.fetch(photoBlogQuery);
 
   return {
     props: {
       gallery,
+      blog,
     },
     revalidate: 1,
   };
@@ -36,7 +46,7 @@ const links = [
   },
 ];
 
-function gallery({ gallery }) {
+function gallery({ gallery, blog }) {
   return (
     <>
       <Head>
@@ -64,7 +74,12 @@ function gallery({ gallery }) {
 
       <CustomLayout links={links} currPage="Gallery">
         <Landing image={gallery} />
-        <Gallery data={gallery} links={links} currPage="Gallery" />
+        <Gallery
+          data={gallery}
+          reel_type={blog}
+          links={links}
+          currPage="Gallery"
+        />
       </CustomLayout>
     </>
   );
