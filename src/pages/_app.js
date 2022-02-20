@@ -1,13 +1,13 @@
 import Head from "next/head";
 import Router from "next/router";
 import * as gtag from "../../config/gtag";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { Detector } from "react-detect-offline";
+import NoInternet from "../components/design/template/NoInternet";
 
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps, router }) {
-  const [loading, setLoading] = useState(false);
-
   const handleRouteChange = (url) => {
     gtag.pageview(url);
   };
@@ -36,6 +36,11 @@ function MyApp({ Component, pageProps, router }) {
         {/* <link rel="icon" href="/image/favicon.ico" /> */}
       </Head>
 
+      <Detector
+        render={({ online }) => {
+          return !online && <NoInternet />;
+        }}
+      />
       <Component {...pageProps} />
     </>
   );

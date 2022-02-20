@@ -13,14 +13,14 @@ export default function Model({ open, close, data }) {
           <p>Call us or whatsapp us</p>
 
           <div className="link flex">
-            <a className="icon" href="tel:7003929602" target="blank">
+            <a className="icon" href="tel:7834924941" target="blank">
               <AiTwotonePhone />
               {/* 7003929602 */}
             </a>
 
             <a
               className="icon"
-              href="https://wa.me/919883182397"
+              href="https://wa.me/+917834924941"
               target="blank"
             >
               <IoLogoWhatsapp />

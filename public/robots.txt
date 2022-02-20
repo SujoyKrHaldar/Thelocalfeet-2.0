@@ -2,6 +2,4 @@ User-agent: *
 crawl-delay: 10
 
 User-agent: *
-Disallow: /travel
 Disallow: /admin
-Disallow: /confirm-subscription
