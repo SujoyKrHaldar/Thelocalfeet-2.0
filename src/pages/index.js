@@ -103,7 +103,7 @@ export default function Home({ blog, photoBlog, products, offer }) {
           property="og:url"
           content={`${process.env.NEXT_PUBLIC_WEBSITE_LINK}`}
         />
-        {/* <meta property="og:image" content="/image/home/home-middle.jpg" /> */}
+        <meta property="og:image" content="/assets/seo/home.jpg" />
       </Head>
 
       <Layout>

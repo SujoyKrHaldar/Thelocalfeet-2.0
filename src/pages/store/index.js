@@ -41,7 +41,15 @@ const index = ({ data, offer }) => {
   return (
     <>
       <Head>
-        <title>thelocalfeet - Shop</title>
+        <title>Shop - thelocalfeet </title>
+        <meta name="description" content="Shop with us." />
+        <meta property="og:title" content="Shop - thelocalfeet" />
+        <meta property="og:description" content="Shop with us." />
+        <meta
+          property="og:url"
+          content={`${process.env.NEXT_PUBLIC_WEBSITE_LINK}/store`}
+        />
+        <meta property="og:image" content="/assets/seo/shop.jpg" />
       </Head>
 
       {data.length > 0 ? (

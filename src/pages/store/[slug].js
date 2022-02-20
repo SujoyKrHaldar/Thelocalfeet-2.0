@@ -106,10 +106,10 @@ export default function products({ evt, offer, others }) {
   return (
     <>
       <Head>
-        <title> Shop thelocalfeet - {evt.name}</title>
+        <title>{evt.name} - thelocalfeet</title>
         <meta name="description" content={evt.caption} />
-        <meta property="og:title" content={`Shop thelocalfeet - ${evt.name}`} />
-        <meta property="og:description" content={evt.name} />
+        <meta property="og:title" content={`${evt.name} - thelocalfeet`} />
+        <meta property="og:description" content={evt.caption} />
         <meta
           property="og:url"
           content={`${process.env.NEXT_PUBLIC_SITE_URL}/store/${evt.slug}`}

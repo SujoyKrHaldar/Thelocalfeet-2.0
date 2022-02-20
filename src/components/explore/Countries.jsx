@@ -29,7 +29,7 @@ const Countries = ({ data, album }) => {
           <div className="albums">
             <h2>Albums</h2>
             {album.map((a) => (
-              <Link href={`photography/${a.slug}`}>
+              <Link key={a.id} href={`/photography/${a.slug}`}>
                 <a className="album_box">
                   <img
                     className="background"

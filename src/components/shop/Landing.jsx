@@ -7,7 +7,7 @@ export default function Landing() {
             onDragStart={(e) => {
               e.preventDefault();
             }}
-            src="/assets/about-gallery.jpg"
+            src="/assets/shop-thumbnail.jpg"
             alt="thelocalfeet shopping"
           />
         </div>

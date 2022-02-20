@@ -73,7 +73,7 @@ function index({ blog, gallery }) {
           property="og:url"
           content={`${process.env.NEXT_PUBLIC_WEBSITE_LINK}/photography`}
         />
-        {/* <meta property="og:image" content="/image/photography/landing2.jpeg" /> */}
+        <meta property="og:image" content="/assets/seo/photography.jpeg" />
       </Head>
 
       <Layout>

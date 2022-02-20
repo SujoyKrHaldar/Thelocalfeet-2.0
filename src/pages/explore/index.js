@@ -61,7 +61,7 @@ function index({ country, blog, photoBlog }) {
   return (
     <>
       <Head>
-        <title>Explore all Destinations - thelocalfeet</title>
+        <title>Explore - thelocalfeet</title>
         <meta
           name="description"
           content="Check out thelocalfeet's journey, adventures, stories. Read our journals and discover the world with us. Lets make your best trip Ever."
@@ -70,10 +70,7 @@ function index({ country, blog, photoBlog }) {
           name="keywords"
           content="travel websites, travel sites, thelocalfeet, travel, travel blog, explore,  places to visit, places to go, best at travel"
         />
-        <meta
-          property="og:title"
-          content="Explore all Destinations - thelocalfeet"
-        />
+        <meta property="og:title" content="Explore - thelocalfeet" />
         <meta
           property="og:description"
           content="Check out thelocalfeet's journey, adventures, stories. Read our journals and discover the world with us. Lets make your best trip Ever. Follow thelocalfeet, conceptualized by Mayuri & Shubha in 2018 to get more insight into sustainable travel."
@@ -82,10 +79,7 @@ function index({ country, blog, photoBlog }) {
           property="og:url"
           content={`${process.env.NEXT_PUBLIC_WEBSITE_LINK}/explore`}
         />
-        {/* <meta
-          property="og:image"
-          content="/image/explore/explore-landing.jpeg"
-        /> */}
+        <meta property="og:image" content="/assets/seo/explore.jpeg" />
       </Head>
 
       <Layout>

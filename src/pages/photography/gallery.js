@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { sanityClient } from "../../../config/sanity";
+import { sanityClient, urlFor } from "../../../config/sanity";
 
 import CustomLayout from "../../components/layout/CustomLayout";
 import Gallery from "../../components/photography/gallery/Gallery";
@@ -47,6 +47,14 @@ const links = [
 ];
 
 function gallery({ gallery, blog }) {
+  const getRandomItem = (arr) => {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    const item = arr[randomIndex];
+    return item;
+  };
+
+  const random_item = getRandomItem(gallery);
+
   return (
     <>
       <Head>
@@ -69,11 +77,11 @@ function gallery({ gallery, blog }) {
           property="og:url"
           content={`${process.env.NEXT_PUBLIC_WEBSITE_LINK}/photography/gallery`}
         />
-        {/* <meta property="og:image" content="/image/photography/landing2.jpeg" /> */}
+        <meta property="og:image" content={urlFor(random_item.photo).url()} />
       </Head>
 
       <CustomLayout links={links} currPage="Gallery">
-        <Landing image={gallery} />
+        <Landing item={random_item} />
         <Gallery
           data={gallery}
           reel_type={blog}
