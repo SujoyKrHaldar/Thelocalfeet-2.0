@@ -33,7 +33,7 @@ export default function GalleryBlogPreview({ data }) {
       <style jsx>{`
         .flex {
           position: relative;
-          justify-content: left;
+          justify-content: center;
           align-items: flex-start;
           flex-wrap: wrap;
           gap: 2rem;

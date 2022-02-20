@@ -1,8 +1,4 @@
 import { useState } from "react";
-import { IoLogoFacebook } from "react-icons/io5";
-import { AiFillInstagram } from "react-icons/ai";
-import { urlFor } from "../../../../config/sanity";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 import Model from "./Model";
 import FallbackLinks from "../../layout/helper/FallbackLinks";

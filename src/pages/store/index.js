@@ -5,6 +5,7 @@ import App from "../../components/shop/App";
 import Layout from "../../components/layout/Layout";
 import ComingSoon from "../../components/design/template/ComingSoon";
 import Navbar from "../../components/layout/Navbar";
+import Landing from "../../components/shop/Landing";
 
 const productsQuery = `*[_type == "shop"]|order(_createdAt desc)
                         {
@@ -46,6 +47,7 @@ const index = ({ data, offer }) => {
       {data.length > 0 ? (
         <>
           <Layout>
+            <Landing />
             <App data={data} offer={offer} />
           </Layout>
         </>

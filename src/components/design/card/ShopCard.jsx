@@ -49,7 +49,7 @@ export default function ShopCard({
         .item {
           position: relative;
           max-width: 283px;
-          flex: 1 1 250px;
+          flex: 1 1 220px;
           background: ${background};
           border: 2px solid;
           border-color: ${borderDefault};

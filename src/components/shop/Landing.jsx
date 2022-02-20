@@ -1,29 +1,19 @@
-import { urlFor } from "../../../../config/sanity";
-
-export default function Landing({ image }) {
-  const getRandomItem = (arr) => {
-    const randomIndex = Math.floor(Math.random() * arr.length);
-    const item = arr[randomIndex];
-    return item;
-  };
-
-  const result = getRandomItem(image);
-
+export default function Landing() {
   return (
     <>
       <div className="section">
         <div className="background">
           <img
-            src={urlFor(result.photo).url()}
-            alt={result.caption}
             onDragStart={(e) => {
               e.preventDefault();
             }}
+            src="/assets/about-gallery.jpg"
+            alt="thelocalfeet shopping"
           />
         </div>
 
         <div className="container">
-          <h1>Gallery</h1>
+          <h1>Store</h1>
         </div>
       </div>
 
