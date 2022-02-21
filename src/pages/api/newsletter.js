@@ -32,7 +32,8 @@ export default async function handler(req, res) {
           body: JSON.stringify({
             Name,
             Email,
-            manage: `Check and manage in: https://thelocalfeet.com/admin/desk/newsletter`,
+            Manage:
+              "Check and manage in: https://thelocalfeet.com/admin/desk/newsletter",
           }),
           headers: {
             "Content-Type": "application/json",
