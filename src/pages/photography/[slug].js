@@ -17,7 +17,7 @@ const eachBlogQuery = `*[_type == "photoBlog" && slug.current == $slug][0]
                         mainImage, 
                         body, 
                         publishedAt, 
-                        "comment":*[_type == "comments" && post._ref == ^._id && isApproved == false ]|order( publishedAt desc)
+                        "comment":*[_type == "comments" && post._ref == ^._id && isApproved == true ]|order( publishedAt desc)
                                 {
                                   "id":_id, 
                                   "date":_createdAt, 

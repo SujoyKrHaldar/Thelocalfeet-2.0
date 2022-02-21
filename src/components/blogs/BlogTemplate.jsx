@@ -17,7 +17,7 @@ const BlogTemplate = ({ blog, others, link, links, currPage }) => {
           <SocialShareBox blog={blog} />
           <BlogPreview blog={blog} />
           {others.length > 0 && <OtherBlogs data={others} Blogs_link={link} />}
-          <Comments id={blog.id} comment={blog.comment} />
+          <Comments id={blog.id} post={blog.title} comment={blog.comment} />
           <ScrollToTop />
         </div>
       </div>

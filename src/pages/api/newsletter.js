@@ -11,33 +11,38 @@ const config = {
 const sanityClient = createClient(config);
 
 export default async function handler(req, res) {
-  try {
+  if (req.method === "POST") {
     const { Name, Email } = req.body;
 
-    //send data to sanity
-
-    const sanity_res = await sanityClient.create({
-      _type: "newsletter",
-      name: Name,
-      email: Email,
-    });
-
-    if (sanity_res.status >= 400) {
-      return res.status(400).json({
-        error: `There was an error subscribing to the list in Sanity list.`,
+    try {
+      await sanityClient.create({
+        _type: "newsletter",
+        name: Name,
+        email: Email,
       });
+    } catch (e) {
+      return res.status(500).send("Something wrong. Try again later.");
     }
 
-    // send a email
+    try {
+      await fetch(
+        `${process.env.FORMSPEE_URL}/f/${process.env.FORMSPEE_TEST_FORM_ID}`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            Name,
+            Email,
+            manage: `Check and manage in: https://thelocalfeet.com/admin/desk/newsletter`,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-    ///------------------------/////
-
-    console.log("Server - comment send to sanity cms");
-
-    console.log("Server - Sent a mail to admin");
-
-    res.status(200).send({ data: "comment submitted." });
-  } catch (err) {
-    return res.status(500).send({ data: err.message });
+      return res.status(201).send("Message sent successfully.");
+    } catch (e) {
+      return res.status(500).send("Something wrong. Try again later.");
+    }
   }
 }

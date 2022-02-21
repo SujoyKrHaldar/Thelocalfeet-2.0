@@ -59,6 +59,7 @@ const commentPreviews = ({ data }) => {
         }
         p {
           margin: 0;
+          line-height: 1.5rem;
         }
 
         .icon {

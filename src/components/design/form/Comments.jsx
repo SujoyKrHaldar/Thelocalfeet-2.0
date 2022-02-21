@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { CgSmileNeutral } from "react-icons/cg";
+import toast, { Toaster } from "react-hot-toast";
 import { BsEmojiHeartEyes } from "react-icons/bs";
 
 import CommentPreviews from "../card/CommentPreviews";
 
-export default function FeedbackForm({ id, comment }) {
+export default function FeedbackForm({ id, comment, post }) {
   const [loading, setLoading] = useState(false);
   const [successMsg, setSuccessMsg] = useState(false);
   const [errorMsg, setErrorMsg] = useState(false);
@@ -17,31 +18,31 @@ export default function FeedbackForm({ id, comment }) {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (values, e) => {
+  const onSubmit = async (values, e) => {
     e.preventDefault();
     setLoading(!loading);
+    toast.loading("Saving your comment...");
 
-    const data = { id, ...values };
+    const data = { id, post, ...values };
 
-    fetch("/api/comment", {
+    const response = await fetch("/api/comment", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
       },
-    })
-      .then(() => {
-        console.log("send to api");
-        setLoading(loading);
-        setSuccessMsg(!successMsg);
-        reset(e.target.values);
-        console.log("send to server successfully - client");
-      })
-      .catch((err) => {
-        setLoading(loading);
-        setErrorMsg(!errorMsg);
-        console.log(err.Message);
-      });
+    });
+
+    toast.dismiss();
+    setLoading(loading);
+
+    if (!response.ok) {
+      setErrorMsg(!errorMsg);
+      reset(e.target.values);
+    }
+
+    setSuccessMsg(!successMsg);
+    reset(e.target.values);
   };
 
   return (
@@ -80,7 +81,13 @@ export default function FeedbackForm({ id, comment }) {
         <>
           <div className="comments">
             <form className="form" onSubmit={handleSubmit(onSubmit)}>
-              <p>Leave a comment</p>
+              <Toaster
+                toastOptions={{
+                  className: "toaste",
+                }}
+              />
+
+              <h1>Leave a comment</h1>
 
               <p>Give us your feedback</p>
 
@@ -256,13 +263,13 @@ export default function FeedbackForm({ id, comment }) {
           z-index: 1;
         }
 
-        .comments p:first-child() {
-          font-size: 2rem;
-          font-weight: 700;
+        h1 {
+          letter-spacing: 0;
+          margin-bottom: 0.5rem;
         }
 
-        .comments p:nth-child(2) {
-          margin-bottom: 1rem;
+        .comments p:first-of-type {
+          margin-bottom: 1.5rem;
         }
 
         .form {

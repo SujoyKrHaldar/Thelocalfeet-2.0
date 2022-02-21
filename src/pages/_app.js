@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps, router }) {
           rel="canonical"
           href={`${process.env.NEXT_PUBLIC_WEBSITE_LINK}`}
         />
-        {/* <link rel="icon" href="/image/favicon.ico" /> */}
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Detector
