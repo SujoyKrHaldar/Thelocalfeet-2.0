@@ -4,7 +4,7 @@ const config = {
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET_NAME,
   apiVersion: "2021-06-24",
-  useCdn: process.env.NODE_ENV === "production" ? true : false,
+  useCdn: false,
   token: process.env.SANITY_COMMENT_API_TOKEN,
 };
 
