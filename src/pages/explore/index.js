@@ -47,16 +47,16 @@ export const getStaticProps = async () => {
 };
 
 function index({ country, blog, photoBlog }) {
-  useEffect(() => {
-    new Rellax(".parallex", {
-      speed: -7,
-      center: true,
-      wrapper: null,
-      round: true,
-      vertical: true,
-      horizontal: false,
-    });
-  }, []);
+  // useEffect(() => {
+  //   new Rellax(".parallex", {
+  //     speed: -7,
+  //     center: true,
+  //     wrapper: null,
+  //     round: true,
+  //     vertical: true,
+  //     horizontal: false,
+  //   });
+  // }, []);
 
   return (
     <>

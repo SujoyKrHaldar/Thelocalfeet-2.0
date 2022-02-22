@@ -6,16 +6,16 @@ import Home from "./components/Home";
 const Landing = () => {
   const img_parallex = useRef();
 
-  useEffect(() => {
-    new Rellax(img_parallex.current, {
-      speed: -7,
-      center: false,
-      wrapper: null,
-      round: true,
-      vertical: true,
-      horizontal: false,
-    });
-  }, []);
+  // useEffect(() => {
+  //   new Rellax(img_parallex.current, {
+  //     speed: -7,
+  //     center: false,
+  //     wrapper: null,
+  //     round: true,
+  //     vertical: true,
+  //     horizontal: false,
+  //   });
+  // }, []);
 
   return (
     <>

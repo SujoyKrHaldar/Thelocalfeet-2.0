@@ -7,16 +7,16 @@ import { urlFor } from "../../../../config/sanity";
 const BlogLanding = ({ blog }) => {
   const img_parallex = useRef();
 
-  useEffect(() => {
-    new Rellax(img_parallex.current, {
-      speed: -7,
-      center: true,
-      wrapper: null,
-      round: true,
-      vertical: true,
-      horizontal: false,
-    });
-  }, []);
+  // useEffect(() => {
+  //   new Rellax(img_parallex.current, {
+  //     speed: -7,
+  //     center: true,
+  //     wrapper: null,
+  //     round: true,
+  //     vertical: true,
+  //     horizontal: false,
+  //   });
+  // }, []);
 
   return (
     <>
