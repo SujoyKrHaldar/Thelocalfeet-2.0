@@ -4,7 +4,7 @@ export default async function handler(req, res) {
 
     try {
       const response = await fetch(
-        `${process.env.FORMSPEE_URL}/f/${process.env.FORMSPEE_CONTACT_FORM_ID}`,
+        `${process.env.FORMSPEE_URL}/f/${process.env.FORMSPEE_TEST_FORM_ID}`,
         {
           method: "POST",
           body: JSON.stringify(data),
