@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import HrTag from "../design/HrTag";
 import ReadMoreType from "../design/buttons/ReadMoreType";
 
@@ -35,8 +37,11 @@ const About = () => {
             />
 
             <div className="featured_img">
-              <img
-                className="left"
+              <Image
+                layout="responsive"
+                width={870}
+                height={700}
+                loading="lazy"
                 src="/assets/collage.png"
                 alt="collage"
                 onDragStart={(e) => {
