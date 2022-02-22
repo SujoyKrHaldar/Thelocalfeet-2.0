@@ -110,7 +110,7 @@ const photoBlogBySlug = ({ blog, otherBlogs }) => {
         <BlogTemplate
           blog={blog}
           others={otherBlogs}
-          link="/photography/album"
+          link="/photography"
           links={links}
           currPage={blog.title}
         />

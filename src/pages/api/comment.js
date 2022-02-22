@@ -15,7 +15,7 @@ export default async function handler(req, res) {
     const { id, post, Name, Email, Message } = req.body;
 
     try {
-      const data = await sanityClient.create({
+      await sanityClient.create({
         _type: "comments",
         post: {
           _type: "reference",

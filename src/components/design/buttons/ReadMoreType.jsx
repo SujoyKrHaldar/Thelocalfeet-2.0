@@ -99,6 +99,20 @@ const ReadMoreType = ({
             opacity: 0;
           }
         }
+
+        @media (max-width: 768px) {
+          .btn:before {
+            opacity: 0;
+          }
+          .btn:active:before {
+            opacity: 0;
+          }
+
+          .btn:hover {
+            background: ${background};
+            color: ${color};
+          }
+        }
       `}</style>
     </>
   );

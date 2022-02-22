@@ -54,7 +54,7 @@ function index({ blog, gallery }) {
   return (
     <>
       <Head>
-        <title>Our Snapshots - thelocalfeet</title>
+        <title>Photography - thelocalfeet</title>
         <meta
           name="description"
           content="Photography can be a speaker of an introvert soul. Check out thelocalfeet's photo section and don't forget to follow on social sites."
@@ -63,7 +63,7 @@ function index({ blog, gallery }) {
           name="keywords"
           content="travel websites, travel sites, thelocalfeet, travel, travel blog, explore,  places to visit, photography, travel photography "
         />
-        <meta property="og:title" content="Our Snapshots - thelocalfeet" />
+        <meta property="og:title" content="Photography - thelocalfeet" />
 
         <meta
           property="og:description"

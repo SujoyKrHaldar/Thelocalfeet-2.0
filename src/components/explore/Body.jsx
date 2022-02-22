@@ -5,9 +5,9 @@ const Body = ({ country, blog, album }) => {
   return (
     <>
       <div className="section">
-        <div className="container flex">
-          <BlogsList data={blog} />
+        <div className="container">
           <Countries data={country} album={album} />
+          <BlogsList data={blog} />
         </div>
       </div>
 

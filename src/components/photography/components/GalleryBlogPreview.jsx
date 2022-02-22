@@ -13,7 +13,13 @@ export default function GalleryBlogPreview({ data }) {
           <Link key={i.id} href={i.slug}>
             <div className="circle">
               <div className="image">
-                <img src={urlFor(i.mainImage).url()} alt={i.title} />
+                <img
+                  src={urlFor(i.mainImage).url()}
+                  alt={i.title}
+                  onDragStart={(e) => {
+                    e.preventDefault();
+                  }}
+                />
               </div>
               <p>{i.title}</p>
             </div>
@@ -72,7 +78,6 @@ export default function GalleryBlogPreview({ data }) {
         p {
           margin: 1rem 0;
           font-weight: 700;
-          margin: 1rem 0;
           font-weight: 700;
           max-width: 150px;
           text-align: center;

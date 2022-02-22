@@ -7,73 +7,76 @@ const BlogsList = ({ data }) => {
     <>
       <div className="blogs">
         <h2>Articles</h2>
-        <div className="details">
+        <div className="list">
           {data.map((i) => (
-            <div key={i.id} className="box">
-              <img
-                src={urlFor(i.mainImage).url()}
-                alt={i.name}
-                onDragStart={(e) => {
-                  e.preventDefault();
-                }}
-              />
-              <div className="content">
-                <p>
-                  {i.country.name} -{" "}
-                  <Moment format="Do MMM[,] YY">{i.publishedAt}</Moment>
-                </p>
-                <p>{i.title}</p>
-                <p>{i.subtitle}</p>
+            <Link href={`/explore/${i.slug}`} key={i.id}>
+              <a className="box">
+                <div className="background">
+                  <img
+                    src={urlFor(i.mainImage).url()}
+                    alt={i.name}
+                    onDragStart={(e) => {
+                      e.preventDefault();
+                    }}
+                  />
+                </div>
 
-                <Link href={`/explore/${i.slug}`}>
-                  <a>Read more</a>
-                </Link>
-              </div>
-            </div>
+                <div className="content flex">
+                  <p>
+                    {i.country.name} -{" "}
+                    <Moment format="Do MMM[,] YY">{i.publishedAt}</Moment>
+                  </p>
+                  <p className="title">{i.title}</p>
+                  <p>{i.subtitle}</p>
+                </div>
+              </a>
+            </Link>
           ))}
         </div>
       </div>
 
       <style jsx>{`
-        .blogs {
-          padding: 2rem;
-          flex: 2;
-        }
-        .details {
-          margin-top: 1rem;
+        .list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          margin-top: 2rem;
         }
         .box {
+          flex: 1 1 200px;
+          max-width: 283px;
           position: relative;
-          margin-bottom: 1rem;
-          width: 100%;
-          z-index: 1;
-          gap: 1rem;
-          display: flex;
-          align-item: center;
-          justify-content: center;
+          height: 330px;
+          border-radius: 20px;
+          overflow: hidden;
+          text-align: left;
+        }
+        .background {
+          transition: 0.3s ease;
+        }
+        .box:hover .background {
+          transform: scale(1.03);
         }
 
         .box:hover {
-          background: #f6f6f6;
-        }
-
-        img {
-          height: 180px;
-          width: 200px;
-          flex: 1;
+          transform: scale(1.03);
         }
 
         .content {
-          padding: 1rem;
-          flex: 2;
-
-          display: flex;
+          padding: 2rem 1.5rem;
+          color: white;
+          background: linear-gradient(45deg, #000000d1, #292929b8, transparent);
+          height: 100%;
           flex-direction: column;
-          align-item: center;
-          justify-content: center;
+          align-items: flex-start;
+          justify-content: flex-end;
         }
 
-        p:nth-child(2) {
+        p {
+          font-weight: 300;
+        }
+
+        .title {
           font-size: 1.3rem;
           font-weight: 700;
         }
@@ -84,22 +87,12 @@ const BlogsList = ({ data }) => {
           display: inline-block;
         }
 
-        a {
-          font-weight: 700;
+        @media (max-width: 768px) {
+          .box:hover .background,
+          .box:hover {
+            transform: scale(1);
+          }
         }
-
-        /* 
-        
-
-        @media (max-width: 600px) {
-          .container {
-            padding: 0;
-          }
-
-          .flex {
-            gap: 2rem;
-          }
-        } */
       `}</style>
     </>
   );

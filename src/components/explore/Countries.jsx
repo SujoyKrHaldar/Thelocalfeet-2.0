@@ -5,27 +5,27 @@ import ReadMoreType from "../design/buttons/ReadMoreType";
 const Countries = ({ data, album }) => {
   return (
     <>
-      <div className="content">
-        <div className="country">
-          <h2>Destinations</h2>
-          <div className="details">
-            {data.map((i) => (
-              <div key={i.id} className="box">
+      <div className="country">
+        <h2>Destinations</h2>
+        <div className="flex">
+          {data.map((i) => (
+            <div className="circle" key={i.id}>
+              <div className="image">
                 <img
-                  className="background"
                   src={urlFor(i.coverImage).url()}
                   alt={i.name}
                   onDragStart={(e) => {
                     e.preventDefault();
                   }}
                 />
-                <p>{i.name}</p>
               </div>
-            ))}
-          </div>
+              <p>{i.name}</p>
+            </div>
+          ))}
         </div>
+      </div>
 
-        {album.length > 0 && (
+      {/* {album.length > 0 && (
           <div className="albums">
             <h2>Albums</h2>
             {album.map((a) => (
@@ -55,15 +55,10 @@ const Countries = ({ data, album }) => {
               top="1rem"
             />
           </div>
-        )}
-      </div>
+        )} */}
 
       <style jsx>{`
-        .content {
-          flex: 1;
-        }
-
-        .albums {
+        /* .albums {
           padding: 2rem 0;
         }
         .albums h2 {
@@ -111,41 +106,57 @@ const Countries = ({ data, album }) => {
           background: none;
           padding: 0;
           color: white;
-        }
+        } */
         .country {
           position: relative;
-          padding: 2rem;
-          text-align: left;
-          height: 100%;
-          background: #f6f6f6;
+          text-align: center;
+          /* padding: 2rem; */
+          /* background: #f6f6f6; */
         }
+        h2 {
+          padding: 0.3rem 2rem;
+          margin-bottom: 2rem;
+          background: #f5f5f5;
+          display: inline-block;
+        }
+
         p {
-          margin: 0;
-          padding: 0.4rem 1rem;
-          border-radius: 50px;
-          background: white;
-          color: black;
+          margin: 1rem 0;
           font-weight: 700;
+          margin: 1rem 0;
+          font-weight: 700;
+          text-align: center;
         }
-
-        .details {
-          margin-top: 2rem;
-        }
-        .box {
+        .flex {
           position: relative;
-          padding: 1rem;
-          margin-bottom: 1rem;
-          color: white;
-          display: grid;
-          place-items: center;
-          z-index: 1;
-          width: 100%;
-          height: 105px;
+          justify-content: center;
+          align-items: flex-start;
+          flex-wrap: wrap;
+          gap: 1rem;
+          margin-bottom: 2rem;
+          padding-bottom: 1rem;
+          border-bottom: 1px solid #dadada;
+        }
+        .circle {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          flex: 1 1 118px;
+          max-width: 168px;
+          transform: scale(1);
         }
 
-        .box:last-child() {
-          margin: 0;
+        .image {
+          width: 120px;
+          height: 120px;
+          border-radius: 100%;
+          overflow: hidden;
+          border: 4px solid white;
+          box-shadow: 2px 2px 20px #00000057;
         }
+
         /* 
 
         @media (max-width: 768px) {
