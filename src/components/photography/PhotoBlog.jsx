@@ -1,5 +1,7 @@
-import PhBlogCardH from "../design/card/PhBlogCardH";
+import { BiSearch } from "react-icons/bi";
+
 import HrTag from "../design/HrTag";
+import PhBlogCardH from "../design/card/PhBlogCardH";
 
 const PhotoBlog = ({ data }) => {
   return (
@@ -8,7 +10,14 @@ const PhotoBlog = ({ data }) => {
         <div className="container">
           <div className="flex">
             <h2>Featured Albums</h2>
-            {/* <input placeholder="Search by name" type="text" /> */}
+
+            {/* <div className="flex search">
+              <p>What are you looking for?</p>
+              <input placeholder="Search by name" type="text" />
+              <div className="icon">
+                <BiSearch />
+              </div>
+            </div> */}
           </div>
 
           <div className="list">
@@ -42,12 +51,24 @@ const PhotoBlog = ({ data }) => {
           margin-top: 2rem;
         }
 
+        .search {
+          border: 2px solid #d5d5d5;
+          border-radius: 20px;
+          overflow: hidden;
+          gap: 0.5rem;
+        }
         input {
-          padding: 0.7rem 1rem;
-          outline: 0px;
-          border: 2px solid black;
-          width: 100%;
           max-width: 350px;
+          outline: none;
+          border: none;
+          /* background: #d7d7d7; */
+          padding: 0.6rem 1rem;
+        }
+
+        .icon {
+          font-size: 1.5rem;
+          padding: 0.5rem 1rem;
+          color: #afafaf;
         }
 
         @media (max-width: 867px) {

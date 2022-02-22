@@ -21,7 +21,7 @@ export default function HomeDetails() {
             onDragStart={(e) => {
               e.preventDefault();
             }}
-            src="/assets/decorator_img.png"
+            src="/assets/decorations/decorator_img.png"
             alt="decoration"
           />
         </div>

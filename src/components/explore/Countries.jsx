@@ -1,11 +1,33 @@
-import Link from "next/link";
+import Image from "next/image";
 import { urlFor } from "../../../config/sanity";
-import ReadMoreType from "../design/buttons/ReadMoreType";
 
 const Countries = ({ data, album }) => {
   return (
     <>
       <div className="country">
+        <div className="background">
+          {/* <img
+            src="/assets/world-map.png"
+            alt="background_image"
+            onDragStart={(e) => {
+              e.preventDefault();
+            }}
+          /> */}
+
+          <Image
+            // layout="fill"
+            layout="responsive"
+            width={550}
+            height={380}
+            loading="lazy"
+            src="/assets/decorations/world-map.png"
+            alt="background_image"
+            onDragStart={(e) => {
+              e.preventDefault();
+            }}
+          />
+        </div>
+
         <h2>Destinations</h2>
         <div className="flex">
           {data.map((i) => (
@@ -25,98 +47,26 @@ const Countries = ({ data, album }) => {
         </div>
       </div>
 
-      {/* {album.length > 0 && (
-          <div className="albums">
-            <h2>Albums</h2>
-            {album.map((a) => (
-              <Link key={a.id} href={`/photography/${a.slug}`}>
-                <a className="album_box">
-                  <img
-                    className="background"
-                    src={urlFor(a.mainImage).url()}
-                    alt={a.title}
-                    onDragStart={(e) => {
-                      e.preventDefault();
-                    }}
-                  />
-
-                  <p>{a.title}</p>
-                </a>
-              </Link>
-            ))}
-
-            <ReadMoreType
-              text="View all"
-              url="/photography"
-              color="#fff"
-              colorOnHover="#fff"
-              background="#222222"
-              backgroundOnHover="#464646"
-              top="1rem"
-            />
-          </div>
-        )} */}
-
       <style jsx>{`
-        /* .albums {
-          padding: 2rem 0;
-        }
-        .albums h2 {
-          padding: 0.3rem 2rem;
-          background: #f5f5f5;
-          display: inline-block;
-        }
-
-        .album_box {
-          position: relative;
-          width: 100%;
-          height: 200px;
-          display: grid;
-          z-index: 1;
-          place-items: center;
-
-          overflow: hidden;
-          margin-bottom: 1rem;
-        }
-
-        .album_box:last-child() {
-          margin-bottom: 0;
-        }
-
-        .album_box:before {
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          inset: 0;
-          background: #00000075;
-
-          z-index: -1;
-        }
-
-        .background {
-          transition: 0.5s ease !important;
-        }
-
-        .album_box:hover .background {
-          transform: scale(1.05);
-        }
-
-        .album_box p {
-          background: none;
-          padding: 0;
-          color: white;
-        } */
         .country {
           position: relative;
           text-align: center;
           /* padding: 2rem; */
           /* background: #f6f6f6; */
         }
+
+        .background {
+          max-width: 392px;
+          left: 50%;
+          top: -2rem;
+          transform: translateX(-50%);
+          opacity: 0.2;
+        }
+
         h2 {
           padding: 0.3rem 2rem;
           margin-bottom: 2rem;
-          background: #f5f5f5;
+          background: #ffffff99;
           display: inline-block;
         }
 
