@@ -39,9 +39,10 @@ const About = () => {
             <div className="featured_img">
               <Image
                 layout="responsive"
+                objectFit="cover"
                 width={870}
                 height={700}
-                loading="lazy"
+                loading="eager"
                 src="/assets/collage.png"
                 alt="collage"
                 onDragStart={(e) => {
