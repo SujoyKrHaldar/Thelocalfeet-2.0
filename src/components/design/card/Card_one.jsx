@@ -3,7 +3,7 @@ import Moment from "react-moment";
 import { BiRightArrowAlt } from "react-icons/bi";
 import { urlFor } from "../../../../config/sanity";
 
-const BlogCard = ({ data }) => {
+const Card_one = ({ data, link }) => {
   return (
     <>
       <div className="box">
@@ -26,7 +26,7 @@ const BlogCard = ({ data }) => {
               <Moment format="Do MMM[,] YY">{data.publishedAt}</Moment>
             </p>
 
-            <Link href={`/explore/${data.slug}`}>
+            <Link href={link}>
               <a className="icon">
                 <BiRightArrowAlt />
               </a>
@@ -200,4 +200,4 @@ const BlogCard = ({ data }) => {
   );
 };
 
-export default BlogCard;
+export default Card_one;

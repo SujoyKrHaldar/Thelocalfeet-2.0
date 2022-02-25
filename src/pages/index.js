@@ -17,21 +17,21 @@ const blogQuery = `*[_type == "blog"]|order(_createdAt desc)|order( publishedAt 
                       {
                         'id':_id, 
                         publishedAt, 
-                        'country':country->{name}, 
+                        title, 
+                        subtitle, 
                         mainImage,
                         'slug':slug.current, 
-                        title, 
-                        subtitle 
+                        'country':country->{name}
                       }`;
 
 const photoBlogQuery = `*[_type == "photoBlog"]|order(_createdAt desc)|order( publishedAt desc) 
                       {
                         "id":_id, 
+                        publishedAt,
                         title, 
                         subtitle, 
-                        publishedAt,
-                        "slug":slug.current, 
-                        mainImage
+                        mainImage,
+                        "slug":slug.current
                       }`;
 
 const productsQuery = `*[_type == "shop"]|order(_createdAt desc)

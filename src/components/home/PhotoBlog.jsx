@@ -1,5 +1,5 @@
 import HrTag from "../design/HrTag";
-import BlogCard from "../design/card/BlogCard";
+import Card_one from "../design/card/Card_one";
 import ReadMoreType from "../design/buttons/ReadMoreType";
 
 const PhotoBlog = ({ data }) => {
@@ -12,7 +12,7 @@ const PhotoBlog = ({ data }) => {
 
           <div className="list">
             {data.slice(0, 4).map((d) => (
-              <BlogCard data={d} key={d.id} />
+              <Card_one data={d} key={d.id} link={`/photography/${d.slug}`} />
             ))}
           </div>
 

@@ -1,4 +1,4 @@
-import OtherBlogCard from "../../design/card/OtherBlogCard";
+import Card_others from "../../design/card/Card_others";
 
 export default function Blogs({ data }) {
   return (
@@ -10,7 +10,7 @@ export default function Blogs({ data }) {
 
           <div className="flex lists">
             {data.map((d) => (
-              <OtherBlogCard key={d.id} data={d} link={`/explore/${d.slug}`} />
+              <Card_others key={d.id} data={d} link={`/explore/${d.slug}`} />
             ))}
           </div>
         </div>

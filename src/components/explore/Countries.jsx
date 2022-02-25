@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { urlFor } from "../../../config/sanity";
 
-const Countries = ({ data, album }) => {
+const Countries = ({ data }) => {
   return (
     <>
       <div className="country">

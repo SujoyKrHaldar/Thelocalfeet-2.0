@@ -26,27 +26,17 @@ const countryQuery = `*[_type == "country"]
                         name 
                       }`;
 
-const photoBlogQuery = `*[_type == "photoBlog"][0..1]|order(publishedAt desc)
-                        {
-                          "id":_id, 
-                          title, 
-                          subtitle, 
-                          "slug":slug.current, 
-                          mainImage
-                        }`;
-
 export const getStaticProps = async () => {
   const blog = await sanityClient.fetch(blogQuery);
   const country = await sanityClient.fetch(countryQuery);
-  const photoBlog = await sanityClient.fetch(photoBlogQuery);
 
   return {
-    props: { country, blog, photoBlog },
+    props: { country, blog },
     revalidate: 1,
   };
 };
 
-function index({ country, blog, photoBlog }) {
+function index({ country, blog }) {
   // useEffect(() => {
   //   new Rellax(".parallex", {
   //     speed: -7,
@@ -86,7 +76,7 @@ function index({ country, blog, photoBlog }) {
         {blog.length > 0 ? (
           <>
             <Landing />
-            <Body country={country} blog={blog} album={photoBlog} />
+            <Body country={country} blog={blog} />
           </>
         ) : (
           <ComingSoon asset="/assets/explore-landing.jpeg" />

@@ -1,7 +1,7 @@
 import { BiSearch } from "react-icons/bi";
 
 import HrTag from "../design/HrTag";
-import PhBlogCardH from "../design/card/PhBlogCardH";
+import Card_two from "../design/card/Card_two";
 
 const PhotoBlog = ({ data }) => {
   return (
@@ -22,7 +22,7 @@ const PhotoBlog = ({ data }) => {
 
           <div className="list">
             {data.map((d) => (
-              <PhBlogCardH key={d.id} data={d} />
+              <Card_two key={d.id} i={d} link={`/photography/${d.slug}`} />
             ))}
           </div>
         </div>
@@ -47,7 +47,7 @@ const PhotoBlog = ({ data }) => {
         .list {
           display: flex;
           flex-wrap: wrap;
-          gap: 2rem;
+          gap: 1rem;
           margin-top: 2rem;
         }
 

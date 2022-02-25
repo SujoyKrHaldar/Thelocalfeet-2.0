@@ -1,5 +1,5 @@
 import HrTag from "../../design/HrTag";
-import OtherBlogCard from "../../design/card/OtherBlogCard";
+import Card_others from "../../design/card/Card_others";
 
 export default function Albums({ data }) {
   return (
@@ -10,7 +10,7 @@ export default function Albums({ data }) {
 
           <div className="flex lists">
             {data.map((d) => (
-              <OtherBlogCard
+              <Card_others
                 key={d.id}
                 data={d}
                 link={`/photography/${d.slug}`}

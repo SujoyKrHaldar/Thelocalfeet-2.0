@@ -11,10 +11,11 @@ import PhotoBlog from "../../components/photography/PhotoBlog";
 const photoBlogQuery = `*[_type == "photoBlog"]|order( publishedAt desc)
                       {
                         "id":_id, 
+                        publishedAt,
                         title, 
                         subtitle, 
-                        "slug":slug.current, 
-                        mainImage
+                        mainImage,
+                        "slug":slug.current
                       }`;
 
 const galleryQuery = `*[_type == "photography"][0...6]|order( publishedAt desc)

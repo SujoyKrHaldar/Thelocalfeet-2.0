@@ -1,6 +1,6 @@
 import { IoIosArrowDown } from "react-icons/io";
 
-import OtherBlogCard from "../../design/card/OtherBlogCard";
+import Card_others from "../../design/card/Card_others";
 import ReadMoreType from "../../design/buttons/ReadMoreType";
 
 export default function OtherBlogs({ data, Blogs_link }) {
@@ -12,7 +12,7 @@ export default function OtherBlogs({ data, Blogs_link }) {
 
         <div className="flex lists">
           {data.map((d) => (
-            <OtherBlogCard key={d.id} data={d} link={`${d.slug}`} />
+            <Card_others key={d.id} data={d} link={`${Blogs_link}/${d.slug}`} />
           ))}
         </div>
 

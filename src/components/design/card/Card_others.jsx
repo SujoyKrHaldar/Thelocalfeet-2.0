@@ -2,7 +2,7 @@ import Link from "next/link";
 import Moment from "react-moment";
 import { urlFor } from "../../../../config/sanity";
 
-export default function OtherBlogCard({ data, link }) {
+export default function Card_others({ data, link }) {
   return (
     <>
       <Link href={link} key={data.id}>
@@ -34,6 +34,10 @@ export default function OtherBlogCard({ data, link }) {
 
         .card:hover {
           transform: scale(1.05);
+        }
+
+        .card:focus {
+          transform: scale(1);
         }
 
         .img {
