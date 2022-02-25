@@ -4,6 +4,7 @@ export default function Landing() {
       <div className="section">
         <div className="background">
           <img
+            className="an_fade-1"
             onDragStart={(e) => {
               e.preventDefault();
             }}
@@ -13,7 +14,7 @@ export default function Landing() {
         </div>
 
         <div className="container">
-          <h1>Store</h1>
+          <h1 className="an_fade-2">Store</h1>
         </div>
       </div>
 
@@ -37,7 +38,6 @@ export default function Landing() {
           position: absolute;
           width: 100%;
           height: 100%;
-          background: #00000063;
           z-index: 1;
           inset: 0;
         }

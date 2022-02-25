@@ -17,17 +17,17 @@ const Landing = () => {
         </div>
 
         <div className="container flex">
-          <p>Welcome</p>
+          <p className="an_fade-3">Welcome</p>
 
-          <h1>
+          <h1 className="an_fade-2">
             Experience the journey of <span>thelocalfeet</span>
           </h1>
 
-          <div className="icon disabled">
+          <div className="icon disabled an_fade-4">
             <IoMdArrowDropdown />
           </div>
 
-          <p className="date">
+          <p className="date an_fade-2">
             <Moment format="MMMM DD[, ]YYYY">{new Date()}</Moment>
           </p>
         </div>

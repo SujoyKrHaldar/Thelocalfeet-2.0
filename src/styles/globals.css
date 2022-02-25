@@ -82,6 +82,30 @@ p {
   margin-bottom: 0.5rem;
   font-family: "Source Serif Pro";
 }
+/* ---------------
+- landing animation -
+------------------ */
+
+.an_fade-1 {
+  animation: 1s fade cubic-bezier(1, -0.01, 0.57, 0.99);
+}
+.an_fade-2 {
+  animation: 2s fade cubic-bezier(1, -0.01, 0.57, 0.99);
+}
+.an_fade-3 {
+  animation: 3s fade cubic-bezier(1, -0.01, 0.57, 0.99);
+}
+.an_fade-4 {
+  animation: 4s fade cubic-bezier(1, -0.01, 0.57, 0.99);
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 /* ---------------
 - common classes -

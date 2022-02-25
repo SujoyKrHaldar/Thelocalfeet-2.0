@@ -6,6 +6,7 @@ export default function Landing({ item }) {
       <div className="section">
         <div className="background">
           <img
+            className="an_fade-1"
             src={urlFor(item.photo).url()}
             alt={item.caption}
             onDragStart={(e) => {
@@ -15,7 +16,7 @@ export default function Landing({ item }) {
         </div>
 
         <div className="container">
-          <h1>Gallery</h1>
+          <h1 className="an_fade-2">Gallery</h1>
         </div>
       </div>
 
@@ -39,7 +40,6 @@ export default function Landing({ item }) {
           position: absolute;
           width: 100%;
           height: 100%;
-          background: #00000063;
           z-index: 1;
           inset: 0;
         }

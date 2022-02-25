@@ -20,7 +20,7 @@ export default function Details({
         currPage={currPage}
       />
       {data.status && data?.preview && <Preview prv={data} />}
-      <OtherProducts data={othP} offer={offer} />
+      {othP.length > 0 && <OtherProducts data={othP} offer={offer} />}
     </>
   );
 }

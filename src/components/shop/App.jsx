@@ -4,12 +4,12 @@ import OfferTemplate from "./components/OfferTemplate";
 const App = ({ data, offer }) => {
   return (
     <>
-      <div className="section">
+      <div className="section ">
         <div className="container">
-          <div className="shop">
+          <div className="shop an_fade-2">
             {offer && <OfferTemplate data={offer} />}
 
-            <div className="list">
+            <div className="list an_fade-3">
               {data.map((d) => (
                 <ShopCard d={d} key={d.id} offer={offer} />
               ))}

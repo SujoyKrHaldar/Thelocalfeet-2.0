@@ -34,13 +34,13 @@ const BlogLanding = ({ blog }) => {
         </div>
 
         <div className="container flex">
-          <p className="date">
+          <p className="date an_fade-2">
             <Moment format="MMMM D[, ] YYYY">{blog.publishedAt}</Moment>
           </p>
 
-          <h1>{blog.title}</h1>
+          <h1 className="an_fade-1">{blog.title}</h1>
 
-          <div className="icon disabled">
+          <div className="icon an_fade-3 disabled">
             <AiFillRead />
           </div>
         </div>

@@ -16,10 +16,10 @@ const Landing = () => {
         </div>
 
         <div className="container flex">
-          <h1>Explore</h1>
-          <p>Lets make your best trip ever</p>
+          <h1 className="an_fade-1">Explore</h1>
+          <p className="an_fade-2">Lets make your best trip ever</p>
 
-          <div className="icon disabled">
+          <div className="icon disabled an_fade-3">
             <MdOutlineExplore />
           </div>
         </div>

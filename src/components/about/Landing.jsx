@@ -20,7 +20,7 @@ const Landing = () => {
   return (
     <>
       <div className="section">
-        <div className="background">
+        <div className="background an_fade-2">
           <img
             ref={img_parallex}
             onDragStart={(e) => {

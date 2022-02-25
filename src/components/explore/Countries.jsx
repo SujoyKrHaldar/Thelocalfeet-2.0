@@ -6,20 +6,12 @@ const Countries = ({ data, album }) => {
     <>
       <div className="country">
         <div className="background">
-          {/* <img
-            src="/assets/world-map.png"
-            alt="background_image"
-            onDragStart={(e) => {
-              e.preventDefault();
-            }}
-          /> */}
-
           <Image
-            // layout="fill"
             layout="responsive"
+            objectFit="cover"
             width={550}
             height={380}
-            loading="lazy"
+            loading="eager"
             src="/assets/decorations/world-map.png"
             alt="background_image"
             onDragStart={(e) => {

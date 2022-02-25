@@ -16,9 +16,9 @@ const Landing = () => {
         </div>
 
         <div className="container flex">
-          <h1>Photography</h1>
-          <p>Can be a speaker of an introvert Soul</p>
-          <div className="icon disabled">
+          <h1 className="an_fade-1">Photography</h1>
+          <p className="an_fade-2">Can be a speaker of an introvert Soul</p>
+          <div className="icon disabled an_fade-3">
             <SiPhotobucket />
           </div>
         </div>

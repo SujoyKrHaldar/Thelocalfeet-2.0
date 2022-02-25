@@ -5,7 +5,7 @@ import MainSocialLink from "./MainSocialLink";
 export default function HomeDetails() {
   return (
     <>
-      <div className="details">
+      <div className="details an_fade-1">
         <div className="profile_pic">
           <img
             onDragStart={(e) => {

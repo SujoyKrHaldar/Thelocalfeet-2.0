@@ -17,7 +17,7 @@ export default function Construct({ data, offer, others, links, currPage }) {
 
   return (
     <>
-      <div className="section">
+      <div className="section an_fade-2">
         <Model open={open} close={closePopUp} data={data} />
 
         <div className="background desktop">

@@ -11,7 +11,7 @@ const Gallery = ({ data, links, currPage, reel_type }) => {
 
   return (
     <>
-      <div className="section">
+      <div className="section an_fade-2">
         <div className="container">
           {currPage && (
             <div className="links_mob">

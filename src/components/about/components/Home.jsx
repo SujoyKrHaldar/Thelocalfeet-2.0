@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <div className="container">
-        <div className="landing">
+        <div className="landing an_fade-3">
           <h1>Read our Story</h1>
         </div>
         <HomeDetails />
