@@ -1,20 +1,33 @@
+import Image from "next/image";
+
 const ComingSoon = ({ asset }) => {
   return (
     <>
       <div className="section">
         <div className="background">
-          <img
-            className="img"
+          {/* <img
             onDragStart={(e) => {
               e.preventDefault();
             }}
             src={asset}
             alt="Coming_soon"
+          /> */}
+
+          <Image
+            layout="fill"
+            objectFit="cover"
+            loading="eager"
+            className="an_fade-1"
+            src={asset}
+            alt="Coming_soon"
+            onDragStart={(e) => {
+              e.preventDefault();
+            }}
           />
         </div>
 
         <div className="container flex">
-          <h1>Coming soon</h1>
+          <h1 className="an_fade-2">Coming soon</h1>
         </div>
       </div>
 
@@ -26,7 +39,9 @@ const ComingSoon = ({ asset }) => {
 
         h1 {
           color: #fff;
-          letter-spacing: 0;
+          letter-spacing: 0.2rem;
+          padding: 0.5rem 2rem;
+          border: 1px solid #9d9d9d;
         }
 
         .section:before {

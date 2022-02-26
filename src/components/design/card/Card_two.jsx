@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Moment from "react-moment";
 import { urlFor } from "../../../../config/sanity";
 
@@ -8,7 +9,18 @@ export default function Card_two({ i, link }) {
       <Link href={link} key={i.id}>
         <a className="box">
           <div className="background">
-            <img
+            {/* <img
+              src={urlFor(i.mainImage).url()}
+              alt={i.title}
+              onDragStart={(e) => {
+                e.preventDefault();
+              }}
+            /> */}
+
+            <Image
+              layout="fill"
+              objectFit="cover"
+              loading="eager"
               src={urlFor(i.mainImage).url()}
               alt={i.title}
               onDragStart={(e) => {

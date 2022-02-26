@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Moment from "react-moment";
 import { BiRightArrowAlt } from "react-icons/bi";
 import { urlFor } from "../../../../config/sanity";
@@ -7,13 +8,28 @@ const Card_one = ({ data, link }) => {
   return (
     <>
       <div className="box">
-        <img
+        {/* <img
           src={urlFor(data.mainImage).url()}
           alt={data.title}
           onDragStart={(e) => {
             e.preventDefault();
           }}
-        />
+        /> */}
+
+        <div className="coverimg">
+          <Image
+            layout="responsive"
+            objectFit="cover"
+            width={350}
+            height={250}
+            loading="eager"
+            src={urlFor(data.mainImage).url()}
+            alt={data.title}
+            onDragStart={(e) => {
+              e.preventDefault();
+            }}
+          />
+        </div>
 
         <div className="data">
           <p className="top">{data.country?.name}</p>
@@ -41,17 +57,19 @@ const Card_one = ({ data, link }) => {
           position: relative;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
+          justify-content: flex-start;
           z-index: 1;
           transition: 0.1s ease-in;
           flex: 1 1 235px;
           max-width: 345px;
         }
 
-        img {
+        img,
+        .coverimg {
           border-top-left-radius: 40px;
           border-bottom-right-radius: 40px;
           height: 183px;
+          overflow: hidden;
         }
 
         .box:before {

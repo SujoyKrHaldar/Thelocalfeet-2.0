@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { urlFor } from "../../../../config/sanity";
 
 export default function ShopCard({
@@ -19,14 +20,29 @@ export default function ShopCard({
 
           {!d.status && <p className="not_available">Not available</p>}
 
-          <img
+          {/* <img
             className="img"
             src={urlFor(d.photo).url()}
             alt={d.name}
             onDragStart={(e) => {
               e.preventDefault();
             }}
-          />
+          /> */}
+
+          <div className="coverimg">
+            <Image
+              layout="responsive"
+              objectFit="cover"
+              width={350}
+              height={250}
+              loading="eager"
+              src={urlFor(d.photo).url()}
+              alt={d.name}
+              onDragStart={(e) => {
+                e.preventDefault();
+              }}
+            />
+          </div>
 
           <div className="content">
             <p className="name">{d.name}</p>
@@ -96,7 +112,8 @@ export default function ShopCard({
           margin: 0;
         }
 
-        .img {
+        .img,
+        .coverimg {
           width: 100%;
           height: 200px;
         }

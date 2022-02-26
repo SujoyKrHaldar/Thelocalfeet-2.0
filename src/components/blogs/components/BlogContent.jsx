@@ -19,6 +19,7 @@ const BlogContent = ({ blog, links, currPage }) => {
                 e.preventDefault();
               }}
             />
+
             <p
               style={{
                 textaAlign: "left",

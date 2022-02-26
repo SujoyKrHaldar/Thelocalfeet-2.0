@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ReadMoreType from "../buttons/ReadMoreType";
 
 const PhotographyTemplate = ({
@@ -14,9 +15,22 @@ const PhotographyTemplate = ({
       <div className="section">
         <div className="container">
           <div className="background">
-            <img
+            {/* <img
               src={img_url}
               alt={caption_one}
+              onDragStart={(e) => {
+                e.preventDefault();
+              }}
+            /> */}
+
+            <Image
+              layout="fill"
+              objectFit="cover"
+              loading="eager"
+              className="cover_image"
+              src={img_url}
+              alt={caption_one}
+              objectPosition={img_position}
               onDragStart={(e) => {
                 e.preventDefault();
               }}
@@ -87,9 +101,9 @@ const PhotographyTemplate = ({
           transform: scale(1.15);
         }
 
-        img {
+        /* img {
           object-position: ${img_position};
-        }
+        } */
 
         @media (max-width: 768px) {
           .section {

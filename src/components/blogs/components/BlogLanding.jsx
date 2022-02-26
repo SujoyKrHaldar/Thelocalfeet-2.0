@@ -1,30 +1,42 @@
 import Rellax from "rellax";
+import Image from "next/image";
+import { useEffect } from "react";
 import Moment from "react-moment";
-import { useEffect, useRef } from "react";
 import { AiFillRead } from "react-icons/ai";
 import { urlFor } from "../../../../config/sanity";
 
 const BlogLanding = ({ blog }) => {
-  const img_parallex = useRef();
-
-  // useEffect(() => {
-  //   new Rellax(img_parallex.current, {
-  //     speed: -7,
-  //     center: true,
-  //     wrapper: null,
-  //     round: true,
-  //     vertical: true,
-  //     horizontal: false,
-  //   });
-  // }, []);
+  useEffect(() => {
+    new Rellax(".parallex", {
+      speed: -7,
+      center: true,
+      wrapper: null,
+      round: true,
+      vertical: true,
+      horizontal: false,
+    });
+  }, []);
 
   return (
     <>
       <div className="section">
         <div className="background">
-          <img
+          {/* <img
             style={{ height: 768 }}
-            ref={img_parallex}
+            className="parallex an_fade-1"
+            src={urlFor(blog.mainImage).url()}
+            alt={blog.title}
+            onDragStart={(e) => {
+              e.preventDefault();
+            }}
+          /> */}
+
+          <Image
+            layout="fill"
+            objectFit="cover"
+            loading="eager"
+            objectPosition="50% 36%"
+            className="parallex an_fade-1"
             src={urlFor(blog.mainImage).url()}
             alt={blog.title}
             onDragStart={(e) => {
@@ -63,9 +75,9 @@ const BlogLanding = ({ blog }) => {
           background: #01324838;
         }
 
-        img {
+        /* img {
           object-position: 50% 36%;
-        }
+        } */
 
         p {
           color: #fff;

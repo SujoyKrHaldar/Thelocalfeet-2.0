@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Moment from "react-moment";
 import { IoMdArrowDropdown } from "react-icons/io";
 
@@ -6,13 +7,26 @@ const Landing = () => {
     <>
       <div className="section">
         <div className="background">
-          <img
+          {/* <img
             className="parallex"
             onDragStart={(e) => {
               e.preventDefault();
             }}
             src="/assets/home-landing.webp"
             alt="thelocalfeet_home_background"
+          /> */}
+
+          <Image
+            layout="fill"
+            objectFit="cover"
+            loading="eager"
+            objectPosition="50% 36%"
+            className="parallex an_fade-1"
+            src="/assets/home-landing.webp"
+            alt="thelocalfeet_home_background"
+            onDragStart={(e) => {
+              e.preventDefault();
+            }}
           />
         </div>
 
@@ -50,9 +64,9 @@ const Landing = () => {
           background: #01324838;
         }
 
-        img {
+        /* img {
           object-position: 50% 36%;
-        }
+        } */
 
         p {
           color: #fff;

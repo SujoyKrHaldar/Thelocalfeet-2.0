@@ -62,7 +62,7 @@ const Navbar = () => {
         className={scroll ? "navbar update" : "navbar"}
         onScroll={handleScroll}
       >
-        <div className="container">
+        <div className="container an_fade-2">
           <div className="flex nav_top">
             <div className="logo" onClick={() => router.push("/")}>
               <img

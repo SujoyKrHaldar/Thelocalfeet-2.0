@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MdOutlineExplore } from "react-icons/md";
 
 const Landing = () => {
@@ -5,13 +6,26 @@ const Landing = () => {
     <>
       <div className="section">
         <div className="background">
-          <img
+          {/* <img
             className="parallex"
             onDragStart={(e) => {
               e.preventDefault();
             }}
             src="/assets/explore-landing.jpeg"
             alt="thelocalfeet_explore_background"
+          /> */}
+
+          <Image
+            layout="fill"
+            objectFit="cover"
+            loading="eager"
+            objectPosition="0 58%"
+            className="parallex an_fade-1"
+            src="/assets/explore-landing.jpeg"
+            alt="thelocalfeet_explore_background"
+            onDragStart={(e) => {
+              e.preventDefault();
+            }}
           />
         </div>
 
@@ -48,9 +62,9 @@ const Landing = () => {
           justify-content: center;
         }
 
-        img {
+        /* img {
           object-position: 0 58%;
-        }
+        } */
 
         p {
           color: #fff;
