@@ -1,33 +1,22 @@
-import Rellax from "rellax";
-import { useEffect, useRef } from "react";
-
+import Image from "next/image";
 import Home from "./components/Home";
 
 const Landing = () => {
-  const img_parallex = useRef();
-
-  // useEffect(() => {
-  //   new Rellax(img_parallex.current, {
-  //     speed: -7,
-  //     center: false,
-  //     wrapper: null,
-  //     round: true,
-  //     vertical: true,
-  //     horizontal: false,
-  //   });
-  // }, []);
-
   return (
     <>
       <div className="section">
         <div className="background an_fade-2">
-          <img
-            ref={img_parallex}
+          <Image
+            layout="fill"
+            objectFit="cover"
+            loading="eager"
+            objectPosition="left"
+            className="parallex an_fade-2"
+            src="/assets/about-landing.jpg"
+            alt="thelocalfeet_aboutus_background"
             onDragStart={(e) => {
               e.preventDefault();
             }}
-            src="/assets/about-landing.jpg"
-            alt="thelocalfeet_aboutus_background"
           />
         </div>
 
@@ -61,9 +50,6 @@ const Landing = () => {
         @media (max-width: 600px) {
           .background {
             height: 433px;
-          }
-          img {
-            object-position: left;
           }
         }
       `}</style>

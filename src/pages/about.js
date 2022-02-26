@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Rellax from "rellax";
+import { useEffect } from "react";
 import { sanityClient } from "../../config/sanity";
 
 import Extra from "../components/about/Extra";
@@ -40,6 +42,17 @@ export const getStaticProps = async () => {
 };
 
 function about({ blog, photoBlog }) {
+  useEffect(() => {
+    new Rellax(".parallex", {
+      speed: -7,
+      center: false,
+      wrapper: null,
+      round: true,
+      vertical: true,
+      horizontal: false,
+    });
+  }, []);
+
   return (
     <>
       <Head>

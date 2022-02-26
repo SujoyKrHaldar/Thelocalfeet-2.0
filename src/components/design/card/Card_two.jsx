@@ -9,14 +9,6 @@ export default function Card_two({ i, link }) {
       <Link href={link} key={i.id}>
         <a className="box">
           <div className="background">
-            {/* <img
-              src={urlFor(i.mainImage).url()}
-              alt={i.title}
-              onDragStart={(e) => {
-                e.preventDefault();
-              }}
-            /> */}
-
             <Image
               layout="fill"
               objectFit="cover"

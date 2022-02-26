@@ -1,4 +1,6 @@
+import Rellax from "rellax";
 import Head from "next/head";
+import { useEffect } from "react";
 import { sanityClient, urlFor } from "../../../config/sanity";
 
 import CustomLayout from "../../components/layout/CustomLayout";
@@ -54,7 +56,16 @@ function gallery({ gallery, blog }) {
   };
 
   const random_item = getRandomItem(gallery);
-
+  useEffect(() => {
+    new Rellax(".parallex", {
+      speed: -7,
+      center: false,
+      wrapper: null,
+      round: true,
+      vertical: true,
+      horizontal: false,
+    });
+  }, []);
   return (
     <>
       <Head>

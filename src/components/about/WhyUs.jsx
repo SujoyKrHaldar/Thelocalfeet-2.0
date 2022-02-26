@@ -1,9 +1,15 @@
+import Image from "next/image";
+
 const WhyUs = () => {
   return (
     <>
       <div className="container">
         <div className="background">
-          <img
+          <Image
+            layout="fill"
+            objectFit="cover"
+            loading="eager"
+            objectPosition="50% 64%"
             src="/assets/about.jpeg "
             alt="collage"
             onDragStart={(e) => {
@@ -54,10 +60,6 @@ const WhyUs = () => {
           transition: transform 5.5s ease-in-out;
         }
 
-        img {
-          object-position: 50% 64%;
-        }
-
         .container:hover .background {
           transform: scale(1.15);
         }
@@ -90,6 +92,12 @@ const WhyUs = () => {
           .main {
             padding: 2rem;
             max-width: 500px;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .container:hover .background {
+            transform: scale(1);
           }
         }
 

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { urlFor } from "../../../../config/sanity";
 
 export default function Landing({ item }) {
@@ -5,8 +6,12 @@ export default function Landing({ item }) {
     <>
       <div className="section">
         <div className="background">
-          <img
-            className="an_fade-1"
+          <Image
+            layout="fill"
+            objectFit="cover"
+            loading="eager"
+            objectPosition="center"
+            className="parallex an_fade-1"
             src={urlFor(item.photo).url()}
             alt={item.caption}
             onDragStart={(e) => {
@@ -42,9 +47,6 @@ export default function Landing({ item }) {
           height: 100%;
           z-index: 1;
           inset: 0;
-        }
-        img {
-          object-position: center;
         }
 
         @media (max-width: 768px) {

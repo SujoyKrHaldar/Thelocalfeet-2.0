@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import HrTag from "../../design/HrTag";
 import AboutFollow from "./AboutFollow";
 import MainSocialLink from "./MainSocialLink";
@@ -6,23 +8,33 @@ export default function HomeDetails() {
   return (
     <>
       <div className="details an_fade-1">
-        <div className="profile_pic">
-          <img
+        <div className="profile_pic an_fade-3">
+          <Image
+            layout="responsive"
+            objectFit="cover"
+            width={870}
+            height={900}
+            loading="eager"
+            src="/assets/Profile_pic.jpg"
+            alt="Who we are"
             onDragStart={(e) => {
               e.preventDefault();
             }}
-            src="/assets/Profile_pic.jpg"
-            alt="Who we are"
           />
         </div>
 
         <div className=" decoration">
-          <img
+          <Image
+            layout="responsive"
+            objectFit="cover"
+            width={870}
+            height={900}
+            loading="eager"
+            src="/assets/decorations/decorator_img.png"
+            alt="decoration"
             onDragStart={(e) => {
               e.preventDefault();
             }}
-            src="/assets/decorations/decorator_img.png"
-            alt="decoration"
           />
         </div>
 
@@ -42,12 +54,17 @@ export default function HomeDetails() {
         <AboutFollow />
 
         <div className="cover_photo">
-          <img
+          <Image
+            layout="responsive"
+            objectFit="cover"
+            width={870}
+            height={650}
+            loading="eager"
+            src="/assets/about-frame.jpg "
+            alt="collage"
             onDragStart={(e) => {
               e.preventDefault();
             }}
-            src="/assets/about-frame.jpg "
-            alt="collage"
           />
         </div>
 
@@ -89,7 +106,7 @@ export default function HomeDetails() {
           top: 0%;
           left: 50%;
           transform: translateX(-50%) rotate(-25deg);
-          opacity: 0.2;
+          opacity: 0.08;
         }
 
         p:first-child() {
@@ -117,6 +134,7 @@ export default function HomeDetails() {
           transform: rotate(2deg);
           border: 0.7rem solid white;
           box-shadow: 7px 6px 20px #00000033;
+          overflow: hidden;
         }
 
         @media (max-width: 768px) {

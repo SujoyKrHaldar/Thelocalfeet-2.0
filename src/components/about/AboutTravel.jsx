@@ -1,3 +1,4 @@
+import Image from "next/image";
 import HrTag from "../design/HrTag";
 
 const AboutTravel = () => {
@@ -25,7 +26,20 @@ const AboutTravel = () => {
             others.
           </p>
 
-          <img src="/assets/about-two.jpg " alt="collage" />
+          <div className="featured_img">
+            <Image
+              layout="responsive"
+              objectFit="contain"
+              width={870}
+              height={600}
+              loading="eager"
+              src="/assets/about-two.jpg "
+              alt="collage"
+              onDragStart={(e) => {
+                e.preventDefault();
+              }}
+            />
+          </div>
         </div>
 
         <HrTag background="#dfdfdf" bottom="-2rem" top="auto" />
@@ -83,16 +97,10 @@ const AboutTravel = () => {
           line-height: 1.5rem;
         }
 
-        img {
+        .featured_img {
           margin: 2rem 0 0;
-          height: 500px;
         }
-
         @media (max-width: 767px) {
-          img {
-            height: auto;
-          }
-
           .main {
             padding: 2rem;
           }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Moment from "react-moment";
 import { urlFor } from "../../../../config/sanity";
 
@@ -7,14 +8,20 @@ export default function Card_others({ data, link }) {
     <>
       <Link href={link} key={data.id}>
         <a className="card">
-          <img
-            className="img"
-            src={urlFor(data.mainImage).url()}
-            alt={data.title}
-            onDragStart={(e) => {
-              e.preventDefault();
-            }}
-          />
+          <div className="img">
+            <Image
+              layout="responsive"
+              objectFit="cover"
+              width={360}
+              height={200}
+              loading="eager"
+              src={urlFor(data.mainImage).url()}
+              alt={data.title}
+              onDragStart={(e) => {
+                e.preventDefault();
+              }}
+            />
+          </div>
           <p className="title">{data.title}</p>
           <p>{data.subtitle}</p>
           <p className="date">
@@ -41,8 +48,8 @@ export default function Card_others({ data, link }) {
         }
 
         .img {
-          height: 200px;
           margin-bottom: 1rem;
+          overflow: hidden;
         }
 
         .title {
@@ -59,9 +66,7 @@ export default function Card_others({ data, link }) {
           .card {
             background: #f9f9f9;
           }
-          .img {
-            height: 130px;
-          }
+
           .card:hover {
             transform: scale(1);
           }

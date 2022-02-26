@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SiPhotobucket } from "react-icons/si";
 
 const Landing = () => {
@@ -5,13 +6,17 @@ const Landing = () => {
     <>
       <div className="section">
         <div className="background">
-          <img
-            className="parallex"
+          <Image
+            layout="fill"
+            objectFit="cover"
+            loading="eager"
+            objectPosition="bottom"
+            className="parallex an_fade-1"
+            src="/assets/photography-landing.jpeg"
+            alt="thelocalfeet_photography_background"
             onDragStart={(e) => {
               e.preventDefault();
             }}
-            src="/assets/photography-landing.jpeg"
-            alt="thelocalfeet_photography_background"
           />
         </div>
 
@@ -45,10 +50,6 @@ const Landing = () => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-        }
-
-        img {
-          object-position: bottom;
         }
 
         p {

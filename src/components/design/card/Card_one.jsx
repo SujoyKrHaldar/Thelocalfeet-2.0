@@ -8,14 +8,6 @@ const Card_one = ({ data, link }) => {
   return (
     <>
       <div className="box">
-        {/* <img
-          src={urlFor(data.mainImage).url()}
-          alt={data.title}
-          onDragStart={(e) => {
-            e.preventDefault();
-          }}
-        /> */}
-
         <div className="coverimg">
           <Image
             layout="responsive"
@@ -64,7 +56,6 @@ const Card_one = ({ data, link }) => {
           max-width: 345px;
         }
 
-        img,
         .coverimg {
           border-top-left-radius: 40px;
           border-bottom-right-radius: 40px;
@@ -206,11 +197,6 @@ const Card_one = ({ data, link }) => {
         @media (max-width: 600px) {
           .data {
             padding: 1.3rem;
-          }
-
-          img {
-            border-radius: 0;
-            height: 166px;
           }
         }
       `}</style>

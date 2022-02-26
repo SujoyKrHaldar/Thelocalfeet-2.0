@@ -1,4 +1,6 @@
+import Rellax from "rellax";
 import Head from "next/head";
+import { useEffect } from "react";
 import { sanityClient, urlFor } from "../../../config/sanity";
 
 import Construct from "../../components/shop/Construct";
@@ -102,6 +104,17 @@ const links = [
 
 export default function products({ evt, offer, others }) {
   if (!evt) return <FallbackLoading />;
+
+  // useEffect(() => {
+  //   new Rellax(".parallex", {
+  //     speed: -7,
+  //     center: true,
+  //     wrapper: null,
+  //     round: true,
+  //     vertical: true,
+  //     horizontal: false,
+  //   });
+  // }, []);
 
   return (
     <>

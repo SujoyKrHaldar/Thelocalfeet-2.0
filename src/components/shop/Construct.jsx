@@ -23,6 +23,7 @@ export default function Construct({ data, offer, others, links, currPage }) {
         <div className="background desktop">
           {data.coverPhoto ? (
             <img
+              className="parallex"
               onDragStart={(e) => {
                 e.preventDefault();
               }}
@@ -31,6 +32,7 @@ export default function Construct({ data, offer, others, links, currPage }) {
             />
           ) : (
             <img
+              className="parallex"
               onDragStart={(e) => {
                 e.preventDefault();
               }}
@@ -56,6 +58,7 @@ export default function Construct({ data, offer, others, links, currPage }) {
             <div className="background mob">
               {data.coverPhoto ? (
                 <img
+                  className="parallex"
                   onDragStart={(e) => {
                     e.preventDefault();
                   }}
@@ -64,6 +67,7 @@ export default function Construct({ data, offer, others, links, currPage }) {
                 />
               ) : (
                 <img
+                  className="parallex"
                   onDragStart={(e) => {
                     e.preventDefault();
                   }}
