@@ -27,6 +27,12 @@ const BlogsList = ({ data }) => {
           gap: 1rem;
           margin-top: 2rem;
         }
+
+        @media (max-width: 867px) {
+          .list {
+            gap: 1rem;
+          }
+        }
       `}</style>
     </>
   );

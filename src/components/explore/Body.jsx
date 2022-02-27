@@ -16,6 +16,15 @@ const Body = ({ country, blog }) => {
           justify-content: center;
           align-items: flex-start;
         }
+
+        @media (max-width: 780px) {
+          .section {
+            padding: 6rem 2rem;
+          }
+          .container {
+            padding: 0;
+          }
+        }
       `}</style>
     </>
   );

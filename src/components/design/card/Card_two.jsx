@@ -22,7 +22,7 @@ export default function Card_two({ i, link }) {
           </div>
 
           <div className="content flex">
-            <p>{i.country?.name}</p>
+            <p className="country">{i.country?.name}</p>
             <p className="title">{i.title}</p>
             <p>{i.subtitle}</p>
             <p>
@@ -34,7 +34,7 @@ export default function Card_two({ i, link }) {
 
       <style jsx>{`
         .box {
-          flex: 1 1 200px;
+          flex: 1 1 225px;
           position: relative;
           height: 330px;
           border-radius: 20px;
@@ -67,6 +67,13 @@ export default function Card_two({ i, link }) {
           max-width: 450px;
         }
 
+        p:first-child() {
+          padding: 0.15rem 0.7rem;
+          background: #ffffff36;
+          color: white;
+          border-radius: 5px;
+        }
+
         p:last-child() {
           margin: 0;
           color: white;
@@ -82,6 +89,14 @@ export default function Card_two({ i, link }) {
           .box:hover .background,
           .box:hover {
             transform: scale(1);
+          }
+
+          .box {
+            height: auto;
+          }
+
+          p {
+            max-width: 209px;
           }
         }
       `}</style>

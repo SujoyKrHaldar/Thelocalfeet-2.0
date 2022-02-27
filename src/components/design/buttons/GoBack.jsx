@@ -31,6 +31,7 @@ const GoBack = ({
           margin-bottom: ${bottom};
 
           gap: 0.3rem;
+          overflow: hidden;
         }
 
         .icon {

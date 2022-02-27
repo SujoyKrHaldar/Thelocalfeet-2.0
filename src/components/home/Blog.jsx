@@ -44,7 +44,7 @@ const Blog = ({ data }) => {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
-              align-items: flex-start;
+          align-items: flex-start;
           margin: 2rem 0;
           gap: 1rem;
         }

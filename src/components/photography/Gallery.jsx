@@ -10,14 +10,16 @@ const Gallery = ({ data }) => {
 
           <div className="gallery">
             {data.map((d) => (
-              <img
-                src={urlFor(d.photo).url()}
-                alt={d.caption}
-                key={d.id}
-                onDragStart={(e) => {
-                  e.preventDefault();
-                }}
-              />
+              <div className="img" key={d.id}>
+                <img
+                  className="disabled"
+                  src={urlFor(d.photo).url()}
+                  alt={d.caption}
+                  onDragStart={(e) => {
+                    e.preventDefault();
+                  }}
+                />
+              </div>
             ))}
           </div>
 
@@ -55,15 +57,16 @@ const Gallery = ({ data }) => {
           align-items: center;
         }
 
-        img {
+        .img {
           border-radius: 20px;
           height: 234px;
           max-width: 188px;
           flex: 1 1 105px;
           transition: 0.1s ease !important;
           pointer-events: visible;
+          overflow: hidden;
         }
-        img:hover {
+        .img:hover {
           transform: scale(1.2);
           z-index: 2;
         }
@@ -73,17 +76,17 @@ const Gallery = ({ data }) => {
           }
         }
         @media (max-width: 767px) {
-          img {
+          .img {
             height: 150px;
           }
 
-          img:hover {
+          .img:hover {
             transform: scale(1);
           }
         }
 
         @media (max-width: 600px) {
-          img {
+          .img {
             max-width: 100%;
           }
         }

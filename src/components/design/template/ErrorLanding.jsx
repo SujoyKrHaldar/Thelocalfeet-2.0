@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ReadMoreType from "../buttons/ReadMoreType";
 
 const quickLinks = [
@@ -20,7 +21,12 @@ const ErrorLanding = () => {
     <>
       <div className="section">
         <div className="background">
-          <img
+          <Image
+            layout="fill"
+            objectFit="cover"
+            loading="eager"
+            objectPosition="50% 65%"
+            className="parallex an_fade-1"
             src="/assets/404.jpeg"
             alt="page not found"
             onDragStart={(e) => {
@@ -45,7 +51,7 @@ const ErrorLanding = () => {
               top="1rem"
             />
 
-            <p>or</p>
+            <p>or you can navigate ...</p>
 
             <div className="flex">
               {quickLinks.map((d, i) => (
@@ -113,6 +119,23 @@ const ErrorLanding = () => {
           margin: auto;
           gap: 1rem;
           margin-top: 1rem;
+          flex-wrap: wrap;
+          justify-content: left;
+        }
+
+        @media (max-width: 768px) {
+          .section {
+            height: 100vh;
+            padding: 1rem;
+          }
+          .container {
+            padding: 2rem 1rem;
+          }
+        }
+        @media (max-width: 600px) {
+          .main {
+            text-align: left;
+          }
         }
       `}</style>
     </>
