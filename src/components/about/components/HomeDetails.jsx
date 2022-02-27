@@ -60,7 +60,7 @@ export default function HomeDetails() {
             width={870}
             height={650}
             loading="eager"
-            src="/assets/about-frame.jpg "
+            src="/assets/about-frame.jpg"
             alt="collage"
             onDragStart={(e) => {
               e.preventDefault();

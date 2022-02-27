@@ -33,7 +33,7 @@ const AboutTravel = () => {
               width={870}
               height={600}
               loading="eager"
-              src="/assets/about-two.jpg "
+              src="/assets/about-two.jpg"
               alt="collage"
               onDragStart={(e) => {
                 e.preventDefault();

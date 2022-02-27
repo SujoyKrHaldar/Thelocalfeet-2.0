@@ -10,7 +10,7 @@ const WhyUs = () => {
             objectFit="cover"
             loading="eager"
             objectPosition="50% 64%"
-            src="/assets/about.jpeg "
+            src="/assets/about.jpeg"
             alt="collage"
             onDragStart={(e) => {
               e.preventDefault();
