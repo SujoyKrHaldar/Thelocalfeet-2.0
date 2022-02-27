@@ -3,7 +3,7 @@ import { RiFacebookFill, RiInstagramLine } from "react-icons/ri";
 
 const data = [
   {
-    name: "Blogs",
+    name: "Articles",
     url: "/explore#articles",
   },
   {
@@ -11,8 +11,8 @@ const data = [
     url: "/photography/gallery",
   },
   {
-    name: "Photo Blogs",
-    url: "/photography/photo-blog",
+    name: "Albums",
+    url: "/photography#albums",
   },
   {
     name: "Shop",

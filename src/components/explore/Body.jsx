@@ -4,7 +4,7 @@ import Countries from "./Countries";
 const Body = ({ country, blog }) => {
   return (
     <>
-      <div className="section">
+      <div className="section" id="articles">
         <div className="container">
           <Countries data={country} />
           <BlogsList data={blog} />

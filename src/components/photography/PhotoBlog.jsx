@@ -6,7 +6,7 @@ import Card_two from "../design/card/Card_two";
 const PhotoBlog = ({ data }) => {
   return (
     <>
-      <div className="section" id="album">
+      <div className="section" id="albums">
         <div className="container">
           <div className="flex">
             <h2>Featured Albums</h2>
