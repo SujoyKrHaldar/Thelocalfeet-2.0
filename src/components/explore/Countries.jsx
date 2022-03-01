@@ -7,6 +7,7 @@ const Countries = ({ data }) => {
       <div className="country">
         <div className="background">
           <Image
+            priority
             layout="responsive"
             objectFit="cover"
             width={550}

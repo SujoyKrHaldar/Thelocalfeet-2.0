@@ -95,17 +95,17 @@ function blogBySlug({ blog, otherBlogs }) {
   return (
     <>
       <Head>
-        <title> {blog.title} - thelocalfeet</title>
-        <meta name="description" content={blog.subtitle} />
-        <meta name="keywords" content={blog.keywords} />
-        <meta property="og:title" content={`${blog.title} - thelocalfeet`} />
+        <title> {blog?.title} - thelocalfeet</title>
+        <meta name="description" content={blog?.subtitle} />
+        <meta name="keywords" content={blog?.keywords} />
+        <meta property="og:title" content={`${blog?.title} - thelocalfeet`} />
 
-        <meta property="og:description" content={blog.subtitle} />
+        <meta property="og:description" content={blog?.subtitle} />
         <meta
           property="og:url"
-          content={`${process.env.NEXT_PUBLIC_WEBSITE_LINK}/explore/${blog.slug}`}
+          content={`${process.env.NEXT_PUBLIC_WEBSITE_LINK}/explore/${blog?.slug}`}
         />
-        <meta property="og:image" content={urlFor(blog.mainImage).url()} />
+        <meta property="og:image" content={urlFor(blog?.mainImage).url()} />
       </Head>
 
       <CustomLayout links={links} currPage={blog.title}>

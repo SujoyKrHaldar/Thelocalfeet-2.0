@@ -1,30 +1,46 @@
-import { BiSearch } from "react-icons/bi";
+import { useState } from "react";
 
 import HrTag from "../design/HrTag";
 import Card_two from "../design/card/Card_two";
+import SearchBar from "../design/SearchBar";
+import SearchResult from "../design/template/SearchResult";
 
 const PhotoBlog = ({ data }) => {
+  const [filterData, setFilterData] = useState([]);
+  const [searchWord, setSearchWord] = useState("");
+
+  const search = (e) => {
+    setSearchWord(e.target.value);
+
+    const filteredData = data.filter(
+      (q) =>
+        q.title.toLowerCase().includes(searchWord.toLowerCase()) ||
+        q.keywords.toLowerCase().includes(searchWord.toLowerCase())
+    );
+    setFilterData(filteredData);
+  };
+
   return (
     <>
       <div className="section" id="albums">
         <div className="container">
           <div className="flex">
-            <h2>Featured Albums</h2>
+            <h2>Albums</h2>
 
-            {/* <div className="flex search">
-              <p>What are you looking for?</p>
-              <input placeholder="Search by name" type="text" />
-              <div className="icon">
-                <BiSearch />
-              </div>
-            </div> */}
+            {data.length > 6 && (
+              <SearchBar text="Search by Name" search={search} />
+            )}
           </div>
 
-          <div className="list">
-            {data.map((d) => (
-              <Card_two key={d.id} i={d} link={`/photography/${d.slug}`} />
-            ))}
-          </div>
+          {searchWord.length ? (
+            <SearchResult newData={filterData} prefix="/photography" />
+          ) : (
+            <div className="list">
+              {data.map((d) => (
+                <Card_two key={d.id} i={d} link={`/photography/${d.slug}`} />
+              ))}
+            </div>
+          )}
         </div>
 
         <HrTag background="#ffdba6" bottom="-2rem" top="auto" />
@@ -32,14 +48,13 @@ const PhotoBlog = ({ data }) => {
 
       <style jsx>{`
         .section {
-          text-align: center;
           padding-top: 6rem;
           padding-bottom: 4rem;
         }
 
         h2 {
           padding: 0.3rem 2rem;
-          margin-bottom: 1rem;
+          margin: 0;
           background: #ffdba65e;
           display: inline-block;
         }

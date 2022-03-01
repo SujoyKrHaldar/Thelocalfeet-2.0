@@ -12,6 +12,7 @@ const photoBlogQuery = `*[_type == "photoBlog"]|order( publishedAt desc)
                       {
                         "id":_id, 
                         publishedAt,
+                        keywords,
                         title, 
                         subtitle, 
                         mainImage,

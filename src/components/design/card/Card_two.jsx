@@ -10,6 +10,7 @@ export default function Card_two({ i, link }) {
         <a className="box">
           <div className="background">
             <Image
+              priority
               layout="fill"
               objectFit="cover"
               loading="eager"

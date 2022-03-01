@@ -12,6 +12,7 @@ const blogQuery = `*[_type == "blog"]|order( publishedAt desc)
                   {
                     'id':_id, 
                     publishedAt, 
+                    keywords,
                     'country':country->{name}, 
                     mainImage,
                     'slug':slug.current, 
