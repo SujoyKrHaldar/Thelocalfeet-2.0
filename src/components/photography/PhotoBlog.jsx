@@ -20,15 +20,26 @@ const PhotoBlog = ({ data }) => {
     setFilterData(filteredData);
   };
 
+  const close = () => {
+    setSearchWord("");
+    setFilterData([]);
+  };
+
   return (
     <>
       <div className="section" id="albums">
         <div className="container">
-          <div className="flex">
+          <div className="flex heading">
             <h2>Albums</h2>
 
             {data.length > 6 && (
-              <SearchBar text="Search by Name" search={search} />
+              <SearchBar
+                text="Search by Name"
+                search={search}
+                value={searchWord}
+                detection={searchWord}
+                close={close}
+              />
             )}
           </div>
 
@@ -95,6 +106,13 @@ const PhotoBlog = ({ data }) => {
         @media (max-width: 780px) {
           .container {
             padding: 0;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .heading {
+            flex-direction: column;
+            gap: 1rem;
           }
         }
       `}</style>

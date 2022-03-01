@@ -62,12 +62,9 @@ export default function SearchResult({ newData, prefix }) {
           margin-top: 2rem;
         }
 
-        @media (max-width: 867px) {
+        @media (max-width: 600px) {
           p {
             text-align: center;
-          }
-          .not_found p {
-            margin: 0;
           }
         }
       `}</style>

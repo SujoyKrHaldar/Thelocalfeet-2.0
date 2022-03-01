@@ -76,7 +76,6 @@ const Countries = ({ data }) => {
           align-items: flex-start;
           flex-wrap: wrap;
           gap: 1rem;
-          margin-bottom: 2rem;
           padding-bottom: 1rem;
           border-bottom: 1px solid #dadada;
         }

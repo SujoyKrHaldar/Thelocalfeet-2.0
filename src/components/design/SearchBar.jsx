@@ -1,13 +1,21 @@
 import { BiSearch } from "react-icons/bi";
+import { IoCloseOutline } from "react-icons/io5";
 
-export default function SearchBar({ text, search }) {
+export default function SearchBar({ text, search, detection, close, value }) {
   return (
     <>
       <div className="flex search">
-        <input placeholder={text} type="text" onChange={search} />
-        <div className="icon">
-          <BiSearch />
-        </div>
+        <input placeholder={text} type="text" onChange={search} value={value} />
+
+        {detection ? (
+          <div className="icon close" onClick={close}>
+            <IoCloseOutline />
+          </div>
+        ) : (
+          <div className="icon ">
+            <BiSearch />
+          </div>
+        )}
       </div>
 
       <style jsx>{`
@@ -15,7 +23,6 @@ export default function SearchBar({ text, search }) {
           border: 2px solid #d5d5d5;
           border-radius: 20px;
           overflow: hidden;
-          gap: 0.5rem;
           flex: 1;
           max-width: 350px;
         }
@@ -30,12 +37,20 @@ export default function SearchBar({ text, search }) {
           font-size: 1.5rem;
           padding: 0.5rem 1rem;
           color: #afafaf;
+          transition: 0.1s ease;
+        }
+
+        .icon:hover {
+          background: white;
+        }
+
+        .close {
+          color: black;
         }
 
         @media (max-width: 600px) {
           .search {
             width: 100%;
-
             border-radius: 50px;
           }
 

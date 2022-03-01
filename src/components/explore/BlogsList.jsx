@@ -20,6 +20,11 @@ const BlogsList = ({ data }) => {
     setFilterData(filteredData);
   };
 
+  const close = () => {
+    setSearchWord("");
+    setFilterData([]);
+  };
+
   return (
     <>
       <div className="blogs">
@@ -27,7 +32,13 @@ const BlogsList = ({ data }) => {
           <h2>Articles</h2>
 
           {data.length > 6 && (
-            <SearchBar text="Search by Article or Country" search={search} />
+            <SearchBar
+              text="Search by Article or Country"
+              search={search}
+              value={searchWord}
+              detection={searchWord}
+              close={close}
+            />
           )}
         </div>
 
@@ -46,6 +57,14 @@ const BlogsList = ({ data }) => {
         .blogs {
           position: relative;
         }
+
+        .heading {
+          /* position: sticky;
+          top: 4rem;
+          background: white;
+          z-index: 5; */
+          padding: 1.5rem 0;
+        }
         h2 {
           margin: 0;
           padding: 0.3rem 2rem;
@@ -56,7 +75,6 @@ const BlogsList = ({ data }) => {
           display: flex;
           flex-wrap: wrap;
           gap: 1rem;
-          margin-top: 2rem;
         }
 
         @media (max-width: 867px) {
