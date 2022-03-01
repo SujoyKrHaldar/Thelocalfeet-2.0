@@ -19,7 +19,7 @@ const photoBlogQuery = `*[_type == "photoBlog"]|order( publishedAt desc)
                         "slug":slug.current
                       }`;
 
-const galleryQuery = `*[_type == "photography"][0...6]|order( publishedAt desc)
+const galleryQuery = `*[_type == "photography"][0...6]|order( _createdAt desc)
                       {
                         "id":_id, 
                         caption,

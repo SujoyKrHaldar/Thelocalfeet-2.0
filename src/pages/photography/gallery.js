@@ -15,7 +15,7 @@ const photoBlogQuery = `*[_type == "photoBlog"]|order( publishedAt desc)
                         mainImage
                       }`;
 
-const galleryQuery = `*[_type == "photography"]|order( publishedAt desc)
+const galleryQuery = `*[_type == "photography"]|order( _createdAt desc)
                     {
                       "id":_id, 
                       caption,

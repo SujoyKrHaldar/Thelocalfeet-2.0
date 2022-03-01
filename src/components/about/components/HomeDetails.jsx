@@ -8,7 +8,7 @@ export default function HomeDetails() {
   return (
     <>
       <div className="details an_fade-1">
-        <div className="profile_pic an_fade-3">
+        <div className="profile_pic an_fade-1">
           <Image
             layout="responsive"
             objectFit="cover"
