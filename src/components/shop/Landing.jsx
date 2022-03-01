@@ -1,33 +1,15 @@
-import Image from "next/image";
-
 export default function Landing() {
   return (
     <>
       <div className="section">
         <div className="background">
-          {/* <img
+          <img
             className="an_fade-1"
             onDragStart={(e) => {
               e.preventDefault();
             }}
             src="/assets/shop-thumbnail.jpg"
             alt="thelocalfeet shopping"
-          /> */}
-
-          <Image
-            // layout="responsive"
-            // width={1920}
-            // height={1080}
-            layout="fill"
-            objectFit="cover"
-            loading="eager"
-            objectPosition="center"
-            className="parallex an_fade-1"
-            src="/assets/shop-thumbnail.jpg"
-            alt="thelocalfeet shopping"
-            onDragStart={(e) => {
-              e.preventDefault();
-            }}
           />
         </div>
 
@@ -59,9 +41,9 @@ export default function Landing() {
           z-index: 1;
           inset: 0;
         }
-        /* img {
+        img {
           object-position: center;
-        } */
+        }
 
         @media (max-width: 768px) {
           .section {

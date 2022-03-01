@@ -123,9 +123,11 @@ export default function Model({ open, close, data }) {
         @media (max-width: 600px) {
           .popup {
             place-items: end;
+            padding: 0;
           }
 
           .popup_details {
+            padding: 3rem 1rem 4rem;
             transform: scale(1) translateY(45px);
           }
 

@@ -1,6 +1,4 @@
-import Rellax from "rellax";
 import Head from "next/head";
-import { useEffect } from "react";
 import { sanityClient } from "../../../config/sanity";
 
 import App from "../../components/shop/App";
@@ -40,17 +38,6 @@ export const getStaticProps = async () => {
 };
 
 const index = ({ data, offer }) => {
-  // useEffect(() => {
-  //   new Rellax(".parallex", {
-  //     speed: -7,
-  //     center: true,
-  //     wrapper: null,
-  //     round: true,
-  //     vertical: true,
-  //     horizontal: false,
-  //   });
-  // }, []);
-
   return (
     <>
       <Head>

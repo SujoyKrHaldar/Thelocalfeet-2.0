@@ -20,15 +20,6 @@ export default function ShopCard({
 
           {!d.status && <p className="not_available">Not available</p>}
 
-          {/* <img
-            className="img"
-            src={urlFor(d.photo).url()}
-            alt={d.name}
-            onDragStart={(e) => {
-              e.preventDefault();
-            }}
-          /> */}
-
           <div className="coverimg">
             <Image
               layout="responsive"
@@ -64,6 +55,7 @@ export default function ShopCard({
       <style jsx>{`
         .item {
           position: relative;
+          text-align: left;
           max-width: 283px;
           flex: 1 1 220px;
           background: ${background};
@@ -112,7 +104,6 @@ export default function ShopCard({
           margin: 0;
         }
 
-        .img,
         .coverimg {
           width: 100%;
           height: 200px;

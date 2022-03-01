@@ -12,7 +12,7 @@ export default function SearchBar({ text, search, detection, close, value }) {
             <IoCloseOutline />
           </div>
         ) : (
-          <div className="icon ">
+          <div className="icon disabled">
             <BiSearch />
           </div>
         )}
