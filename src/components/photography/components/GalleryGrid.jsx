@@ -3,7 +3,12 @@ import { AiFillInstagram } from "react-icons/ai";
 import { urlFor } from "../../../../config/sanity";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
-export default function GalleryGrid({ data, setCaption, setSelected }) {
+export default function GalleryGrid({
+  data,
+  setCaption,
+  setSelected,
+  openPopup,
+}) {
   return (
     <>
       <div className="gallery">
@@ -18,6 +23,7 @@ export default function GalleryGrid({ data, setCaption, setSelected }) {
                 onClick={() => {
                   setSelected(urlFor(i.photo).url());
                   setCaption(i.caption);
+                  openPopup;
                 }}
               >
                 <img src={urlFor(i.photo).url()} alt={i.caption} />
@@ -50,40 +56,32 @@ export default function GalleryGrid({ data, setCaption, setSelected }) {
           position: relative;
           overflow: hidden;
           width: 100%;
-          background: black;
-          animation: fade 1s ease;
           cursor: pointer;
         }
-        @keyframes fade {
-          0% {
-            opacity: 0;
-          }
 
-          100% {
-            opacity: 1;
-          }
-        }
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: all 1s ease !important;
+          transition: all 0.5s ease !important;
         }
         .box:hover img {
-          opacity: 0.7;
-          transform: scale(1.05);
+          transform: scale(1.03);
         }
 
         .black {
           width: 100%;
           height: 100%;
           position: absolute;
+          background: #ffffff45;
+          padding: 1rem;
           inset: 0;
           display: flex;
-          align-items: center;
-          justify-content: center;
+          align-items: flex-end;
+          justify-content: flex-start;
           opacity: 0;
           transition: all 0.6s ease;
+          gap: 1rem;
         }
         .box:hover .black {
           opacity: 1;
@@ -92,15 +90,22 @@ export default function GalleryGrid({ data, setCaption, setSelected }) {
         .icon {
           color: white;
           font-size: 2rem;
+          padding: 0;
+        }
+
+        .icon:last-child() {
+          font-size: 1.7rem;
+          margin-bottom: 0.15rem;
         }
 
         .icon:hover {
           background: transparent;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
           .black {
-            display: none;
+            opacity: 1;
+            background: transparent;
           }
         }
       `}</style>

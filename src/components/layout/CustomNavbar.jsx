@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
+
 import GoBack from "../design/buttons/GoBack";
 import FallbackLinks from "./helper/FallbackLinks";
 import Navbar_mobile from "./helper/Navbar_mobile";
@@ -79,6 +80,7 @@ const CustomNavbar = ({ links, currPage }) => {
 
           <div className="flex menu_icon">
             <GoBack />
+
             <div className="icon" onClick={openNavbar}>
               <HiMenuAlt3 />
             </div>

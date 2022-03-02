@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { urlFor } from "../../../../config/sanity";
+
 import FallbackLinks from "../../layout/helper/FallbackLinks";
 
 export default function MainDetails({
@@ -74,6 +75,7 @@ export default function MainDetails({
               <div onClick={openPopup} className="btn">
                 Buy now
               </div>
+
               <Link href="/store">
                 <a className="btn update">Browse store</a>
               </Link>

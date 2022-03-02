@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
-import Navbar_mobile from "./helper/Navbar_mobile";
-import { useRouter } from "next/router";
-import { HiMenuAlt3 } from "react-icons/hi";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
+import { HiMenuAlt3 } from "react-icons/hi";
+
+import Navbar_mobile from "./helper/Navbar_mobile";
 
 const menu = [
   {
@@ -40,7 +41,6 @@ const Navbar = () => {
   }, []);
 
   const handleScroll = () => {
-    // window.scrollY > 768 && window.scrollY <
     window.scrollY > 768 ? setScroll(true) : setScroll(false);
   };
 

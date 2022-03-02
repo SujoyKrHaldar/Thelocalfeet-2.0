@@ -7,15 +7,6 @@ const Landing = () => {
     <>
       <div className="section">
         <div className="background">
-          {/* <img
-            className="parallex"
-            onDragStart={(e) => {
-              e.preventDefault();
-            }}
-            src="/assets/home-landing.webp"
-            alt="thelocalfeet_home_background"
-          /> */}
-
           <Image
             layout="fill"
             objectFit="cover"
@@ -63,10 +54,6 @@ const Landing = () => {
           z-index: -1;
           background: #01324838;
         }
-
-        /* img {
-          object-position: 50% 36%;
-        } */
 
         p {
           color: #fff;

@@ -84,11 +84,11 @@ export default function Model({ open, close, data }) {
 
           /*false -- close*/
           transition: 0.15s ease;
-          transform: scale(0.95) translateY(0);
+          transform: scale(0.95);
         }
         .open_box {
           /*true -- open*/
-          transform: scale(1) translateY(0);
+          transform: scale(1);
         }
 
         p:nth-child(2) {
