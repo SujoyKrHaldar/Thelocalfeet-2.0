@@ -1,17 +1,10 @@
 import { VscClose } from "react-icons/vsc";
 
-function Model({ selected, setSelected, caption, open, close }) {
-  // const handelClick = (e) => {
-  //   if (e.target.classList.contains("backdrop")) {
-  //     setSelected(null);
-  //   }
-  // };
-
+function Model({ selected, setSelected, caption }) {
   return (
     <>
-      {/* <div className="backdrop" onClick={handelClick}> */}
-      <div className={open ? "backdrop open" : "backdrop"}>
-        <div className={open ? "preview open_box" : "preview"}>
+      <div className="backdrop ">
+        <div className="preview">
           <div
             className="close"
             onClick={() => {
@@ -33,49 +26,37 @@ function Model({ selected, setSelected, caption, open, close }) {
           position: fixed;
           inset: 0;
           z-index: 5;
-          padding: 2rem;
+          padding: 0.5rem;
           width: 100%;
           height: 100%;
-          background: #0000004f;
+          background: url(${selected});
+          background-position: 50% 50%;
+          background-size: cover;
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: 0.15s ease;
+          transition: 0.5s ease;
+        }
 
-          /* animation: fade 0.5s ease;
-        }
-        @keyframes fade {
-          0% {
-            opacity: 0;
-          }
-          100% {
-            opacity: 1;
-          } */
-        }
-        .open {
-          /*true -- open*/
-          pointer-events: initial;
-          opacity: 1;
+        .backdrop:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          inset: 0;
+          background: #ffffffa6;
         }
 
         .preview {
           position: relative;
           display: block;
-          max-width: 545px;
+          max-width: 520px;
           background: white;
           border: 1rem solid #ffffff;
           box-shadow: 0px 0px 20px 20px #0000002e;
           object-fit: cover;
-          margin: 60px auto;
+          margin: auto;
           border-bottom: 0;
-
-          transition: 1s ease;
-          transform: scale(0.95) translateY(0);
-        }
-
-        .open_box {
-          /*true -- open*/
-          transform: scale(1) translateY(0);
         }
 
         .close {

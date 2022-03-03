@@ -8,15 +8,6 @@ import GalleryBlogPreview from "../components/GalleryBlogPreview";
 const Gallery = ({ data, links, currPage, reel_type }) => {
   const [selected, setSelected] = useState(null);
   const [caption, setCaption] = useState(null);
-  const [open, setOpen] = useState(false);
-
-  const openPopup = () => {
-    setOpen(true);
-  };
-
-  const closePopUp = () => {
-    setOpen(false);
-  };
 
   return (
     <>
@@ -34,7 +25,6 @@ const Gallery = ({ data, links, currPage, reel_type }) => {
           <GalleryBlogPreview data={reel_type} />
           <GalleryGrid
             data={data}
-            openPopup={openPopup}
             setCaption={setCaption}
             setSelected={setSelected}
           />
@@ -45,8 +35,6 @@ const Gallery = ({ data, links, currPage, reel_type }) => {
 
       {selected && (
         <Model
-          open={open}
-          close={closePopUp}
           selected={selected}
           caption={caption}
           setSelected={setSelected}

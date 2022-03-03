@@ -24,17 +24,18 @@ export default async function handler(req, res) {
       return res.status(500).send("Something wrong. Try again later.");
     }
 
+    const mailBody = {
+      Name,
+      Email,
+      Newsletters: "Manage list from thelocalfeet.com/admin/desk/newsletter",
+    };
+
     try {
       await fetch(
-        `${process.env.FORMSPEE_URL}/f/${process.env.FORMSPEE_TEST_FORM_ID}`,
+        `${process.env.FORMSPEE_URL}/f/${process.env.FORMSPEE_NEWSLETTER_ID}`,
         {
           method: "POST",
-          body: JSON.stringify({
-            Name,
-            Email,
-            Manage:
-              "Check and manage in: https://thelocalfeet.com/admin/desk/newsletter",
-          }),
+          body: JSON.stringify(mailBody),
           headers: {
             "Content-Type": "application/json",
           },

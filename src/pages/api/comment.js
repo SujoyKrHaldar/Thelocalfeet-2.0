@@ -27,22 +27,23 @@ export default async function handler(req, res) {
         comment: Message,
       });
     } catch (e) {
-      return res.status(500).send({ data: err.message });
+      return res.status(500).send("Something wrong. Try again later.");
     }
+
+    const mailBody = {
+      Name,
+      Email,
+      Post: post,
+      Comment: Message,
+      Approvable: "Approve comment from thelocalfeet.com/admin/desk/comments",
+    };
 
     try {
       await fetch(
-        `${process.env.FORMSPEE_URL}/f/${process.env.FORMSPEE_TEST_FORM_ID}`,
+        `${process.env.FORMSPEE_URL}/f/${process.env.FORMSPEE_COMMENT_SUBMISSION_ID}`,
         {
           method: "POST",
-          body: JSON.stringify({
-            Name,
-            Email,
-            Post: post,
-            Comment: Message,
-            Manage:
-              "Approve from dashboard - https://admin-dashboard-thelocalfeet.sanity.studio/desk/comments",
-          }),
+          body: JSON.stringify(mailBody),
           headers: {
             "Content-type": "application/json",
           },

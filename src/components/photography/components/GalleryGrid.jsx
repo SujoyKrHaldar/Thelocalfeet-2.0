@@ -3,12 +3,7 @@ import { AiFillInstagram } from "react-icons/ai";
 import { urlFor } from "../../../../config/sanity";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
-export default function GalleryGrid({
-  data,
-  setCaption,
-  setSelected,
-  openPopup,
-}) {
+export default function GalleryGrid({ data, setCaption, setSelected }) {
   return (
     <>
       <div className="gallery">
@@ -23,7 +18,6 @@ export default function GalleryGrid({
                 onClick={() => {
                   setSelected(urlFor(i.photo).url());
                   setCaption(i.caption);
-                  openPopup;
                 }}
               >
                 <img src={urlFor(i.photo).url()} alt={i.caption} />
@@ -73,7 +67,6 @@ export default function GalleryGrid({
           width: 100%;
           height: 100%;
           position: absolute;
-          background: #ffffff45;
           padding: 1rem;
           inset: 0;
           display: flex;
@@ -105,7 +98,6 @@ export default function GalleryGrid({
         @media (max-width: 768px) {
           .black {
             opacity: 1;
-            background: transparent;
           }
         }
       `}</style>
