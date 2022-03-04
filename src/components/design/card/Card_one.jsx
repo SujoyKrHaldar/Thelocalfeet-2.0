@@ -9,29 +9,31 @@ const Card_one = ({ data, link }) => {
     <>
       <div className="box">
         <div className="coverimg">
-          <Image
-            layout="responsive"
-            objectFit="cover"
-            width={350}
-            height={250}
-            loading="eager"
-            src={urlFor(data.mainImage).url()}
-            alt={data.title}
-            onDragStart={(e) => {
-              e.preventDefault();
-            }}
-          />
+          {data?.mainImage && (
+            <Image
+              layout="responsive"
+              objectFit="cover"
+              width={350}
+              height={250}
+              loading="eager"
+              src={urlFor(data?.mainImage).url()}
+              alt={data.title}
+              onDragStart={(e) => {
+                e.preventDefault();
+              }}
+            />
+          )}
         </div>
 
         <div className="data">
           <p className="top">{data.country?.name}</p>
-          <p className="title">{data.title}</p>
+          <p className="title">{data?.title}</p>
 
-          <p className="desp">{data.subtitle}</p>
+          <p className="desp">{data?.subtitle}</p>
 
           <div className="interact">
             <p className="date">
-              <Moment format="Do MMM[,] YY">{data.publishedAt}</Moment>
+              <Moment format="Do MMM[,] YY">{data?.publishedAt}</Moment>
             </p>
 
             <Link href={link}>
@@ -61,6 +63,7 @@ const Card_one = ({ data, link }) => {
           border-bottom-right-radius: 40px;
           height: 183px;
           overflow: hidden;
+          background: black;
         }
 
         .box:before {

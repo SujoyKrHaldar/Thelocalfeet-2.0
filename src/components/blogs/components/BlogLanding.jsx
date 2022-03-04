@@ -21,28 +21,34 @@ const BlogLanding = ({ blog }) => {
     <>
       <div className="section">
         <div className="background">
-          {/* <img
-            style={{ height: 768 }}
-            className="parallex an_fade-1"
-            src={urlFor(blog.mainImage).url()}
-            alt={blog.title}
-            onDragStart={(e) => {
-              e.preventDefault();
-            }}
-          /> */}
-
-          <Image
-            layout="fill"
-            objectFit="cover"
-            loading="eager"
-            objectPosition="50% 36%"
-            className="parallex an_fade-1"
-            src={urlFor(blog.mainImage).url()}
-            alt={blog.title}
-            onDragStart={(e) => {
-              e.preventDefault();
-            }}
-          />
+          {blog?.mainImage && (
+            <Image
+              layout="fill"
+              objectFit="cover"
+              loading="eager"
+              objectPosition="50% 36%"
+              className="parallex an_fade-1"
+              src={urlFor(blog.mainImage).url()}
+              alt={blog.title}
+              onDragStart={(e) => {
+                e.preventDefault();
+              }}
+            />
+          )}
+          {blog?.mainImage && (
+            <Image
+              layout="fill"
+              objectFit="cover"
+              loading="eager"
+              objectPosition="50% 36%"
+              className="half_ht_mob an_fade-1"
+              src={urlFor(blog.mainImage).url()}
+              alt={blog.title}
+              onDragStart={(e) => {
+                e.preventDefault();
+              }}
+            />
+          )}
         </div>
 
         <div className="container flex">
@@ -63,6 +69,7 @@ const BlogLanding = ({ blog }) => {
           height: 768px;
           text-align: center;
           padding: 0 4rem;
+          background: black;
         }
 
         .section:before {
@@ -75,10 +82,6 @@ const BlogLanding = ({ blog }) => {
           background: #01324838;
         }
 
-        /* img {
-          object-position: 50% 36%;
-        } */
-
         p {
           color: #fff;
         }
@@ -86,8 +89,8 @@ const BlogLanding = ({ blog }) => {
         h1 {
           color: #fff;
           line-height: 2rem;
-          letter-spacing: 0.2rem;
-          max-width: 756px;
+          letter-spacing: 0;
+          max-width: 468px;
         }
 
         span {
@@ -120,13 +123,23 @@ const BlogLanding = ({ blog }) => {
           justify-content: center;
         }
 
+        .half_ht_mob {
+          display: none;
+        }
+
         @media (max-width: 768px) {
           .container {
             padding: 2rem 1rem;
           }
           .section {
-            height: 100vh;
+            height: 60vh;
             padding: 2rem;
+          }
+          .parallex {
+            display: none;
+          }
+          .half_ht_mob {
+            display: block;
           }
         }
 

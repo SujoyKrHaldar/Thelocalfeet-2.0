@@ -26,6 +26,7 @@ export default function FallbackLinks({ links, currPage, position }) {
 
         .flex {
           gap: 0.5rem;
+          align-items: flex-start;
           justify-content: ${position};
         }
 
@@ -38,6 +39,7 @@ export default function FallbackLinks({ links, currPage, position }) {
 
         p {
           margin: 0;
+          text-align: left;
         }
 
         a:hover p {

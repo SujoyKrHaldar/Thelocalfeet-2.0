@@ -108,6 +108,7 @@ const CustomNavbar = ({ links, currPage }) => {
 
         .container {
           padding: 1rem 2rem 0;
+          gap: 1.5rem;
         }
 
         .update .container {

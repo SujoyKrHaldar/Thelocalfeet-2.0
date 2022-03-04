@@ -1,5 +1,4 @@
-import { IoIosArrowDown } from "react-icons/io";
-
+import HrTag from "../../design/HrTag";
 import Card_others from "../../design/card/Card_others";
 import ReadMoreType from "../../design/buttons/ReadMoreType";
 
@@ -27,30 +26,15 @@ export default function OtherBlogs({ data, Blogs_link }) {
           />
         )}
 
-        <div className="icon ">
-          <IoIosArrowDown />
-        </div>
+        <HrTag background="#e1e1e1" bottom="-1.35rem" top="auto" />
       </div>
 
       <style jsx>{`
-        .icon {
-          position: absolute;
-          width: 40px;
-          height: 40px;
-          font-size: 1.4rem;
-          background: #e1e1e1;
-          color: white;
-          border-radius: 100%;
-          bottom: -1.35rem;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
         .other_blogs {
           position: relative;
           text-align: center;
           padding: 4rem 0;
-          border: 1px solid #ebebeb;
+          border-bottom: 1px solid #ebebeb;
         }
 
         .lists {

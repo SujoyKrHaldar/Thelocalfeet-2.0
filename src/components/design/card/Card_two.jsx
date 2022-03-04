@@ -9,23 +9,25 @@ export default function Card_two({ i, link }) {
       <Link href={link} key={i.id}>
         <a className="box">
           <div className="background">
-            <Image
-              priority
-              layout="fill"
-              objectFit="cover"
-              loading="eager"
-              src={urlFor(i.mainImage).url()}
-              alt={i.title}
-              onDragStart={(e) => {
-                e.preventDefault();
-              }}
-            />
+            {i?.mainImage && (
+              <Image
+                priority
+                layout="fill"
+                objectFit="cover"
+                loading="eager"
+                src={urlFor(i.mainImage).url()}
+                alt={i.title}
+                onDragStart={(e) => {
+                  e.preventDefault();
+                }}
+              />
+            )}
           </div>
 
           <div className="content flex">
             <p className="country">{i.country?.name}</p>
-            <p className="title">{i.title}</p>
-            <p>{i.subtitle}</p>
+            <p className="title">{i?.title}</p>
+            <p>{i?.subtitle}</p>
             <p>
               <Moment format="Do MMM[,] YY">{i?.publishedAt}</Moment>
             </p>
@@ -44,6 +46,7 @@ export default function Card_two({ i, link }) {
         }
         .background {
           transition: 0.3s ease;
+          background: black;
         }
         .box:hover .background {
           transform: scale(1.03);

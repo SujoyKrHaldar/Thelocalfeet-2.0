@@ -99,7 +99,6 @@ function blogBySlug({ blog, otherBlogs }) {
         <meta name="description" content={blog?.subtitle} />
         <meta name="keywords" content={blog?.keywords} />
         <meta property="og:title" content={`${blog?.title} - thelocalfeet`} />
-
         <meta property="og:description" content={blog?.subtitle} />
         <meta
           property="og:url"

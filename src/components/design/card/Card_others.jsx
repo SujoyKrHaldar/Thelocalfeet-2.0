@@ -8,24 +8,29 @@ export default function Card_others({ data, link }) {
     <>
       <Link href={link} key={data.id}>
         <a className="card">
-          <div className="img">
-            <Image
-              layout="responsive"
-              objectFit="cover"
-              width={360}
-              height={200}
-              loading="eager"
-              src={urlFor(data.mainImage).url()}
-              alt={data.title}
-              onDragStart={(e) => {
-                e.preventDefault();
-              }}
-            />
+          <div
+            className="img"
+            style={!data?.mainImage ? { height: 139 } : { height: "auto" }}
+          >
+            {data?.mainImage && (
+              <Image
+                layout="responsive"
+                objectFit="cover"
+                width={360}
+                height={200}
+                loading="eager"
+                src={urlFor(data.mainImage).url()}
+                alt={data.title}
+                onDragStart={(e) => {
+                  e.preventDefault();
+                }}
+              />
+            )}
           </div>
-          <p className="title">{data.title}</p>
-          <p>{data.subtitle}</p>
+          <p className="title">{data?.title}</p>
+          <p>{data?.subtitle}</p>
           <p className="date">
-            <Moment format="Do MMM[,] YY">{data.publishedAt}</Moment>
+            <Moment format="Do MMM[,] YY">{data?.publishedAt}</Moment>
           </p>
         </a>
       </Link>
@@ -50,6 +55,7 @@ export default function Card_others({ data, link }) {
         .img {
           margin-bottom: 1rem;
           overflow: hidden;
+          background: black;
         }
 
         .title {
