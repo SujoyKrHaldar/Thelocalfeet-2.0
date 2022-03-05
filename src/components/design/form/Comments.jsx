@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { CgSmileNeutral } from "react-icons/cg";
-import toast, { Toaster } from "react-hot-toast";
 import { BsEmojiHeartEyes } from "react-icons/bs";
 
 import CommentPreviews from "../card/CommentPreviews";
@@ -21,7 +20,6 @@ export default function FeedbackForm({ id, comment, post }) {
   const onSubmit = async (values, e) => {
     e.preventDefault();
     setLoading(!loading);
-    toast.loading("Saving your comment...");
 
     const data = { id, post, ...values };
 
@@ -33,7 +31,6 @@ export default function FeedbackForm({ id, comment, post }) {
       },
     });
 
-    toast.dismiss();
     setLoading(loading);
 
     if (!response.ok) {
@@ -48,8 +45,8 @@ export default function FeedbackForm({ id, comment, post }) {
   return (
     <>
       {successMsg && (
-        <div className="msg_box success">
-          <div className="icon">
+        <div className="msg_box success an_fade-1">
+          <div className="icon disabled">
             <BsEmojiHeartEyes />
           </div>
           <p className="msg">Thanks for your feedback.</p>
@@ -59,14 +56,14 @@ export default function FeedbackForm({ id, comment, post }) {
             onClick={() => setSuccessMsg(!successMsg)}
             className="btn view_comment"
           >
-            View comments
+            Close
           </div>
         </div>
       )}
 
       {errorMsg && (
-        <div className="msg_box error">
-          <div className="icon update">
+        <div className="msg_box error an_fade-1">
+          <div className="icon disabled update">
             <CgSmileNeutral />
           </div>
 
@@ -77,92 +74,87 @@ export default function FeedbackForm({ id, comment, post }) {
         </div>
       )}
 
-      {!successMsg && !errorMsg && (
-        <>
-          <div className="comments">
-            <form className="form" onSubmit={handleSubmit(onSubmit)}>
-              <Toaster
-                toastOptions={{
-                  className: "toaste",
-                }}
+      <>
+        <div className="comments an_fade-1">
+          <form className="form" onSubmit={handleSubmit(onSubmit)}>
+            <h1>Leave a comment</h1>
+
+            <p style={{ marginBottom: "1.5rem" }}>Give us your feedback</p>
+
+            <div className="inputbox">
+              <span className="text">Your Name</span>
+              <input
+                style={errors?.Name && { border: "1px solid red" }}
+                {...register("Name", {
+                  required: true,
+                })}
+                type="text"
               />
 
-              <h1>Leave a comment</h1>
+              {errors?.Name && errors.Name?.type === "required" && (
+                <p className="error_msg">The field is empty!</p>
+              )}
+            </div>
 
-              <p>Give us your feedback</p>
+            <div className="inputbox">
+              <span className="text">Your Email</span>
+              <input
+                style={errors?.Name && { border: "1px solid red" }}
+                {...register("Email", {
+                  required: true,
+                  pattern:
+                    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                })}
+                type="text"
+              />
 
-              <div className="inputbox">
-                <span className="text">Your Name</span>
-                <input
-                  style={errors?.Name && { border: "1px solid red" }}
-                  {...register("Name", {
-                    required: true,
-                  })}
-                  type="text"
-                />
+              {errors?.Email && (
+                <>
+                  {errors.Email?.type === "required" && (
+                    <p className="error_msg">The field is empty!</p>
+                  )}
+                  {errors.Email?.type === "pattern" && (
+                    <p className="error_msg">Invalid Email! </p>
+                  )}
+                </>
+              )}
+            </div>
 
-                {errors?.Name && errors.Name?.type === "required" && (
-                  <p className="error_msg">The field is empty!</p>
-                )}
-              </div>
+            <div className="inputbox">
+              <span className="text">Your thoughts</span>
+              <textarea
+                style={errors?.Name && { border: "1px solid red" }}
+                {...register("Message", { required: true })}
+              ></textarea>
 
-              <div className="inputbox">
-                <span className="text">Your Email</span>
-                <input
-                  style={errors?.Name && { border: "1px solid red" }}
-                  {...register("Email", {
-                    required: true,
-                    pattern:
-                      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                  })}
-                  type="text"
-                />
+              {errors?.Message && errors.Message?.type === "required" && (
+                <p className="error_msg">The field is empty!</p>
+              )}
+            </div>
 
-                {errors?.Email && (
-                  <>
-                    {errors.Email?.type === "required" && (
-                      <p className="error_msg">The field is empty!</p>
-                    )}
-                    {errors.Email?.type === "pattern" && (
-                      <p className="error_msg">Invalid Email! </p>
-                    )}
-                  </>
-                )}
-              </div>
-
-              <div className="inputbox">
-                <span className="text">Your thoughts</span>
-                <textarea
-                  style={errors?.Name && { border: "1px solid red" }}
-                  {...register("Message", { required: true })}
-                ></textarea>
-
-                {errors?.Message && errors.Message?.type === "required" && (
-                  <p className="error_msg">The field is empty!</p>
-                )}
-              </div>
-
-              <button
-                className="btn submit"
-                type="submit"
-                style={
-                  loading
-                    ? { background: "#474747", pointerEvents: "none" }
-                    : { background: "#2c2c2c" }
-                }
-              >
-                {loading ? (
+            <button
+              className="btn submit"
+              type="submit"
+              style={
+                loading
+                  ? { background: "#474747", pointerEvents: "none" }
+                  : { background: "#2c2c2c" }
+              }
+            >
+              {loading ? (
+                <div className="button_load">
                   <div className="load_animation"></div>
-                ) : (
-                  "Post comment"
-                )}
-              </button>
-            </form>
-          </div>
+                  <p style={{ margin: 0 }}>Saving your comment</p>
+                </div>
+              ) : (
+                <p style={{ margin: 0 }}>Post comment</p>
+              )}
+            </button>
+          </form>
+        </div>
 
-          {comment.length > 0 && <CommentPreviews data={comment} />}
-        </>
-      )}
+        {comment.length > 0 && <CommentPreviews data={comment} />}
+      </>
 
       <style jsx>{`
         .msg_box {
@@ -214,6 +206,7 @@ export default function FeedbackForm({ id, comment, post }) {
         }
 
         .try_again {
+          margin-top: 1rem;
           color: #990a00;
           background: #f37f7694;
         }
@@ -223,37 +216,13 @@ export default function FeedbackForm({ id, comment, post }) {
         }
 
         .view_comment {
+          margin-top: 1rem;
           color: #377446;
           background: #96e1a8;
         }
 
         .view_comment:hover {
           background: #70d187;
-        }
-
-        .submit {
-          width: 100%;
-          padding: 1rem;
-          border-radius: 50px;
-        }
-
-        .load_animation {
-          width: 19px;
-          height: 19px;
-          margin: auto;
-          border: 2px solid white;
-          border-color: white white white transparent;
-          border-radius: 100%;
-          animation: transform 1s linear infinite;
-        }
-        @keyframes transform {
-          0% {
-            transform: rotate(0deg);
-          }
-
-          100% {
-            transform: rotate(360deg);
-          }
         }
 
         .comments {
@@ -266,10 +235,6 @@ export default function FeedbackForm({ id, comment, post }) {
         h1 {
           letter-spacing: 0;
           margin-bottom: 0.5rem;
-        }
-
-        .comments p:first-of-type {
-          margin-bottom: 1.5rem;
         }
 
         .form {
@@ -335,6 +300,37 @@ export default function FeedbackForm({ id, comment, post }) {
           color: #ca0808;
           font-size: 0.8rem;
           margin: 0.2rem 0;
+        }
+
+        .submit {
+          width: 100%;
+          padding: 1rem;
+          border-radius: 50px;
+        }
+
+        .button_load {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+        }
+
+        .load_animation {
+          width: 19px;
+          height: 19px;
+          border: 2px solid white;
+          border-color: white white white transparent;
+          border-radius: 100%;
+          animation: transform 1s linear infinite;
+        }
+        @keyframes transform {
+          0% {
+            transform: rotate(0deg);
+          }
+
+          100% {
+            transform: rotate(360deg);
+          }
         }
 
         @media (max-width: 600px) {

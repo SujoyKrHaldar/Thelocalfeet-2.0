@@ -44,11 +44,8 @@ export default function ContactForm() {
       <>
         <div className="contact" id="contact-us">
           <form className="form" onSubmit={handleSubmit(onSubmit)}>
-            <Toaster
-              toastOptions={{
-                className: "toaste",
-              }}
-            />
+            <Toaster position="bottom-right" />
+
             <h2>Get in touch</h2>
 
             <div className="inputbox">

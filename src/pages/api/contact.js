@@ -14,7 +14,7 @@ export default async function handler(req, res) {
         }
       );
 
-      return res.status(response.status).send("Message sent successfully.");
+      return res.status(200).send("Message sent successfully.");
     } catch (e) {
       return res.status(500).send("Something wrong. Try again later.");
     }

@@ -15,7 +15,7 @@ export default function Newsletter() {
   const onSubmit = async (values, e) => {
     e.preventDefault();
     setLoading(!loading);
-    toast.loading("Sending your response...");
+    toast.loading("Saving your response");
 
     const response = await fetch("/api/newsletter", {
       method: "POST",
@@ -42,12 +42,6 @@ export default function Newsletter() {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Toaster
-          toastOptions={{
-            className: "toaste",
-          }}
-        />
-
         <p className="title"> Subscribe to our Newsletter </p>
         <p>Subscribe to get all the latest blogs and future updates.</p>
 
@@ -102,6 +96,8 @@ export default function Newsletter() {
         >
           {loading ? <div className="load_animation"></div> : "Subscribe"}
         </button>
+
+        <Toaster position="bottom-right" />
       </form>
 
       <style jsx>{`
