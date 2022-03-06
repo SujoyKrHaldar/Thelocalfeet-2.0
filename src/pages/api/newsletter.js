@@ -27,7 +27,8 @@ export default async function handler(req, res) {
     const mailBody = {
       Name,
       Email,
-      Newsletters: "Manage list from thelocalfeet.com/admin/desk/newsletter",
+      Newsletters:
+        "Manage list from admin-dashboard-thelocalfeet.sanity.studio/desk/newsletter",
     };
 
     try {

@@ -35,7 +35,8 @@ export default async function handler(req, res) {
       Email,
       Post: post,
       Comment: Message,
-      Approvable: "Approve comment from thelocalfeet.com/admin/desk/comments",
+      Approvable:
+        "Approve comment from admin-dashboard-thelocalfeet.sanity.studio/desk/comments",
     };
 
     try {
