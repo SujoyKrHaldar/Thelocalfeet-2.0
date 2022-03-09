@@ -2,7 +2,7 @@ import Rellax from "rellax";
 import { useEffect } from "react";
 import { sanityClient } from "../../../config/sanity";
 
-import Seo from "../../components/seo";
+import Seo from "../../components/Seo";
 import Layout from "../../components/layout/Layout";
 import Gallery from "../../components/photography/Gallery";
 import Landing from "../../components/photography/Landing";

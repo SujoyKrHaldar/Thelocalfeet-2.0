@@ -2,10 +2,10 @@ import Rellax from "rellax";
 import { useEffect } from "react";
 import { sanityClient } from "../../../config/sanity";
 
+import Seo from "../../components/Seo";
 import CustomLayout from "../../components/layout/CustomLayout";
 import Gallery from "../../components/photography/gallery/Gallery";
 import Landing from "../../components/photography/gallery/Landing";
-import Seo from "../../components/seo";
 
 const photoBlogQuery = `*[_type == "photoBlog"]|order( publishedAt desc)
                       {

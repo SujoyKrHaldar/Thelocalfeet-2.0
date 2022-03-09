@@ -1,6 +1,6 @@
 import { sanityClient } from "../../../config/sanity";
 
-import Seo from "../../components/seo";
+import Seo from "../../components/Seo";
 import App from "../../components/shop/App";
 import Layout from "../../components/layout/Layout";
 import ComingSoon from "../../components/design/template/ComingSoon";

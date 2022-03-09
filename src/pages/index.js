@@ -2,7 +2,7 @@ import Rellax from "rellax";
 import { useEffect } from "react";
 import { sanityClient, urlFor } from "../../config/sanity";
 
-import Seo from "../components/seo";
+import Seo from "../components/Seo";
 import Blog from "../components/home/Blog";
 import Shop from "../components/home/Shop";
 import About from "../components/home/About";
