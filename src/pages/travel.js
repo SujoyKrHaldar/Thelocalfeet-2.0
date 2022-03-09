@@ -1,18 +1,32 @@
-import Head from "next/head";
+import { sanityClient } from "../../config/sanity";
+
+import Seo from "../components/seo";
 import Navbar from "../components/layout/Navbar";
 import ComingSoon from "../components/design/template/ComingSoon";
 
-function travel() {
+const seoQuery = `*[_type == "seo" && page=="Travel"][0]
+                  {
+                    title,
+                    description,
+                    keywords,
+                    url,
+                    ogImage,
+                    "alt":ogImage.ogAlt
+                  }`;
+
+export const getStaticProps = async () => {
+  const seo = await sanityClient.fetch(seoQuery);
+
+  return {
+    props: { seo },
+    revalidate: 1,
+  };
+};
+
+function travel({ seo }) {
   return (
     <>
-      <Head>
-        <title>Our travel stories - Coming soon</title>
-        <meta
-          name="description"
-          content="Our travel story will coming soon..."
-        />
-      </Head>
-
+      <Seo data={seo} />
       <Navbar />
       <ComingSoon asset="/assets/coming-soon.jpeg" />
     </>

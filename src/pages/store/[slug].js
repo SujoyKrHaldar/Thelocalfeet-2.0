@@ -106,17 +106,16 @@ export default function products({ evt, offer, others }) {
   return (
     <>
       <Head>
-        <title>{evt.name} - thelocalfeet</title>
+        <title>{evt.name} | The Local Feet </title>
         <meta name="description" content={evt.caption} />
-        <meta property="og:title" content={`${evt.name} - thelocalfeet`} />
+        <meta property="og:title" content={`${evt.name} | The Local Feet `} />
         <meta property="og:description" content={evt.caption} />
         <meta
           property="og:url"
           content={`${process.env.NEXT_PUBLIC_SITE_URL}/store/${evt.slug}`}
         />
         <meta property="og:image" content={`${urlFor(evt.photo).url()}`} />
-        <meta property="og:image:width" content="200" />
-        <meta property="og:image:height" content="200" />
+        <meta property="og:image:alt" content={evt.name} />
       </Head>
 
       <CustomLayout links={links} currPage={evt.name}>

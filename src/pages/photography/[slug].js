@@ -93,17 +93,20 @@ const photoBlogBySlug = ({ blog, otherBlogs }) => {
   return (
     <>
       <Head>
-        <title> {blog?.title} - thelocalfeet</title>
+        <title> {blog?.title} | The Local Feet </title>
         <meta name="description" content={blog?.subtitle} />
         <meta name="keywords" content={blog?.keywords} />
-        <meta property="og:title" content={`${blog?.title} - thelocalfeet`} />
-
+        <meta
+          property="og:title"
+          content={`${blog?.title} | The Local Feet `}
+        />
         <meta property="og:description" content={blog?.subtitle} />
         <meta
           property="og:url"
           content={`${process.env.NEXT_PUBLIC_WEBSITE_LINK}/explore/${blog?.slug}`}
         />
         <meta property="og:image" content={urlFor(blog?.mainImage).url()} />
+        <meta property="og:image:alt" content={blog?.title} />
       </Head>
 
       <CustomLayout links={links} currPage={blog.title}>

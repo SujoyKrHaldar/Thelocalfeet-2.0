@@ -26,9 +26,8 @@ function MyApp({ Component, pageProps, router }) {
         <meta charSet="utf-8" />
         <meta property="og:site_name" content="thelocalfeet" />
         <meta property="og:type" content="website" />
-        <meta property="og:image:alt" content="thelocalfeet" />
-        <meta property="og:image:width" content="100" />
-        <meta property="og:image:height" content="200" />
+        <meta property="og:image:width" content="200" />
+        <meta property="og:image:height" content="150" />
         <link
           rel="canonical"
           href={`${process.env.NEXT_PUBLIC_WEBSITE_LINK}`}

@@ -1,8 +1,8 @@
-import Head from "next/head";
 import Rellax from "rellax";
 import { useEffect } from "react";
 import { sanityClient } from "../../config/sanity";
 
+import Seo from "../components/seo";
 import Extra from "../components/about/Extra";
 import WhyUs from "../components/about/WhyUs";
 import Layout from "../components/layout/Layout";
@@ -31,17 +31,28 @@ const photoBlogQuery = `*[_type == "photoBlog"][0..3]|order( publishedAt desc)
                         mainImage
                       }`;
 
+const seoQuery = `*[_type == "seo" && page=="About"][0]
+                  {
+                    title,
+                    description,
+                    keywords,
+                    url,
+                    ogImage,
+                    "alt":ogImage.ogAlt
+                  }`;
+
 export const getStaticProps = async () => {
+  const seo = await sanityClient.fetch(seoQuery);
   const blog = await sanityClient.fetch(blogQuery);
   const photoBlog = await sanityClient.fetch(photoBlogQuery);
 
   return {
-    props: { blog, photoBlog },
+    props: { seo, blog, photoBlog },
     revalidate: 1,
   };
 };
 
-function about({ blog, photoBlog }) {
+function about({ seo, blog, photoBlog }) {
   useEffect(() => {
     new Rellax(".parallex", {
       speed: -7,
@@ -55,29 +66,7 @@ function about({ blog, photoBlog }) {
 
   return (
     <>
-      <Head>
-        <title>Who we are - thelocalfeet</title>
-        <meta
-          name="description"
-          content="Being a tourist is fine, vacations are great. But, have you ever thought to experience a place as local people do? Read more."
-        />
-        <meta
-          name="keywords"
-          content="travel websites, travel sites, thelocalfeet, travel, travel blog, explore,  places to visit, places to go, best at travel"
-        />
-        <meta property="og:title" content="Who we are - thelocalfeet" />
-        <meta property="og:site_name" content="Thelocalfeet - About us" />
-        <meta
-          property="og:description"
-          content="Being a tourist is fine, vacations are great. But, have you ever thought to experience a place as local people do? Read more."
-        />
-        <meta
-          property="og:url"
-          content={`${process.env.NEXT_PUBLIC_WEBSITE_LINK}/about`}
-        />
-        <meta property="og:image" content="/assets/seo/about-us.jpg" />
-      </Head>
-
+      <Seo data={seo} />
       <Layout>
         <Landing />
         <OurJourney />

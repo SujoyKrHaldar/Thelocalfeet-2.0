@@ -1,8 +1,8 @@
-import Head from "next/head";
 import Rellax from "rellax";
 import { useEffect } from "react";
 import { sanityClient } from "../../../config/sanity";
 
+import Seo from "../../components/seo";
 import Body from "../../components/explore/Body";
 import Layout from "../../components/layout/Layout";
 import Landing from "../../components/explore/Landing";
@@ -27,17 +27,28 @@ const countryQuery = `*[_type == "country"]
                         name 
                       }`;
 
+const seoQuery = `*[_type == "seo" && page=="Explore"][0]
+                  {
+                    title,
+                    description,
+                    keywords,
+                    url,
+                    ogImage,
+                    "alt":ogImage.ogAlt
+                  }`;
+
 export const getStaticProps = async () => {
+  const seo = await sanityClient.fetch(seoQuery);
   const blog = await sanityClient.fetch(blogQuery);
   const country = await sanityClient.fetch(countryQuery);
 
   return {
-    props: { country, blog },
+    props: { seo, country, blog },
     revalidate: 1,
   };
 };
 
-function index({ country, blog }) {
+function index({ seo, country, blog }) {
   useEffect(() => {
     new Rellax(".parallex", {
       speed: -7,
@@ -51,28 +62,7 @@ function index({ country, blog }) {
 
   return (
     <>
-      <Head>
-        <title>Explore - thelocalfeet</title>
-        <meta
-          name="description"
-          content="Check out thelocalfeet's journey, adventures, stories. Read our journals and discover the world with us. Lets make your best trip Ever."
-        />
-        <meta
-          name="keywords"
-          content="travel websites, travel sites, thelocalfeet, travel, travel blog, explore,  places to visit, places to go, best at travel"
-        />
-        <meta property="og:title" content="Explore - thelocalfeet" />
-        <meta
-          property="og:description"
-          content="Check out thelocalfeet's journey, adventures, stories. Read our journals and discover the world with us. Lets make your best trip Ever. Follow thelocalfeet, conceptualized by Mayuri & Shubha in 2018 to get more insight into sustainable travel."
-        />
-        <meta
-          property="og:url"
-          content={`${process.env.NEXT_PUBLIC_WEBSITE_LINK}/explore`}
-        />
-        <meta property="og:image" content="/assets/seo/explore.jpeg" />
-      </Head>
-
+      <Seo data={seo} />
       <Layout>
         {blog.length > 0 ? (
           <>

@@ -1,11 +1,11 @@
 import Rellax from "rellax";
-import Head from "next/head";
 import { useEffect } from "react";
-import { sanityClient, urlFor } from "../../../config/sanity";
+import { sanityClient } from "../../../config/sanity";
 
 import CustomLayout from "../../components/layout/CustomLayout";
 import Gallery from "../../components/photography/gallery/Gallery";
 import Landing from "../../components/photography/gallery/Landing";
+import Seo from "../../components/seo";
 
 const photoBlogQuery = `*[_type == "photoBlog"]|order( publishedAt desc)
                       {
@@ -24,12 +24,24 @@ const galleryQuery = `*[_type == "photography"]|order( _createdAt desc)
                       photo
                     }`;
 
+const seoQuery = `*[_type == "seo" && page=="Gallery"][0]
+                  {
+                    title,
+                    description,
+                    keywords,
+                    url,
+                    ogImage,
+                    "alt":ogImage.ogAlt
+                  }`;
+
 export const getStaticProps = async () => {
+  const seo = await sanityClient.fetch(seoQuery);
   const gallery = await sanityClient.fetch(galleryQuery);
   const blog = await sanityClient.fetch(photoBlogQuery);
 
   return {
     props: {
+      seo,
       gallery,
       blog,
     },
@@ -48,7 +60,7 @@ const links = [
   },
 ];
 
-function gallery({ gallery, blog }) {
+function gallery({ seo, gallery, blog }) {
   const getRandomItem = (arr) => {
     const randomIndex = Math.floor(Math.random() * arr.length);
     const item = arr[randomIndex];
@@ -68,28 +80,7 @@ function gallery({ gallery, blog }) {
   }, []);
   return (
     <>
-      <Head>
-        <title>Gallery - thelocalfeet</title>
-        <meta
-          name="description"
-          content="Photography can be a speaker of an introvert soul. Check out thelocalfeet's photo section and don't forget to follow on social sites."
-        />
-        <meta
-          name="keywords"
-          content="travel websites, travel sites, thelocalfeet, travel, travel blog, explore,  places to visit, photography, travel photography "
-        />
-        <meta property="og:title" content="Gallery - thelocalfeet" />
-
-        <meta
-          property="og:description"
-          content="Photography can be a speaker of an introvert soul. Check out thelocalfeet's photo section and don't forget to follow on social sites."
-        />
-        <meta
-          property="og:url"
-          content={`${process.env.NEXT_PUBLIC_WEBSITE_LINK}/photography/gallery`}
-        />
-        <meta property="og:image" content={urlFor(random_item.photo).url()} />
-      </Head>
+      <Seo data={seo} />
 
       <CustomLayout links={links} currPage="Gallery">
         <Landing item={random_item} />
