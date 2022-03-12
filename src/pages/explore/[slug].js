@@ -17,6 +17,7 @@ const eachBlogSlugQuery = `*[_type == "blog" && slug.current == $slug][0]
                           "slug":slug.current, 
                           subtitle, 
                           title, 
+                          metaTitle,
                           body, 
                           "comment":*[_type == "comments" && post._ref == ^._id && isApproved == true ]|order( publishedAt desc)
                                   {
@@ -95,7 +96,11 @@ function blogBySlug({ blog, otherBlogs }) {
   return (
     <>
       <Head>
-        <title> {blog?.title} | The Local Feet</title>
+        {blog.metaTitle ? (
+          <title> {blog.metaTitle} | The Local Feet </title>
+        ) : (
+          <title> {blog?.title} | The Local Feet </title>
+        )}
         <meta name="description" content={blog?.subtitle} />
         <meta name="keywords" content={blog?.keywords} />
         <meta property="og:title" content={`${blog?.title} | The Local Feet`} />

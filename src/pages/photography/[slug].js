@@ -11,6 +11,7 @@ const eachBlogQuery = `*[_type == "photoBlog" && slug.current == $slug][0]
                       {
                         "id":_id, 
                         title, 
+                        metaTitle,
                         subtitle, 
                         keywords, 
                         "slug":slug.current,
@@ -93,7 +94,11 @@ const photoBlogBySlug = ({ blog, otherBlogs }) => {
   return (
     <>
       <Head>
-        <title> {blog?.title} | The Local Feet </title>
+        {blog.metaTitle ? (
+          <title> {blog.metaTitle} | The Local Feet </title>
+        ) : (
+          <title> {blog?.title} | The Local Feet </title>
+        )}
         <meta name="description" content={blog?.subtitle} />
         <meta name="keywords" content={blog?.keywords} />
         <meta
