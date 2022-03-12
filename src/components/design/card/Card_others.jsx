@@ -1,9 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import Moment from "react-moment";
 import { urlFor } from "../../../../config/sanity";
 
 export default function Card_others({ data, link }) {
+  const [expandData, setExpandData] = useState(false);
+
+  const expand = (e) => {
+    e.preventDefault();
+    setExpandData(true);
+  };
+
+  const shrink = (e) => {
+    e.preventDefault();
+    setExpandData(false);
+  };
+
   return (
     <>
       <Link href={link} key={data.id}>
@@ -28,7 +41,40 @@ export default function Card_others({ data, link }) {
             )}
           </div>
           <p className="title">{data?.title}</p>
-          <p>{data?.subtitle}</p>
+
+          {data.subtitle.length > 90 ? (
+            expandData ? (
+              <p>
+                {data?.subtitle}
+                <span
+                  style={{
+                    fontWeight: 700,
+                    display: "block",
+                    cursor: "pointer",
+                  }}
+                  onClick={shrink}
+                >
+                  Hide
+                </span>
+              </p>
+            ) : (
+              <p>
+                {data?.subtitle.slice(0, 75)} ...
+                <span
+                  style={{
+                    fontWeight: 700,
+                    cursor: "pointer",
+                  }}
+                  onClick={expand}
+                >
+                  {" "}
+                  Show more
+                </span>
+              </p>
+            )
+          ) : (
+            <p>{data?.subtitle}</p>
+          )}
           <p className="date">
             <Moment format="Do MMM[,] YY">{data?.publishedAt}</Moment>
           </p>

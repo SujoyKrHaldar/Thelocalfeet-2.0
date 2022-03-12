@@ -1,10 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import Moment from "react-moment";
 import { BiRightArrowAlt } from "react-icons/bi";
 import { urlFor } from "../../../../config/sanity";
 
 const Card_one = ({ data, link }) => {
+  const [expandData, setExpandData] = useState(false);
+
+  const expand = () => {
+    setExpandData(true);
+  };
+
+  const shrink = () => {
+    setExpandData(false);
+  };
+
   return (
     <>
       <div className="box">
@@ -26,10 +37,42 @@ const Card_one = ({ data, link }) => {
         </div>
 
         <div className="data">
-          <p className="top">{data.country?.name}</p>
+          {data.country && <p className="top">{data.country?.name}</p>}
           <p className="title">{data?.title}</p>
 
-          <p className="desp">{data?.subtitle}</p>
+          {data.subtitle.length > 90 ? (
+            expandData ? (
+              <p>
+                {data?.subtitle}
+                <span
+                  style={{
+                    fontWeight: 700,
+                    display: "block",
+                    cursor: "pointer",
+                  }}
+                  onClick={shrink}
+                >
+                  Hide
+                </span>
+              </p>
+            ) : (
+              <p>
+                {data?.subtitle.slice(0, 75)} ...
+                <span
+                  style={{
+                    fontWeight: 700,
+                    cursor: "pointer",
+                  }}
+                  onClick={expand}
+                >
+                  {" "}
+                  Show more
+                </span>
+              </p>
+            )
+          ) : (
+            <p>{data?.subtitle}</p>
+          )}
 
           <div className="interact">
             <p className="date">
@@ -115,11 +158,6 @@ const Card_one = ({ data, link }) => {
         }
         p {
           margin: 0;
-        }
-
-        .desp {
-          margin: 0;
-          color: #7d7d7d;
         }
 
         p.date {

@@ -1,9 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import Moment from "react-moment";
 import { urlFor } from "../../../../config/sanity";
 
 export default function Card_two({ i, link }) {
+  const [expandData, setExpandData] = useState(false);
+
+  const expand = (e) => {
+    e.preventDefault();
+    setExpandData(true);
+  };
+
+  const shrink = (e) => {
+    e.preventDefault();
+    setExpandData(false);
+  };
+
   return (
     <>
       <Link href={link} key={i.id}>
@@ -25,9 +38,44 @@ export default function Card_two({ i, link }) {
           </div>
 
           <div className="content flex">
-            <p className="country">{i.country?.name}</p>
+            {i.country && <p className="country">{i.country?.name}</p>}
+
             <p className="title">{i?.title}</p>
-            <p>{i?.subtitle}</p>
+
+            {i.subtitle.length > 90 ? (
+              expandData ? (
+                <p>
+                  {i?.subtitle}
+                  <span
+                    style={{
+                      fontWeight: 700,
+                      display: "block",
+                      cursor: "pointer",
+                    }}
+                    onClick={shrink}
+                  >
+                    Hide
+                  </span>
+                </p>
+              ) : (
+                <p>
+                  {i?.subtitle.slice(0, 75)} ...
+                  <span
+                    style={{
+                      fontWeight: 700,
+                      cursor: "pointer",
+                    }}
+                    onClick={expand}
+                  >
+                    {" "}
+                    Show more
+                  </span>
+                </p>
+              )
+            ) : (
+              <p>{i?.subtitle}</p>
+            )}
+
             <p>
               <Moment format="Do MMM[,] YY">{i?.publishedAt}</Moment>
             </p>
@@ -39,7 +87,7 @@ export default function Card_two({ i, link }) {
         .box {
           flex: 1 1 225px;
           position: relative;
-          height: 330px;
+          min-height: 330px;
           border-radius: 20px;
           overflow: hidden;
           text-align: left;
@@ -69,10 +117,11 @@ export default function Card_two({ i, link }) {
         p {
           font-weight: 300;
           max-width: 450px;
+          line-height: 1.45rem;
         }
 
-        p:first-child() {
-          padding: 0.15rem 0.7rem;
+        .country {
+          padding: 0.25rem 0.7rem 0.2rem;
           background: #ffffff36;
           color: white;
           border-radius: 5px;
@@ -81,7 +130,7 @@ export default function Card_two({ i, link }) {
         p:last-child() {
           margin: 0;
           color: white;
-          font-weight: 700;
+          font-weight: 600;
         }
 
         .title {
