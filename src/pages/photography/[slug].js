@@ -108,7 +108,7 @@ const photoBlogBySlug = ({ blog, otherBlogs }) => {
         <meta property="og:description" content={blog?.subtitle} />
         <meta
           property="og:url"
-          content={`${process.env.NEXT_PUBLIC_WEBSITE_LINK}/explore/${blog?.slug}`}
+          content={`${process.env.NEXT_PUBLIC_WEBSITE_LINK}/photography/${blog?.slug}`}
         />
         <meta property="og:image" content={urlFor(blog?.mainImage).url()} />
         <meta property="og:image:alt" content={blog?.title} />
