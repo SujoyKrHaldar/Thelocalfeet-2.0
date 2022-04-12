@@ -27,7 +27,7 @@ const eachBlogQuery = `*[_type == "photoBlog" && slug.current == $slug][0]
                                 }
                       }`;
 
-const otherBlogsQuery = `*[_type == "photoBlog" && slug.current != $slug][0..3]|order( publishedAt desc)
+const otherBlogsQuery = `*[_type == "photoBlog" && slug.current != $slug]|order( publishedAt desc)
                       {
                         'id':_id, 
                         publishedAt, 

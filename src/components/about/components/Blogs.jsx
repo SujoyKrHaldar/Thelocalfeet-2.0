@@ -9,7 +9,7 @@ export default function Blogs({ data }) {
           <h3>Latest Articles</h3>
 
           <div className="flex lists">
-            {data.map((d) => (
+            {data.slice(0, 4).map((d) => (
               <Card_others key={d.id} data={d} link={`/explore/${d.slug}`} />
             ))}
           </div>

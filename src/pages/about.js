@@ -11,7 +11,7 @@ import Contact from "../components/design/form/Contact";
 import OurJourney from "../components/about/OurJourney";
 import AboutTravel from "../components/about/AboutTravel";
 
-const blogQuery = `*[_type == "blog"][0..3]|order( publishedAt desc) 
+const blogQuery = `*[_type == "blog"]|order( publishedAt desc) 
                       {
                         'id':_id, 
                         publishedAt, 
@@ -22,7 +22,7 @@ const blogQuery = `*[_type == "blog"][0..3]|order( publishedAt desc)
                         subtitle 
                       }`;
 
-const photoBlogQuery = `*[_type == "photoBlog"][0..3]|order( publishedAt desc)
+const photoBlogQuery = `*[_type == "photoBlog"]|order( publishedAt desc)
                       {
                         "id":_id, 
                         title, 
