@@ -42,7 +42,7 @@ export default function Card_two({ i, link }) {
 
             <p className="title">{i?.title}</p>
 
-            {i.subtitle.length > 90 ? (
+            {/* {i.subtitle.length > 90 ? (
               expandData ? (
                 <p>
                   {i?.subtitle}
@@ -74,7 +74,7 @@ export default function Card_two({ i, link }) {
               )
             ) : (
               <p>{i?.subtitle}</p>
-            )}
+            )} */}
 
             <p>
               <Moment format="Do MMM[,] YY">{i?.publishedAt}</Moment>
@@ -88,7 +88,7 @@ export default function Card_two({ i, link }) {
           flex: 1 1 225px;
           position: relative;
           min-height: 330px;
-          border-radius: 20px;
+          border-radius: 10px;
           overflow: hidden;
           text-align: left;
         }
@@ -105,9 +105,9 @@ export default function Card_two({ i, link }) {
         }
 
         .content {
-          padding: 2rem 1.5rem;
+          padding: 1.5rem;
           color: white;
-          background: linear-gradient(45deg, #000000d1, #292929b8, transparent);
+          background: linear-gradient(45deg, #000000, #2929297d, transparent);
           height: 100%;
           flex-direction: column;
           align-items: flex-start;
@@ -125,17 +125,19 @@ export default function Card_two({ i, link }) {
           background: #ffffff36;
           color: white;
           border-radius: 5px;
+          position: absolute;
+          top: 1rem;
         }
 
         p:last-child() {
           margin: 0;
           color: white;
-          font-weight: 600;
         }
 
         .title {
-          font-size: 1.3rem;
-          font-weight: 700;
+          font-size: 1.2rem;
+          font-weight: 600;
+          line-height: 1.6rem;
         }
 
         @media (max-width: 768px) {

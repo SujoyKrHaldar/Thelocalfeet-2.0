@@ -25,7 +25,6 @@ export default function SearchResult({ newData, prefix }) {
 
       <style jsx>{`
         p {
-          margin: 2rem 0 0;
           font-size: 1.3rem;
           color: #7c7c7c;
         }
@@ -59,7 +58,7 @@ export default function SearchResult({ newData, prefix }) {
           display: flex;
           flex-wrap: wrap;
           gap: 1rem;
-          margin-top: 2rem;
+          margin-top: 1rem;
         }
 
         @media (max-width: 600px) {
