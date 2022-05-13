@@ -8,16 +8,19 @@
 <url>
   <loc>https://thelocalfeet.com/</loc>
   <lastmod>2022-05-11T02:21:30+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://thelocalfeet.com/explore</loc>
   <lastmod>2022-05-11T02:21:30+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://thelocalfeet.com/photography</loc>
   <lastmod>2022-05-11T02:21:30+00:00</lastmod>
+  <changefreq>monthly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
@@ -38,56 +41,67 @@
 <url>
   <loc>https://thelocalfeet.com/explore/a-weekend-getaway-in-parnera-hill</loc>
   <lastmod>2022-05-11T02:21:30+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://thelocalfeet.com/explore/a-weekend-trip-to-somnath-jyotirlinga-complete-guide</loc>
   <lastmod>2022-05-11T02:21:30+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://thelocalfeet.com/explore/top-7-offbeat-romantic-escapes-in-india</loc>
   <lastmod>2022-05-11T02:21:30+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://thelocalfeet.com/explore/top-8-iconic-attractions-and-best-places-in-delhi-to-hangout</loc>
   <lastmod>2022-05-11T02:21:30+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://thelocalfeet.com/photography/gallery</loc>
   <lastmod>2022-05-11T02:21:30+00:00</lastmod>
+  <changefreq>monthly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://thelocalfeet.com/photography/split-screens-and-beyond</loc>
   <lastmod>2022-05-11T02:21:30+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://thelocalfeet.com/explore/wandering-the-hoi-an-ancient-town-in-3-days</loc>
   <lastmod>2022-05-11T02:21:30+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://thelocalfeet.com/explore/best-food-trip-in-india</loc>
   <lastmod>2022-05-11T02:21:30+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://thelocalfeet.com/explore/weekend-getaway-mumbai</loc>
   <lastmod>2022-05-11T02:21:30+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://thelocalfeet.com/explore/local-food-in-vietnam</loc>
   <lastmod>2022-05-11T02:21:30+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://thelocalfeet.com/explore/things-to-do-in-hanoi-area</loc>
   <lastmod>2022-05-11T02:21:30+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.64</priority>
 </url>
 
