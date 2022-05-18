@@ -11,6 +11,7 @@ import Layout from "../components/layout/Layout";
 import Landing from "../components/home/Landing";
 import PhotoBlog from "../components/home/PhotoBlog";
 import Achievement from "../components/home/Achievement";
+// import Test from "../components/home/Test";
 import PhotographyTemplate from "../components/design/template/PhotographyTemplate";
 
 const blogQuery = `*[_type == "blog"]|order( publishedAt desc)  
@@ -108,6 +109,7 @@ export default function Home({ seo, blog, photoBlog, products, offer }) {
         {products.length > 0 && <Shop data={products} offer={offer} />}
         {/* <Achievement /> */}
         <JoinUs />
+        {/* <Test /> */}
       </Layout>
     </>
   );
