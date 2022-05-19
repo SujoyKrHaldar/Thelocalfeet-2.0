@@ -12,7 +12,7 @@ function Test() {
       ></div>
       <Script
         async
-        src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"
+        src="https://affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"
       ></Script>
     </>
   );
