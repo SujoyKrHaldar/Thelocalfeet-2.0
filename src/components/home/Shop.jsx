@@ -1,4 +1,3 @@
-import HrTag from "../design/HrTag";
 import ShopCard from "../design/card/ShopCard";
 import ReadMoreType from "../design/buttons/ReadMoreType";
 
@@ -32,32 +31,29 @@ const Shop = ({ data, offer }) => {
               colorOnHover="#fff"
               background="#2882c9 "
               backgroundOnHover="#52abf0"
+              top="2rem"
             />
           )}
         </div>
-
-        <HrTag background="#7cc5ff" bottom="-2rem" top="auto" />
       </div>
 
       <style jsx>{`
         .section {
-          padding: 4rem 2rem;
+          padding: 4rem 2rem 2rem;
           background: linear-gradient(0deg, white, #2196f330, white);
         }
         .container {
           text-align: center;
-          padding: 2rem 0;
+          padding: 2rem 0 0;
         }
 
         .list {
           position: relative;
-
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
           gap: 1rem;
-
-          margin: 2rem 0;
+          margin: 2rem 0 0;
         }
 
         h2 {

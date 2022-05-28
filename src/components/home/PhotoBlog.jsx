@@ -24,6 +24,7 @@ const PhotoBlog = ({ data }) => {
               colorOnHover="#fff"
               background=" #f3c481"
               backgroundOnHover="#dd9733"
+              top="2rem"
             />
           )}
         </div>
@@ -69,8 +70,9 @@ const PhotoBlog = ({ data }) => {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
+          align-items: flex-start;
           gap: 1rem;
-          margin: 2rem 0 3rem;
+          margin: 2rem 0 0;
         }
 
         h2 {

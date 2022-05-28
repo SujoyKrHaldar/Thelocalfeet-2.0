@@ -23,16 +23,16 @@ const Blog = ({ data }) => {
               colorOnHover="#fff"
               background="#009688"
               backgroundOnHover="#00685e"
+              top="2rem"
             />
           )}
         </div>
       </div>
 
       <style jsx>{`
-        
         .section {
-          padding-top:4rem;
-          padding-bottom:2rem;
+          padding-top: 4rem;
+          padding-bottom: 2rem;
           background: linear-gradient(0deg, white, #00968814, white);
         }
         .container {
@@ -45,16 +45,14 @@ const Blog = ({ data }) => {
           flex-wrap: wrap;
           justify-content: center;
           align-items: flex-start;
-          margin: 2rem 0;
+          margin: 2rem 0 0;
           gap: 1rem;
         }
 
-        h2{
+        h2 {
           padding: 0.3rem 2rem;
           background: #7cd7cf36;
           display: inline-block;
-        }
-
         }
       `}</style>
     </>

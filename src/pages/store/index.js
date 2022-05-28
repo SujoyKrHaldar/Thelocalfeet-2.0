@@ -19,6 +19,16 @@ const productsQuery = `*[_type == "shop"]|order(_createdAt desc)
                           "slug":slug.current 
                         }`;
 
+const affiliateAdsQuery = `*[_type == "ads"]|order(_createdAt desc)
+                      {
+                        "id":_id, 
+                        name, 
+                        dataWRID, 
+                        dataWidgetType, 
+                        dataClass, 
+                        scriptSrc,
+                      }`;
+
 const offerQuery = `*[_type == "offer" && status == true][0]
                     { 
                       status,
@@ -42,23 +52,24 @@ export const getStaticProps = async () => {
   const seo = await sanityClient.fetch(seoQuery);
   const offer = await sanityClient.fetch(offerQuery);
   const data = await sanityClient.fetch(productsQuery);
+  const ads = await sanityClient.fetch(affiliateAdsQuery);
 
   return {
-    props: { seo, data, offer },
+    props: { seo, data, offer, ads },
     revalidate: 1,
   };
 };
 
-const index = ({ seo, data, offer }) => {
+const index = ({ seo, data, offer, ads }) => {
   return (
     <>
       <Seo data={seo} />
 
-      {data.length > 0 ? (
+      {data.length > 0 || ads.length > 0 ? (
         <>
           <Layout>
             <Landing />
-            <App data={data} offer={offer} />
+            <App data={data} offer={offer} ads={ads} />
           </Layout>
         </>
       ) : (

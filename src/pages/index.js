@@ -11,7 +11,7 @@ import Layout from "../components/layout/Layout";
 import Landing from "../components/home/Landing";
 import PhotoBlog from "../components/home/PhotoBlog";
 import Achievement from "../components/home/Achievement";
-// import Test from "../components/home/Test";
+import AffiliateAds from "../components/home/AffiliateAds";
 import PhotographyTemplate from "../components/design/template/PhotographyTemplate";
 import Traveltips from "../components/home/Traveltips";
 
@@ -59,6 +59,16 @@ const productsQuery = `*[_type == "shop"]|order(_createdAt desc)
                         "slug":slug.current 
                       }`;
 
+const affiliateAdsQuery = `*[_type == "ads"]|order(_createdAt desc)
+                      {
+                        "id":_id, 
+                        name, 
+                        dataWRID, 
+                        dataWidgetType, 
+                        dataClass, 
+                        scriptSrc,
+                      }`;
+
 const offerQuery = `*[_type == "offer" && status == true][0]
                       { 
                         status,
@@ -85,9 +95,10 @@ export const getStaticProps = async () => {
   const products = await sanityClient.fetch(productsQuery);
   const photoBlog = await sanityClient.fetch(photoBlogQuery);
   const traveltips = await sanityClient.fetch(traveltipsQuery);
+  const affiliateAds = await sanityClient.fetch(affiliateAdsQuery);
 
   return {
-    props: { seo, blog, photoBlog, traveltips, products, offer },
+    props: { seo, blog, photoBlog, traveltips, products, offer, affiliateAds },
     revalidate: 1,
   };
 };
@@ -99,6 +110,7 @@ export default function Home({
   traveltips,
   products,
   offer,
+  affiliateAds,
 }) {
   useEffect(() => {
     new Rellax(".parallex", {
@@ -128,9 +140,9 @@ export default function Home({
         {photoBlog.length > 0 && <PhotoBlog data={photoBlog} />}
         {traveltips.length > 0 && <Traveltips data={traveltips} />}
         {products.length > 0 && <Shop data={products} offer={offer} />}
+        {affiliateAds.length > 0 && <AffiliateAds data={affiliateAds} />}
         {/* <Achievement /> */}
         <JoinUs />
-        {/* <Test /> */}
       </Layout>
     </>
   );

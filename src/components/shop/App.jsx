@@ -1,41 +1,30 @@
 import ShopCard from "../design/card/ShopCard";
+import AffiliateList from "./components/AffiliateList";
 import OfferTemplate from "./components/OfferTemplate";
+import ProductList from "./components/ProductList";
 
-const App = ({ data, offer }) => {
+const App = ({ data, offer, ads }) => {
   return (
     <>
       <div className="section ">
         <div className="container">
           <div className="shop an_fade-2">
             {offer && <OfferTemplate data={offer} />}
-
-            <div className="list an_fade-3">
-              {data.map((d) => (
-                <ShopCard d={d} key={d.id} offer={offer} />
-              ))}
-            </div>
+            {data.length > 0 && <ProductList data={data} offer={offer} />}
+            {ads.length > 0 && <AffiliateList data={ads} />}
           </div>
         </div>
       </div>
 
       <style jsx>{`
         .section {
-          padding-top: 2rem;
+          padding: 2rem;
           text-align: center;
         }
 
         .shop {
           position: relative;
-
           background: white;
-        }
-
-        .list {
-          position: relative;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 1rem;
         }
 
         @media (max-width: 600px) {

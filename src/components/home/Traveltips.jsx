@@ -14,7 +14,7 @@ function Traveltips({ data }) {
               <Card_one data={d} key={d.id} link={`/travel-tips/${d.slug} `} />
             ))}
           </div>
-          {/* */}
+
           {data.length > 4 && (
             <ReadMoreType
               text="Our travel tips"
@@ -23,11 +23,12 @@ function Traveltips({ data }) {
               colorOnHover="#fff"
               background=" #fe6f8c"
               backgroundOnHover="#d64260"
+              top="2rem"
             />
           )}
         </div>
 
-        <HrTag background="#f9adba" bottom="-2rem" top="auto" />
+        <HrTag background="#f9adba" bottom="0" top="auto" />
       </div>
 
       <style jsx>{`
@@ -68,8 +69,9 @@ function Traveltips({ data }) {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
+          align-items: flex-start;
           gap: 1rem;
-          margin: 2rem 0 3rem;
+          margin: 2rem 0 0;
         }
 
         h2 {
