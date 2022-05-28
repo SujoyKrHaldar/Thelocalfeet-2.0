@@ -31,6 +31,17 @@ const photoBlogQuery = `*[_type == "photoBlog"]|order( publishedAt desc)
                         mainImage
                       }`;
 
+const traveltipsQuery = `*[_type == "travelPosts"]|order( publishedAt desc)  
+                      {
+                        'id':_id, 
+                        publishedAt, 
+                        title, 
+                        subtitle, 
+                        mainImage,
+                        'slug':slug.current, 
+                        'category':travelCategory->{name}
+                      }`;
+
 const seoQuery = `*[_type == "seo" && page=="About"][0]
                   {
                     title,
@@ -45,14 +56,15 @@ export const getStaticProps = async () => {
   const seo = await sanityClient.fetch(seoQuery);
   const blog = await sanityClient.fetch(blogQuery);
   const photoBlog = await sanityClient.fetch(photoBlogQuery);
+  const traveltips = await sanityClient.fetch(traveltipsQuery);
 
   return {
-    props: { seo, blog, photoBlog },
+    props: { seo, blog, photoBlog, traveltips },
     revalidate: 1,
   };
 };
 
-function about({ seo, blog, photoBlog }) {
+function about({ seo, blog, photoBlog, traveltips }) {
   useEffect(() => {
     new Rellax(".parallex", {
       speed: -7,
@@ -72,7 +84,7 @@ function about({ seo, blog, photoBlog }) {
         <OurJourney />
         <WhyUs />
         <AboutTravel />
-        <Extra blog={blog} album={photoBlog} />
+        <Extra blog={blog} album={photoBlog} travelTips={traveltips} />
         <Contact />
       </Layout>
     </>

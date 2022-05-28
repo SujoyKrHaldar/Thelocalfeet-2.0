@@ -5,13 +5,13 @@ import BlogTemplate from "../../components/blogs/BlogTemplate";
 import FallbackLoading from "../../components/design/template/FallbackLoading";
 import CustomLayout from "../../components/layout/CustomLayout";
 
-const allBlogSlugQuery = `*[_type == "blog" && defined(slug.current)][].slug.current`;
+const allBlogSlugQuery = `*[_type == "travelPosts" && defined(slug.current)][].slug.current`;
 
-const eachBlogSlugQuery = `*[_type == "blog" && slug.current == $slug][0]
+const eachBlogSlugQuery = `*[_type == "travelPosts" && slug.current == $slug][0]
                         {
                           "id":_id,
                           keywords,
-                          "country":country->{name}, 
+                         'category':travelCategory->{name},
                           mainImage, 
                           publishedAt, 
                           "slug":slug.current, 
@@ -28,11 +28,11 @@ const eachBlogSlugQuery = `*[_type == "blog" && slug.current == $slug][0]
                                   }
                         }`;
 
-const otherBlogsQuery = `*[_type == "blog" && slug.current != $slug]|order( publishedAt desc)
+const otherBlogsQuery = `*[_type == "travelPosts" && slug.current != $slug]|order( publishedAt desc)
                         {
                           'id':_id, 
                           publishedAt, 
-                          'country':country->{name}, 
+                          'category':travelCategory->{name},
                           mainImage,
                           'slug':slug.current, 
                           title, 
@@ -64,7 +64,7 @@ export async function getStaticProps({ params }) {
   if (!blog) {
     return {
       redirect: {
-        destination: "/explore",
+        destination: "/travel-tips",
         permanent: false,
       },
     };
@@ -85,12 +85,12 @@ const links = [
     url: "/",
   },
   {
-    name: "Explore",
-    url: "/explore",
+    name: "Travel tips",
+    url: "/travel-tips",
   },
 ];
 
-function blogBySlug({ blog, otherBlogs }) {
+function travelPostBySlug({ blog, otherBlogs }) {
   if (!blog) return <FallbackLoading />;
 
   return (
@@ -107,7 +107,7 @@ function blogBySlug({ blog, otherBlogs }) {
         <meta property="og:description" content={blog?.subtitle} />
         <meta
           property="og:url"
-          content={`${process.env.NEXT_PUBLIC_WEBSITE_LINK}/explore/${blog?.slug}`}
+          content={`${process.env.NEXT_PUBLIC_WEBSITE_LINK}/travel-tips/${blog?.slug}`}
         />
         <meta property="og:image" content={urlFor(blog?.mainImage).url()} />
         <meta property="og:image:alt" content={blog?.title} />
@@ -117,7 +117,7 @@ function blogBySlug({ blog, otherBlogs }) {
         <BlogTemplate
           blog={blog}
           others={otherBlogs}
-          link="/explore"
+          link="/travel-tips"
           links={links}
           currPage={blog.title}
         />
@@ -126,4 +126,4 @@ function blogBySlug({ blog, otherBlogs }) {
   );
 }
 
-export default blogBySlug;
+export default travelPostBySlug;

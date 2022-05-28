@@ -1,8 +1,9 @@
 import Blogs from "./components/Blogs";
 import Albums from "./components/Albums";
 import PhotographyTemplate from "../design/template/PhotographyTemplate";
+import TravelTips from "./components/TravelTips";
 
-const Extra = ({ blog, album }) => {
+const Extra = ({ blog, album, travelTips }) => {
   return (
     <>
       {blog.length > 0 && <Blogs data={blog} />}
@@ -14,6 +15,7 @@ const Extra = ({ blog, album }) => {
       />
 
       {album.length > 0 && <Albums data={album} />}
+      {travelTips.length > 0 && <TravelTips data={travelTips} />}
 
       <style jsx>{`
         @media (max-width: 768px) {

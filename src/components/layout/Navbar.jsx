@@ -20,7 +20,7 @@ const menu = [
   },
   {
     name: "Travel guide",
-    url: "/travel",
+    url: "/travel-tips",
   },
   {
     name: "About",

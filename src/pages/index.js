@@ -13,6 +13,7 @@ import PhotoBlog from "../components/home/PhotoBlog";
 import Achievement from "../components/home/Achievement";
 // import Test from "../components/home/Test";
 import PhotographyTemplate from "../components/design/template/PhotographyTemplate";
+import Traveltips from "../components/home/Traveltips";
 
 const blogQuery = `*[_type == "blog"]|order( publishedAt desc)  
                       {
@@ -33,6 +34,17 @@ const photoBlogQuery = `*[_type == "photoBlog"]|order( publishedAt desc)
                         subtitle, 
                         mainImage,
                         "slug":slug.current
+                      }`;
+
+const traveltipsQuery = `*[_type == "travelPosts"]|order( publishedAt desc)  
+                      {
+                        'id':_id, 
+                        publishedAt, 
+                        title, 
+                        subtitle, 
+                        mainImage,
+                        'slug':slug.current, 
+                        'category':travelCategory->{name}
                       }`;
 
 const productsQuery = `*[_type == "shop"]|order(_createdAt desc)
@@ -72,14 +84,22 @@ export const getStaticProps = async () => {
   const offer = await sanityClient.fetch(offerQuery);
   const products = await sanityClient.fetch(productsQuery);
   const photoBlog = await sanityClient.fetch(photoBlogQuery);
+  const traveltips = await sanityClient.fetch(traveltipsQuery);
 
   return {
-    props: { seo, blog, photoBlog, products, offer },
+    props: { seo, blog, photoBlog, traveltips, products, offer },
     revalidate: 1,
   };
 };
 
-export default function Home({ seo, blog, photoBlog, products, offer }) {
+export default function Home({
+  seo,
+  blog,
+  photoBlog,
+  traveltips,
+  products,
+  offer,
+}) {
   useEffect(() => {
     new Rellax(".parallex", {
       speed: -7,
@@ -106,6 +126,7 @@ export default function Home({ seo, blog, photoBlog, products, offer }) {
           caption_two="Made in India, at Nagaur Fort also known as Ahichhatragarh Fort"
         />
         {photoBlog.length > 0 && <PhotoBlog data={photoBlog} />}
+        {traveltips.length > 0 && <Traveltips data={traveltips} />}
         {products.length > 0 && <Shop data={products} offer={offer} />}
         {/* <Achievement /> */}
         <JoinUs />
