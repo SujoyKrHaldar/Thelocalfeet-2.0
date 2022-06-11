@@ -1,9 +1,7 @@
-import ShopCard from "../design/card/ShopCard";
-import AffiliateList from "./components/AffiliateList";
 import OfferTemplate from "./components/OfferTemplate";
 import ProductList from "./components/ProductList";
 
-const App = ({ data, offer, ads }) => {
+const App = ({ data, offer }) => {
   return (
     <>
       <div className="section ">
@@ -11,7 +9,6 @@ const App = ({ data, offer, ads }) => {
           <div className="shop an_fade-2">
             {offer && <OfferTemplate data={offer} />}
             {data.length > 0 && <ProductList data={data} offer={offer} />}
-            {ads.length > 0 && <AffiliateList data={ads} />}
           </div>
         </div>
       </div>
